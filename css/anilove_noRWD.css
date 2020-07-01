@@ -1,0 +1,711 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+}
+
+.top-bar {
+    background-color: #272626;
+    color: #ffffff;
+    padding: 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .top-bar .fa-phone-alt {
+    /* 電話 */
+    color: #ff9933;
+}
+
+.header .top-bar .btns i {
+    font-size: 13px;
+}
+
+.header .top-bar .btns button {
+    padding: 7px;
+    border-radius: 100%;
+    border: none;
+    margin: 0px 3px;
+}
+
+.header .top-bar .btns button:focus {
+    outline: none;
+}
+
+.header .top-bar .btns button:hover {
+    background-color: #ff9933;
+}
+
+nav {
+    background-color: #ffffff;
+    /* line-height: px; */
+    padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    /* position: fixed; */
+    /* top: 50px; */
+    /* height: 200px; */
+    width: 100%;
+    z-index: 1;
+}
+
+nav .icon img {
+    vertical-align: middle;
+    /* width: 35%; */
+}
+
+nav .icon h1 {
+    color: #535353;
+    display: inline-block;
+    font-size: 38px;
+    margin: 10px 10px;
+    vertical-align: top;
+}
+
+nav .link a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 16px;
+    padding: 5px 0px;
+    margin: 0 20px;
+}
+
+nav .link a:first-child {
+    border-bottom: 3px solid #ff9933;
+}
+
+nav .link a:hover {
+    border-bottom: 3px solid #ff9933;
+    transition: all 0.1s 0s ease;
+}
+
+.donate_btn {
+    background-color: #ffffff;
+    color: #ff9933;
+    border: 2px solid #ff9933;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 15px 35px;
+    border-radius: 2px;
+    transition: all 0.3s 0s ease;
+}
+
+.donate_btn:hover {
+    color: #ffffff;
+    background-color: #7abee9;
+    border: 2px solid #7abee9;
+}
+
+
+.Mains {
+    /* position: relative; */
+    top: 100px;
+    overflow: hidden;
+    /* margin-top: 95px; */
+}
+
+.begin img {
+    width: 100%;
+}
+
+.begin .text {
+    position: absolute;
+    top: 250px;
+    left: 120px;
+}
+
+.begin .text h3 {
+    color: #535353;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.begin .text h1 {
+    color: #7abee9;
+    font-size: 75px;
+    font-weight: bold;
+}
+
+.begin .text p {
+    color: #535353;
+    font-weight: bold;
+}
+
+.begin .text button {
+    background-color: #ff9933;
+    color: #ffffff;
+    border: 2px solid #ff9933;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 20px 50px;
+    border-radius: 2px;
+    margin-top: 25px;
+    transition: all 0.3s 0s ease;
+}
+
+.begin .text button:hover {
+    background-color: #000000;
+    border: 2px solid #000000;
+}
+
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about .img {
+    width: 40%;
+}
+
+.about .img img {
+    /* 圖大小 */
+    width: 600px;
+}
+
+.about .text {
+    width: 40%;
+}
+
+.about .text h3 {
+    color: #535353;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.about .text .bold-p {
+    color: #7abee9;
+    font-size: 28px;
+    /* font-weight: bold; */
+}
+
+.about .text p {
+    color: #929292;
+    font-style: 10px;
+    font-family: 'Lato', sans-serif;
+    padding: 15px 0px;
+}
+
+.about .text button {
+    background-color: #ff9933;
+    color: #ffffff;
+    border: 2px solid #ff9933;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 20px 50px;
+    border-radius: 2px;
+    margin-top: 25px;
+    transition: all 0.3s 0s ease;
+}
+
+.about .text button:hover {
+    background-color: #000000;
+    border: 2px solid #000000;
+}
+
+.service {
+    background-color: #f9f9f9;
+}
+
+.service .title {
+    text-align: center;
+    margin: 30px 0px;
+}
+
+.service .title h3 {
+    color: #535353;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.service .title p {
+    color: #7abee9;
+    font-size: 32px;
+}
+
+.service .wrap {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.service .wrap .item {
+    margin: 0px 10px;
+}
+
+.service .wrap .item img:hover {
+    background-color: #2b2b2b;
+    /* 濾鏡效果 */
+    -webkit-filter: brightness(.5);
+    transition: 0.4s 0s ease;
+    /* opacity: 0.9; */
+}
+
+.service .wrap .item h4 {
+    position: relative;
+    top: -100px;
+    text-align: center;
+    font-size: 36px;
+    color: #ffffff;
+    transition: all 0.4s 0s ease;
+}
+
+.service .wrap .item h4:hover {
+    color: #ff9933;
+}
+
+.slogan {
+    width: 75%;
+    margin: auto;
+}
+
+.slogan .wrap {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    /* flex-direction: row; */
+}
+
+.slogan .wrap .item {
+    padding: 0px 65px;
+}
+
+.slogan .wrap .item img:last-child {
+    width: 450px;
+
+}
+
+.slogan .wrap .item img:first-child {
+    width: 500px
+}
+
+.slogan .wrap .item .text {
+    /* width: 500px; */
+}
+
+.slogan .wrap .item .text h3 {
+    color: #535353;
+    font-size: 50px;
+    padding: 20px 0;
+    text-align: right;
+}
+
+.slogan .wrap .item .text p {
+    color: #535353;
+    font-size: 12px;
+    padding: 10px 0;
+    line-height: 20px;
+}
+
+.slogan .wrap .item .text button {
+    background-color: #ff9933;
+    color: #ffffff;
+    border: 2px solid #ff9933;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 25px 50px;
+    border-radius: 2px;
+    margin-top: 40px;
+    transition: all 0.3s 0s ease;
+}
+
+.slogan .wrap .item .text button:hover {
+    background-color: #000000;
+    border: 2px solid #000000;
+}
+
+.activity {
+    text-align: center;
+    margin: 60px auto;
+    width: 75%;
+}
+
+.activity .text {
+    padding: 60px 0px;
+    background-image: url(http://template73996.motopreview.com/mt-demo/73900/73996/mt-content/uploads/2018/10/mt-1614-content-bg03.jpg);
+}
+
+.activity .text h4 {
+    color: #535353;
+    font-size: 50px;
+    padding: 15px 0;
+}
+
+.activity .text .bold-p {
+    color: #7abee9;
+    font-size: 58px;
+    font-weight: 700;
+    padding: 15px 0;
+}
+
+.activity .text .p-data {
+    color: #535353;
+    font-size: 22px;
+}
+
+.activity .text .btns button {
+    background-color: #ff9933;
+    color: #ffffff;
+    border: 2px solid #ff9933;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 25px 50px;
+    border-radius: 2px;
+    margin: 15px 10px;
+    transition: all 0.3s 0s ease;
+}
+
+.activity .text .btns button:hover {
+    background-color: #000000;
+    border: 2px solid #000000;
+}
+
+.parallax {
+    background-image: url(http://template73996.motopreview.com/mt-demo/73900/73996/mt-content/uploads/2018/10/mt-1614-content-bg04.jpg);
+    min-height: 500px;
+    /* height: 800px;  */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* .video .wrap{
+    display: flex;
+    flex-direction: row;
+    justify-self: center;
+    align-items: center;
+    align-content: center;
+    margin: auto;
+    flex-wrap: wrap;
+}
+
+.video .wrap .item{
+    width: 100px;
+}
+
+.video img {
+    
+}
+
+.video .title {
+    text-align: center;
+}
+
+.video .title h4 {
+    color: #535353;
+    font-size: 48px;
+    padding: 15px 0;
+    font-family: 'Lato', sans-serif;
+}
+
+.video .title .bold-p {
+    color: #7abee9;
+    font-size: 30px;
+} */
+
+
+.video-info {
+    margin: 50px auto;
+}
+
+.video-info .title {
+    text-align: center;
+}
+
+.video-info .title h4 {
+    color: #535353;
+    font-size: 48px;
+    padding: 15px 0;
+    font-family: 'Lato', sans-serif;
+}
+
+.video-info .title .bold-p {
+    color: #7abee9;
+    font-size: 30px;
+}
+
+.video-info .wrap {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    position: relative;
+}
+
+.video-info .wrap .img {
+    margin: 30px auto;
+}
+
+.video-info .wrap .img-info1 {
+    /* background-image: url(http://template73996.motopreview.com/mt-demo/73900/73996/mt-content/uploads/2018/10/mt-1614-content-img10.jpg); */
+}
+
+.video-info .wrap .img-info2 {
+    /* background-image: url(http://template73996.motopreview.com/mt-demo/73900/73996/mt-content/uploads/2018/10/mt-1614-content-img9.jpg); */
+}
+
+.video-info .wrap .item {
+    text-align: center;
+    margin: 0px 20px;
+}
+
+/* .video-info .wrap .item .text {
+    position: absolute;
+    bottom: 140px;
+    text-align: center;
+    color: #ffffff;
+} */
+
+/* 資訊框1 */
+.video-info .wrap .text1 {
+    position: absolute;
+    bottom: 140px;
+    text-align: center;
+    color: #ffffff;
+    position: absolute;
+    bottom: 140px;
+    text-align: center;
+    color: #ffffff;
+    left: 280px;
+}
+
+/*  資訊框2 */
+.video-info .wrap .text2 {
+    position: absolute;
+    bottom: 140px;
+    text-align: center;
+    color: #ffffff;
+    position: absolute;
+    bottom: 140px;
+    text-align: center;
+    color: #ffffff;
+    left: 900px;
+}
+
+.video-info .wrap .item .text1 p {
+    width: 350px;
+    padding: 10px 0;
+    font-size: 16px;
+}
+
+.video-info .wrap .item .text2 p {
+    width: 350px;
+    padding: 10px 0;
+    font-size: 16px;
+}
+
+.video-info .wrap .item .text1 h5 {
+    width: 350px;
+    padding: 10px 0;
+    font-size: 28px;
+}
+
+.video-info .wrap .item .text2 h5 {
+    width: 350px;
+    padding: 10px 0;
+    font-size: 28px;
+}
+
+/*  資訊框 人物圖 */
+.video-info .wrap .item .text img {
+    border-radius: 50%;
+    margin: 10px 0px;
+}
+
+.honor {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    position: relative;
+}
+
+.honor .img {
+    width: 100%;
+}
+
+.honor .img .bgimg {
+    /* width: 1400px; */
+    height: 600px;
+    background-image: url(http://template73996.motopreview.com/mt-demo/73900/73996/mt-content/uploads/2018/10/mt-1614-content-bg05.jpg);
+    background-position: 40% 55%;
+}
+
+.honor .block-icon {
+    text-align: center;
+    padding: 10px 30px;
+    color: #ffffff;
+}
+
+.honor .block-icon h1 {
+    font-size: 70px;
+    font-weight: 600;
+}
+
+.honor .block-icon p {
+    font-size: 24px;
+}
+
+.honor .z-icon1 {
+    position: absolute;
+    left: 200px;
+}
+
+.honor .z-icon2 {
+    position: absolute;
+    left: 490px;
+}
+
+.honor .z-icon3 {
+    position: absolute;
+    left: 790px;
+}
+
+.honor .z-icon4 {
+    position: absolute;
+    left: 1090px;
+}
+
+
+.photo h1 {
+    color: #535353;
+    text-align: center;
+    font-size: 46px;
+    padding: 50px 0px;
+}
+
+.photo .wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    position: relative;
+}
+
+.photo .wrap .img-info img {
+    width: 380px;
+    height: 290px;
+    /* 圖片對齊底部貼邊 */
+    vertical-align: bottom;
+}
+.photo .wrap .img-info img:hover{
+    background-color: #ff9933;
+    /* opacity: 0.7; */
+    -webkit-filter:sepia(1);
+    transition: 0.3s 0s ease;
+}
+
+.footer .bgimg {
+    width: 100%;
+    height: 450px;
+    background-image: url(http://template73996.motopreview.com/mt-demo/73900/73996/mt-content/uploads/2018/10/mt-1614-content-bg06.jpg);
+}
+
+.footer .bgimg {
+    text-align: center;
+    padding: 60px 0px;
+    color: #ffffff;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: flex-start;
+    position: relative;
+}
+
+.footer .bgim img {
+    vertical-align: middle;
+}
+
+.footer .bgimg h1 {
+    font-size: 48px;
+    vertical-align: middle;
+    padding: 0px 25px;
+    margin-top: 5px;
+}
+
+.footer .imgbtns {
+    /* display: flex; */
+    display: block;
+    justify-content: center;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    align-items: center;
+    position: relative;
+}
+
+/* 沒用 */
+.footer .bgimg .imgbtns {
+    /* display: flex; */
+    display: block;
+    justify-content: center;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    align-items: center;
+    position: relative;
+}
+
+.footer .imgbtns button {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 2px;
+}
+
+.footer .imgbtns i {
+    color: #ffffff;
+    font-size: 24px;
+}
+.footer .imgbtns button{
+    bottom: 360px;
+}
+
+.footer .imgbtns .btn1 {
+    /* bottom: 500px; */
+    left: 630px;
+    background-color: #00aeef;
+    border: none;
+}
+
+.footer .imgbtns .btn2 {
+    /* bottom: 500px; */
+    left: 700px;
+    background-color: #547cd5;
+    border: none;
+}
+
+.footer .imgbtns .btn3 {
+    /* bottom: 500px; */
+    left: 770px;
+    background-color: #cc3300;
+    border: none;
+}
+
+.footer .imgbtns .btn4 {
+    /* bottom: 500px; */
+    left: 840px;
+    background-color: #0075b6;
+    border: none;
+}
+
+.footer .text-info {
+    position: absolute;
+    top: 300px;
+    line-height: 40px;
+}
+
+.footer .text-info i{
+    color: #ff9933;
+}

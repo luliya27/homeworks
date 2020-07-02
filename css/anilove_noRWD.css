@@ -39,29 +39,28 @@
 
 nav {
     background-color: #ffffff;
-    /* line-height: px; */
-    padding: 10px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    /* position: fixed; */
-    /* top: 50px; */
-    /* height: 200px; */
     width: 100%;
     z-index: 1;
 }
 
 nav .icon img {
     vertical-align: middle;
-    /* width: 35%; */
 }
 
 nav .icon h1 {
     color: #535353;
-    display: inline-block;
+    display: inline;
+    vertical-align: bottom;
     font-size: 38px;
     margin: 10px 10px;
-    vertical-align: top;
+}
+
+nav .icon+.link {
+    margin: 20px;
+    padding: 30px 0;
 }
 
 nav .link a {
@@ -368,47 +367,12 @@ nav .link a:hover {
 .parallax {
     background-image: url(http://template73996.motopreview.com/mt-demo/73900/73996/mt-content/uploads/2018/10/mt-1614-content-bg04.jpg);
     min-height: 500px;
-    /* height: 800px;  */
+    border-bottom: #ff9933 10px solid;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
-
-/* .video .wrap{
-    display: flex;
-    flex-direction: row;
-    justify-self: center;
-    align-items: center;
-    align-content: center;
-    margin: auto;
-    flex-wrap: wrap;
-}
-
-.video .wrap .item{
-    width: 100px;
-}
-
-.video img {
-    
-}
-
-.video .title {
-    text-align: center;
-}
-
-.video .title h4 {
-    color: #535353;
-    font-size: 48px;
-    padding: 15px 0;
-    font-family: 'Lato', sans-serif;
-}
-
-.video .title .bold-p {
-    color: #7abee9;
-    font-size: 30px;
-} */
-
 
 .video-info {
     margin: 50px auto;
@@ -600,10 +564,11 @@ nav .link a:hover {
     /* 圖片對齊底部貼邊 */
     vertical-align: bottom;
 }
-.photo .wrap .img-info img:hover{
+
+.photo .wrap .img-info img:hover {
     background-color: #ff9933;
     /* opacity: 0.7; */
-    -webkit-filter:sepia(1);
+    -webkit-filter: sepia(1);
     transition: 0.3s 0s ease;
 }
 
@@ -668,7 +633,8 @@ nav .link a:hover {
     color: #ffffff;
     font-size: 24px;
 }
-.footer .imgbtns button{
+
+.footer .imgbtns button {
     bottom: 360px;
 }
 
@@ -706,6 +672,6 @@ nav .link a:hover {
     line-height: 40px;
 }
 
-.footer .text-info i{
+.footer .text-info i {
     color: #ff9933;
 }

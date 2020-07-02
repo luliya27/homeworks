@@ -1,0 +1,136 @@
+/*---- 寬與高像素px切版 demo---- */
+body{
+    font-family: 微軟正黑體,'Lato', sans-serif;
+}
+.section {
+    padding: 60px 0;
+}
+
+.container {
+    width: 1200px;
+    margin: auto;
+}
+
+.container .title {
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+.item {
+    margin: 0 15px;
+}
+
+.item img {
+    width: 100%;
+}
+
+.about .container .wrap {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.about .container .wrap .item {
+    width: 570px;
+}
+
+.about .container .wrap .item .text {
+    text-align: center;
+}
+
+.service .container .wrap {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.service .container .wrap .item {
+    width: 570px;
+}
+
+.service .container .wrap .item .text {
+    text-align: center;
+}
+
+.slogan .container .wrap {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.slogan .container .wrap .item {
+    width: 370px;
+}
+
+.slogan .container .wrap .item .text {
+    text-align: center;
+}
+
+.activity .container .wrap {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.activity .container .wrap .item {
+    width: 570px;
+}
+
+.activity .container .wrap .item .text {
+    text-align: center;
+}
+
+/* video-info 折行 */
+.video-info .container .wrap {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+
+.video-info .container .wrap .item:first-child {
+    width: 1170px;
+}
+
+.video-info .container .wrap .item {
+    width: 570px;
+}
+
+.video-info .container .wrap .item .text {
+    text-align: center;
+}
+
+/* honor 折行 */
+.honor .container .wrap {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+.honor .container .wrap img {
+    width: 1170px;
+}
+
+.honor .container .wrap .item {
+    width: 270px;
+}
+
+.honor .container .wrap .item .text {
+    text-align: center;
+}
+
+.photo .container .wrap {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.photo .container .wrap .item {
+    width: 270px;
+}
+
+.photo .container .wrap .item .text {
+    text-align: center;
+}

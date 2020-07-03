@@ -236,11 +236,10 @@ nav .link a:hover {
 }
 
 .service .wrap .item img:hover {
-    background-color: #2b2b2b;
+    background-color: rgba(49, 49, 49, 0.692);
     /* 濾鏡效果 */
     -webkit-filter: brightness(.5);
     transition: 0.4s 0s ease;
-    /* opacity: 0.9; */
 }
 
 .service .wrap .item h4 {
@@ -408,25 +407,10 @@ nav .link a:hover {
     margin: 30px auto;
 }
 
-.video-info .wrap .img-info1 {
-    /* background-image: url(http://template73996.motopreview.com/mt-demo/73900/73996/mt-content/uploads/2018/10/mt-1614-content-img10.jpg); */
-}
-
-.video-info .wrap .img-info2 {
-    /* background-image: url(http://template73996.motopreview.com/mt-demo/73900/73996/mt-content/uploads/2018/10/mt-1614-content-img9.jpg); */
-}
-
 .video-info .wrap .item {
     text-align: center;
     margin: 0px 20px;
 }
-
-/* .video-info .wrap .item .text {
-    position: absolute;
-    bottom: 140px;
-    text-align: center;
-    color: #ffffff;
-} */
 
 /* 資訊框1 */
 .video-info .wrap .text1 {
@@ -454,29 +438,18 @@ nav .link a:hover {
     left: 900px;
 }
 
-.video-info .wrap .item .text1 p {
+.video-info .wrap .item p {
     width: 350px;
     padding: 10px 0;
     font-size: 16px;
 }
 
-.video-info .wrap .item .text2 p {
-    width: 350px;
-    padding: 10px 0;
-    font-size: 16px;
-}
-
-.video-info .wrap .item .text1 h5 {
+.video-info .wrap .item h5 {
     width: 350px;
     padding: 10px 0;
     font-size: 28px;
 }
 
-.video-info .wrap .item .text2 h5 {
-    width: 350px;
-    padding: 10px 0;
-    font-size: 28px;
-}
 
 /*  資訊框 人物圖 */
 .video-info .wrap .item .text img {
@@ -566,7 +539,7 @@ nav .link a:hover {
 }
 
 .photo .wrap .img-info img:hover {
-    background-color: #ff9933;
+    background-color: rgba(255, 100, 53, 0.815);
     /* opacity: 0.7; */
     -webkit-filter: sepia(1);
     transition: 0.3s 0s ease;
@@ -582,7 +555,6 @@ nav .link a:hover {
     text-align: center;
     padding: 60px 0px;
     color: #ffffff;
-
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -602,25 +574,14 @@ nav .link a:hover {
 }
 
 .footer .imgbtns {
-    /* display: flex; */
     display: block;
     justify-content: center;
     flex-direction: row;
-    /* flex-wrap: wrap; */
     align-items: center;
     position: relative;
 }
 
-/* 沒用 */
-.footer .bgimg .imgbtns {
-    /* display: flex; */
-    display: block;
-    justify-content: center;
-    flex-direction: row;
-    /* flex-wrap: wrap; */
-    align-items: center;
-    position: relative;
-}
+
 
 .footer .imgbtns button {
     position: absolute;
@@ -639,28 +600,24 @@ nav .link a:hover {
 }
 
 .footer .imgbtns .btn1 {
-    /* bottom: 500px; */
     left: 630px;
     background-color: #00aeef;
     border: none;
 }
 
 .footer .imgbtns .btn2 {
-    /* bottom: 500px; */
     left: 700px;
     background-color: #547cd5;
     border: none;
 }
 
 .footer .imgbtns .btn3 {
-    /* bottom: 500px; */
     left: 770px;
     background-color: #cc3300;
     border: none;
 }
 
 .footer .imgbtns .btn4 {
-    /* bottom: 500px; */
     left: 840px;
     background-color: #0075b6;
     border: none;

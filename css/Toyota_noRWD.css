@@ -1,86 +1,129 @@
 * {
-    padding: 0;
     margin: 0;
+    padding: 0;
 }
 
-.container {
-    width: 1200px;
-    margin: auto;
-    margin-top: 20px;
-}
+.container {}
 
 .title {
     text-align: center;
-}
-
-.container .wrap {
-    display: flex;
-    justify-content: center;
-    padding: 50px;
+    padding: 40px 0;
 }
 
 .option-bar {
+    background-color: #ffffff;
     display: flex;
     justify-content: center;
-    text-align: center;
-    padding: 20px auto;
-    margin-top: 20px;
-    position: relative;
+    margin: 20px;
 }
 
 .option-bar a {
-    border: 1px dashed #cccccc;
-    border-bottom: 3px solid brown;
-    background-color: #ffffff;
-    color: #000000;
-    padding: 10px 15px;
-    margin: 0 5px;
+    border: #cccccc dotted 1px;
+    border-bottom: firebrick solid 2px;
     text-decoration: none;
+    padding: 5px 50px;
+    margin: 0 5px;
+    color: #000000;
+    font-size: 18px;
 }
 
-.container .wrap{
+.wrap {
+    /* position: relative; */
     display: flex;
     justify-content: center;
+    margin-top: 50px;
 }
 
 .wrap .item {
-    /* position: relative; */
+    /* position: absolute; */
 }
 
-.item .text .text-column h1 {
-    /* display: flex; */
-    flex-direction: column;
-}
-
-/* 標題內文 */
-.item .text1 {
-    /* position: absolute;  */
-    position: relative;
-    color: #ffffff;
-    width: 300px;
-    /* right: -200px; */
-}
-
-.item .text1 .text-column h1 {
-    background-color: brown;
-    font-size: 50px;
-    padding: 20px;
-}
-
-.item .text1 p {
-    background-color: black;
-    font-size: 20px;
-    padding: 20px;
-}
-.item .text2 p {
-    padding: 10px 15px;
-}
-
-.item .text2{
-    width: 500px;
-    background-color: #d4d3d3;
+/* 主標框 */
+.wrap .item2 .text1 {
     position: absolute;
-    bottom: 200px;
-    /* top: 400px;
-    right: -100px; */
+    width: 300px;
+    color: #ffffff;
 }
+
+.wrap .item .text1 p {
+    background-color: #000000;
+    padding: 10px;
+    line-height: 30px;
+}
+
+.wrap .item .text1 .text-column {
+    background-color: brown;
+    /* display: flex;
+    flex-direction: column; */
+}
+
+.text-column h1 {
+    writing-mode: vertical-lr;
+    text-orientation: sideways-right;
+    padding: 5px;
+}
+
+.text-column h2 {
+    padding: 5px;
+}
+
+
+.wrap .item1 .pic {
+    position: relative;
+}
+
+/* 灰色敘述框 */
+.wrap .item2 .text2 {
+    position: absolute;
+    background-color: #e9e9e9;
+    width: 500px;
+    padding: 10px;
+    line-height: 30px;
+}
+
+/* 位置配置 */
+
+.wrap .item2 .left {
+    left: 350px;
+    /* z-index: 1; */
+}
+
+.wrap .item2 .right {
+    right: 350px;
+}
+
+.wrap .item2 .text2 .left {
+    left: 350px;
+}
+
+.wrap .item2 .text2 .right {
+    right: 350px;
+}
+
+.wrap .item2 .text1 {
+    /* left: 350px; */
+    /* z-index: 1; */
+}
+
+.wrap .item2 .text1 {
+    /* left: 0px; */
+}
+
+.wrap .item2 .text1 {}
+
+.wrap .item2 .text1 {}
+
+.wrap .item2 .text1 {}
+
+.wrap .item2 .text2 {
+    left: 250px;
+    /* bottom: 10px; */
+}
+
+.wrap .item2 .text2 {}
+
+.wrap .item2 .text2 {}
+
+.wrap .item2 .text2 {}
+
+.wrap .item2 .text2 {}

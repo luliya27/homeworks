@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.container{}
+
+.wrap {
+    width: 960px;
+    margin: auto;
+    display: flex;
+    /* flex-direction: column; */
+}
+
+.wrap .title {
+    /* position: relative; */
+    width: 300px;
+}
+
+.wrap .tit h2{
+    font-size: 40px;
+    /* padding: 5px 10px; */
+    margin: 5px 0;
+}
+
+
+.wrap .tit {
+    background-color: brown;
+    color: #ffffff;
+    font-size: 40px;
+}
+
+.wrap .tit span {
+    display: inline-block;
+    transform: rotate(90deg);
+}
+
+.wrap .txt {
+    background-color: black;
+    padding: 5px;
+    line-height: 30px;
+}
+
+.wrap .txt h3 {
+    font-size: 16px;
+}
+
+.wrap .txt p {
+    font-size: 13px;
+}
+
+.wrap .text span {
+    display: flex;
+    justify-content: center;
+}
+
+
+/* ------- */
+.wrap .pic {
+    /* position: absolute; */
+}
+
+/* ------- */
+.wrap .text {
+    background-color: #cccccc;
+}
+
+.wrap .text h3 {
+    display: inline-block;
+    background-color: black;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.wrap .text p {
+    font-size: 16px;
+    line-height: 25px;
+}
+
+.wrap .text p::before {
+    content: '•';
+    font-size: 14px;
+}
+
+.wrap .text span::after {
+    display: block;
+    content: '';
+    /* 運用剩餘空間分配 */
+    flex-grow: 1;
+    background-color: brown;
+    width: 20px;
+    height: 1.3px;
+    margin-left: 1em;
+    margin-top: 10px;
+}
+
+.wrap {}

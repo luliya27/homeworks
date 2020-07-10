@@ -75,7 +75,9 @@
 
 .wrap .title h2 {
     background-color: brown;
-    font-size: 40px;
+    font-size: 50px;
+    padding: 30px;
+    font-weight: lighter;
     text-align: center;
 }
 
@@ -194,10 +196,10 @@
 /* ---位置調換--- */
 /* 偶數區塊 */
 /* .wrap:nth-child(even) */
-.wrap:nth-child(even) .title h2 span {
+/* .wrap:nth-child(even) .title h2 span {
     position: absolute;
-    right: 25px;
-}
+    right: 5px;
+} */
 
 .wrap:nth-child(even) .title {
     margin-left: auto;

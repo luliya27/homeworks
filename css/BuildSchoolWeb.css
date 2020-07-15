@@ -9,8 +9,7 @@
 }
 
 .carousel .owl-carousel img {
-    /* width: 1000px;
-    background-position: 70% 70%; */
+
 }
 
 .header {
@@ -496,7 +495,7 @@
 }
 
 .footer-info {
-    margin: 0 300px;
+    margin: 0 30px;
     margin-bottom: 30px;
     display: flex;
     flex-direction: column;
@@ -512,7 +511,7 @@
 }
 
 .bottom-bar {
-    margin: 0 300px;
+    margin: 0 50px;
     margin-bottom: 30px;
     display: flex;
     position: relative;

@@ -4,16 +4,500 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>我的練習作品</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="/bower_components/index/css/bootstrap-datepicker.css"> -->
+    <link rel="stylesheet" href="/bower_components/index/css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="/bower_components/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="/bower_components/OwlCarousel2-2.3.4/dist/assets/owl.theme.green.min.css">
+    <link rel="stylesheet" href="/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+    <!-- 工具圖標 -->
+    <link rel="stylesheet" href="/fonts/brand/style.css">
+
+    <link rel="stylesheet" href="/bower_components/index/css/aos.css">
+    <link rel="stylesheet" href="/bower_components/index/css/style.css">
+
 </head>
 
 <body>
-    <a href="https://luliyahomeworks.azurewebsites.net/curriculum.html">課表</a>
-    <a href="https://luliyahomeworks.azurewebsites.net/anilove_noRWD.html">anilove網頁切版</a>
-    <a href="https://luliyahomeworks.azurewebsites.net/version_test.html">寬與高像素px切版 demo</a>
-    <a href="https://luliyahomeworks.azurewebsites.net/Naturio_noRWD.html">Naturio網頁切版</a>
-    <a href="https://luliyahomeworks.azurewebsites.net/Toyota_noRWD.html">Toyota網頁切版</a>
-    <a href="https://luliyahomeworks.azurewebsites.net/BuildSchoolWeb.html">BuildSchool優化</a>
+    <div class="site-wrap" id="home-section">
+
+        <div class="site-mobile-menu site-navbar-target">
+            <div class="site-mobile-menu-header">
+                <div class="site-mobile-menu-close mt-3">
+                    <span class="icon-close2 js-menu-toggle"></span>
+                </div>
+            </div>
+            <div class="site-mobile-menu-body"></div>
+        </div>
+
+        <header class="site-navbar light site-navbar-target" role="banner">
+
+            <div class="container">
+                <div class="row align-items-center position-relative">
+
+                    <div class="col-3">
+                        <div class="site-logo">
+                            <a href="index.html"><strong>Luliya</strong></a>
+                        </div>
+                    </div>
+
+                    <div class="col-9  text-right">
+
+                        <span class="d-inline-block d-lg-none"><a href="#"
+                                class=" site-menu-toggle js-menu-toggle py-5 "><span
+                                    class="icon-menu h3 text-black"></span></a></span>
+
+                        <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
+                            <ul class="site-menu main-menu js-clone-nav ml-auto ">
+                                <li class="active"><a href="index.html" class="nav-link">主頁</a></li>
+                                <li><a href="tutorials.html" class="nav-link">Tutorials</a></li>
+                                <li><a href="testimonials.html" class="nav-link">Testimonials</a></li>
+                                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                                <li><a href="about.html" class="nav-link">About</a></li>
+                                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </header>
+
+
+        <div class="site-section-cover overlay" style="background-image: url('/img/index/hero_bg.jpg');">
+
+            <div class="container">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-lg-10 text-center">
+                        <h1>The <strong>Introduce</strong> Of <strong>My Web </strong></h1>
+                        <h1>關於我的網頁學習</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="site-section bg-light pb-0">
+            <div class="container">
+                <div class="row align-items-stretch overlap">
+                    <div class="col-lg-8">
+                        <div class="box" h-100>
+                            <div class="d-flex align-items-center">
+                                <div class="img"><img src="/img/index/313085.jpg" class="img-fluid" alt="Image"></div>
+                                <div class="text">
+                                    <a href="#" class="category">自我簡介</a>
+                                    <hr>
+                                    <h3><a href="#">蕭雅蓮</a></h3>
+                                    <p>您好，我是Luliya! 大學畢業已有兩年，是90後的青年，目標從事網頁前端設計的工作，應用所學技能提升工作效率。</p>
+                                    <p class="mb-0">
+                                        <!-- <span class="category"><i class="far fa-play-circle"></i></span> -->
+                                    </p>
+                                    <p class="meta">
+                                        <span class="mr-2 mb-2">#更新</span>
+                                        <span class="mr-2 mb-2">#簡介</span>
+                                        <span class="mr-2 mb-2">Oct 10, 2020</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="box small h-100">
+                            <div class="d-flex align-items-center mt-4">
+                                <div class="img h2"><i class="fas fa-envelope"></i></div>
+                                <div class="text">
+                                    <!-- <span class="category"><i class="fas fa-envelope"></i></span> -->
+                                    <h3>信箱 : <a href="mailto:ykk40627@gmail.com" data-content="ykk40627@gmail.com"
+                                            data-type="mail">ykk40627@gmail.com</a></h3>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center mb-2">
+                                <div class="img h2"><i class="fas fa-phone"></i></div>
+                                <div class="text">
+                                    <!-- <span class="category"><i class="fas fa-phone"></i></span> -->
+                                    <h3>電話 : 0966192565</h3>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <div class="img h2"><i class="fas fa-map-marker-alt"></i></div>
+                                <div class="text">
+                                    <!-- <span class="category"><i class="fas fa-map-marker-alt"></i></span> -->
+                                    <h3>通訊地址 : 新北市汐止區</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="site-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="heading mb-4">
+                            <span class="caption">相關應用</span>
+                            <h2>使用工具</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row align-items-stretch">
+                    <div class="col-lg-2">
+                        <div href="#" class="course">
+                            <span class="wrap-icon"><i class="wrap-icon fab fa-bootstrap"></i></span>
+                            <h3>Bootstrap4</h3>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div href="#" class="course">
+                            <span class="wrap-icon icon-css3"></span>
+                            <h3>CSS</h3>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div href="#" class="course">
+                            <span class="wrap-icon brand-vue-dot-js"></span>
+                            <h3>Vue</h3>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div href="#" class="course">
+                            <span class="wrap-icon brand-javascript"></span>
+                            <h3>JavaScript</h3>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div href="#" class="course">
+                            <span class="wrap-icon icon-html5"></span>
+                            <h3>Html5</h3>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div href="#" class="course">
+                            <span class="wrap-icon"><i class="wrap-icon fab fa-wordpress"></i></span>
+                            <h3>wordpress</h3>
+                            <!-- <span class="wrap-icon brand-angular"></span>
+                            <h3>Angular</h3> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="site-section bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="heading mb-4">
+                            <span class="caption">程式練習</span>
+                            <h2>我的作業清單</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="d-flex tutorial-item mb-4">
+                            <div class="img-wrap">
+                                <a href="https://luliyahomeworks.azurewebsites.net/version_test.html"><img src="/img/index/demo.JPG" alt="Image" class="img-fluid"></a>
+                            </div>
+                            <div class="hk-list">
+                                <h3><a href="#">初始切版</a></h3>
+                                <p>設定固定寬，切版演練。</p>
+                                <p class="mb-0">
+                                    <span class="icon-html5"></span>
+                                    <span class="icon-css3"></span>
+                                </p>
+                                <p class="meta">
+                                    <span class="mr-2 mb-2">#練習1</span>
+                                    <span class="mr-2 mb-2">Jun 18, 2020</span>
+                                </p>
+                            </div>
+                        </div> 
+                        <div class="d-flex tutorial-item mb-4">
+                            <div class="img-wrap">
+                                <a href="https://luliyahomeworks.azurewebsites.net/Naturio_noRWD.html"><img src="/img/index/homework3.JPG" alt="Image" class="img-fluid"></a>
+                            </div>
+                            <div class="hk-list">
+                                <h3><a href="#">Naturio網站</a></h3>
+                                <p>以此網站做參考，覆刻Naturio網頁版型</p>
+                                <p class="mb-0">
+                                    <span class="icon-html5"></span>
+                                    <span class="icon-css3"></span>
+                                </p>
+                                <p class="meta">
+                                    <span class="mr-2 mb-2">#練習3</span>
+                                    <span class="mr-2 mb-2">Jun 18, 2020</span>
+                                </p>
+                                <!-- <p><a href="https://luliyahomeworks.azurewebsites.net/Naturio_noRWD.html"
+                                        class="btn btn-primary custom-btn">View</a></p> -->
+                            </div>
+                        </div>
+                        <div class="d-flex tutorial-item mb-4">
+                            <div class="img-wrap">
+                                <a href="https://luliyahomeworks.azurewebsites.net/BuildSchoolWeb.html"><img src="/img/index/homework5.JPG" alt="Image" class="img-fluid"></a>
+                            </div>
+                            <div class="hk-list">
+                                <h3><a href="#">BuildSchool網頁</a></h3>
+                                <p>以此網站做參考，覆刻BuildSchool網頁版型，並且優化</p>
+                                <p class="mb-0">
+                                    <span class="icon-html5"></span>
+                                    <span class="icon-css3"></span>
+                                </p>
+                                <p class="meta">
+                                    <span class="mr-2 mb-2">#練習5</span>
+                                    <span class="mr-2 mb-2">Jun 18, 2020</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="d-flex tutorial-item mb-4">
+                            <div class="img-wrap">
+                                <a href="https://luliyahomeworks.azurewebsites.net/curriculum.html"><img src="/img/index/homework1.JPG" alt="Image" class="img-fluid"></a>
+                            </div>
+                            <div class="hk-list">
+                                <h3><a href="#">成功國小課表頁面</a></h3>
+                                <p>熟悉＜table＞元素，並刻寫出課表結構，顯示於網頁。</p>
+                                <p class="mb-0">
+                                    <span class="icon-html5"></span>
+                                    <span class="icon-css3"></span>
+                                </p>
+                                <p class="meta">
+                                    <span class="mr-2 mb-2">#練習1</span>
+                                    <span class="mr-2 mb-2">Jun 18, 2020</span>
+                                </p>
+                                <!-- <p><a href="https://luliyahomeworks.azurewebsites.net/curriculum.html"
+                                        class="btn btn-primary custom-btn">View</a></p> -->
+                            </div>
+                        </div>
+                        <div class="d-flex tutorial-item mb-4">
+                            <div class="img-wrap">
+                                <a href="https://luliyahomeworks.azurewebsites.net/anilove_noRWD.html"><img src="/img/index/homework2.JPG" alt="Image" class="img-fluid"></a>
+                            </div>
+                            <div class="hk-list">
+                                <h3><a href="#">Anilove網站</a></h3>
+                                <p>以此網站做參考，覆刻Anilove網頁版型</p>
+                                <p class="mb-0">
+                                    <span class="icon-html5"></span>
+                                    <span class="icon-css3"></span>
+                                </p>
+                                <p class="meta">
+                                    <span class="mr-2 mb-2">#練習2</span>
+                                    <span class="mr-2 mb-2">Jun 18, 2020</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="d-flex tutorial-item mb-4">
+                            <div class="img-wrap">
+                                <a href="https://luliyahomeworks.azurewebsites.net/Toyota_noRWD.html"><img src="/img/index/homework4.JPG" alt="Image" class="img-fluid"></a>
+                            </div>
+                            <div class="hk-list">
+                                <h3><a href="#">Toyota網頁排版</a></h3>
+                                <p>以此網站做參考，覆刻出圖片語文字交錯的排版。</p>
+                                <p class="mb-0">
+                                    <span class="icon-html5"></span>
+                                    <span class="icon-css3"></span>
+                                </p>
+                                <p class="meta">
+                                    <span class="mr-2 mb-2">#練習4</span>
+                                    <span class="mr-2 mb-2">Jun 18, 2020</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="site-section bg-light">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-7 text-center mb-5">
+                        <div class="heading">
+                            <span class="caption">合作開發</span>
+                            <h2>團隊作品</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 mb-4 mb-lg-0">
+                        <div class="testimonial-2">
+                            <h3 class="h5">Excellent Teacher!</h3>
+                            <div>
+                                <span class="icon-star text-warning"></span>
+                                <span class="icon-star text-warning"></span>
+                                <span class="icon-star text-warning"></span>
+                                <span class="icon-star text-warning"></span>
+                                <span class="icon-star-o text-warning"></span>
+                            </div>
+                            <blockquote class="mb-4">
+                                <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, deserunt
+                                    eveniet veniam. Ipsam, nam, voluptatum"</p>
+                            </blockquote>
+                            <div class="d-flex v-card align-items-center">
+                                <img src="/img/index/person_1.jpg" alt="Image" class="img-fluid mr-3">
+                                <div class="author-name">
+                                    <span class="d-block">Mike Fisher</span>
+                                    <span>Owner, Ford</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4 mb-lg-0">
+                        <div class="testimonial-2">
+                            <h3 class="h5">Best Video Tutorial!</h3>
+                            <div>
+                                <span class="icon-star text-warning"></span>
+                                <span class="icon-star text-warning"></span>
+                                <span class="icon-star text-warning"></span>
+                                <span class="icon-star text-warning"></span>
+                                <span class="icon-star-o text-warning"></span>
+                            </div>
+                            <blockquote class="mb-4">
+                                <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, deserunt
+                                    eveniet veniam. Ipsam, nam, voluptatum"</p>
+                            </blockquote>
+                            <div class="d-flex v-card align-items-center">
+                                <img src="/img/index/person_2.jpg" alt="Image" class="img-fluid mr-3">
+                                <div class="author-name">
+                                    <span class="d-block">Jean Stanley</span>
+                                    <span>Traveler</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4 mb-lg-0">
+                        <div class="testimonial-2">
+                            <h3 class="h5">Easy to Understand!</h3>
+                            <div>
+                                <span class="icon-star text-warning"></span>
+                                <span class="icon-star text-warning"></span>
+                                <span class="icon-star text-warning"></span>
+                                <span class="icon-star text-warning"></span>
+                                <span class="icon-star-o text-warning"></span>
+                            </div>
+                            <blockquote class="mb-4">
+                                <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, deserunt
+                                    eveniet veniam. Ipsam, nam, voluptatum"</p>
+                            </blockquote>
+                            <div class="d-flex v-card align-items-center">
+                                <img src="/img/index/person_3.jpg" alt="Image" class="img-fluid mr-3">
+                                <div class="author-name">
+                                    <span class="d-block">Katie Rose</span>
+                                    <span>Customer</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <h2 class="footer-heading mb-4">關於我</h2>
+                        <p>期許自己要不斷努力、精進實力，立志成為稱職的前端工程師。堅定的決心才是為一不變的道路!</p>
+                        <!-- <ul class="list-unstyled social">
+                            <li><a href="#"><span class="icon-facebook"></span></a></li>
+                            <li><a href="#"><span class="icon-instagram"></span></a></li>
+                        </ul> -->
+                    </div>
+                    <div class="col-lg-8 ml-auto">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <h2 class="footer-heading mb-4">Quick Links</h2>
+                                <ul class="list-unstyled">
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">Testimonials</a></li>
+                                    <li><a href="#">Terms of Service</a></li>
+                                    <li><a href="#">Privacy</a></li>
+                                    <li><a href="#">Contact Us</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-3">
+                                <h2 class="footer-heading mb-4">Resources</h2>
+                                <ul class="list-unstyled">
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">Testimonials</a></li>
+                                    <li><a href="#">Terms of Service</a></li>
+                                    <li><a href="#">Privacy</a></li>
+                                    <li><a href="#">Contact Us</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-3">
+                                <h2 class="footer-heading mb-4">Support</h2>
+                                <ul class="list-unstyled">
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">Testimonials</a></li>
+                                    <li><a href="#">Terms of Service</a></li>
+                                    <li><a href="#">Privacy</a></li>
+                                    <li><a href="#">Contact Us</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-3">
+                                <h2 class="footer-heading mb-4">Company</h2>
+                                <ul class="list-unstyled">
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">Testimonials</a></li>
+                                    <li><a href="#">Terms of Service</a></li>
+                                    <li><a href="#">Privacy</a></li>
+                                    <li><a href="#">Contact Us</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="row pt-5 mt-5 text-center">
+                    <div class="col-md-12">
+                        <div class="border-top pt-5">
+                            <p>
+                            </p>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </footer>
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/bower_components/OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".owl-carousel").owlCarousel({
+                nav: true,
+                loop: true,
+                autoplay: true,
+                autoplayTimeout: 2000,
+                responsive: {
+                    0: {
+                        items: 1,
+                        // nav: true,
+                        // loop: true
+                    }
+                }
+            });
+        });
+    </script>
+
+    <script src="/bower_components/index/js/jquery-3.3.1.min.js"></script>
+    <script src="/bower_components/index/js/popper.min.js"></script>
+    <script src="/bower_components/index/js/bootstrap.min.js"></script>
+    <script src="/bower_components/index/js/owl.carousel.min.js"></script>
+    <script src="/bower_components/index/js/jquery.sticky.js"></script>
+    <script src="/bower_components/index/js/jquery.waypoints.min.js"></script>
+    <script src="/bower_components/index/js/jquery.animateNumber.min.js"></script>
+    <script src="/bower_components/index/js/jquery.fancybox.min.js"></script>
+    <script src="/bower_components/index/js/jquery.easing.1.3.js"></script>
+    <script src="/bower_components/index/js/bootstrap-datepicker.min.js"></script>
+    <script src="/bower_components/index/js/aos.js"></script>
+
+    <script src="/bower_components/index/js/main.js"></script>
 </body>
 
 </html>

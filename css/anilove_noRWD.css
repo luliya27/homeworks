@@ -23,6 +23,8 @@
 }
 
 .header .top-bar .btns button {
+    width: 30px;
+    height: 30px;
     padding: 7px;
     border-radius: 100%;
     border: none;
@@ -44,6 +46,8 @@ nav {
     align-items: center;
     width: 100%;
     z-index: 1;
+    position: sticky;
+    top: 0;
 }
 
 nav .icon img {
@@ -97,14 +101,7 @@ nav .link a:hover {
     border: 2px solid #7abee9;
 }
 
-
-.Mains {
-    /* position: relative; */
-    top: 100px;
-    overflow: hidden;
-    /* margin-top: 95px; */
-}
-
+/* -------- */
 .begin img {
     width: 100%;
 }
@@ -513,122 +510,127 @@ nav .link a:hover {
     left: 1090px;
 }
 
-
-.photo h1 {
-    color: #535353;
-    text-align: center;
+/* ------- */
+.igphoto h1 {
     font-size: 46px;
-    padding: 50px 0px;
+    text-align: center;
+    padding: 50px 0;
 }
 
-.photo .wrap {
-    width: 100%;
+.igphoto .img-info {
     display: flex;
-    justify-content: center;
-    flex-direction: row;
-    align-items: center;
-    align-content: center;
-    position: relative;
 }
 
-.photo .wrap .img-info img {
-    width: 380px;
-    height: 290px;
-    /* 圖片對齊底部貼邊 */
+.igphoto .img-info .item {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.igphoto .img-info .item img {
     vertical-align: bottom;
 }
 
-.photo .wrap .img-info img:hover {
-    background-color: rgba(255, 100, 53, 0.815);
-    /* opacity: 0.7; */
-    -webkit-filter: sepia(1);
-    transition: 0.3s 0s ease;
+/* 遮罩 */
+.igphoto .img-info .item .ig-mask {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transition: 1s;
 }
 
-.footer .bgimg {
-    width: 100%;
-    height: 450px;
-    background-image: url(http://template73996.motopreview.com/mt-demo/73900/73996/mt-content/uploads/2018/10/mt-1614-content-bg06.jpg);
-}
-
-.footer .bgimg {
-    text-align: center;
-    padding: 60px 0px;
-    color: #ffffff;
+/* 遮罩標記 */
+.igphoto .img-info .item .ig-mask i {
+    color: #fff;
+    height: 100%;
     display: flex;
     justify-content: center;
-    flex-direction: row;
-    align-items: flex-start;
-    position: relative;
-}
-
-.footer .bgim img {
-    vertical-align: middle;
-}
-
-.footer .bgimg h1 {
-    font-size: 48px;
-    vertical-align: middle;
-    padding: 0px 25px;
-    margin-top: 5px;
-}
-
-.footer .imgbtns {
-    display: block;
-    justify-content: center;
-    flex-direction: row;
     align-items: center;
-    position: relative;
+    opacity: 0;
+    transition: .4s ease-in-out;
 }
 
+.igphoto .img-info .item .ig-mask:hover {
+    background-color: rgba(255, 153, 51, .6);
+    opacity: 0.9;
+}
 
+.igphoto .img-info .item .ig-mask:hover i {
+    opacity: 0.9;
+    transform: scale(1.5, 1.5);
+}
 
-.footer .imgbtns button {
-    position: absolute;
+/* ------- */
+.footer {
+    background-image: url(http://template73996.motopreview.com/mt-demo/73900/73996/mt-content/uploads/2018/10/mt-1614-content-bg06.jpg);
+    color: #ffffff;
+    padding: 50px;
+}
+
+.footer-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+}
+
+.footer-logo img {
+    vertical-align: middle;
+}
+
+.footer-logo h1 {
+    padding-left: 20px;
+    font-size: 50px;
+}
+
+.imgbtns {
+    display: flex;
+    justify-content: center;
+}
+
+.imgbtns i {
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.imgbtns button {
     width: 60px;
     height: 60px;
+    margin: 10px 5px;
     border-radius: 2px;
 }
 
-.footer .imgbtns i {
-    color: #ffffff;
-    font-size: 24px;
-}
-
-.footer .imgbtns button {
-    bottom: 360px;
-}
-
 .footer .imgbtns .btn1 {
-    left: 630px;
     background-color: #00aeef;
     border: none;
 }
 
 .footer .imgbtns .btn2 {
-    left: 700px;
     background-color: #547cd5;
     border: none;
 }
 
 .footer .imgbtns .btn3 {
-    left: 770px;
     background-color: #cc3300;
     border: none;
 }
 
 .footer .imgbtns .btn4 {
-    left: 840px;
     background-color: #0075b6;
     border: none;
 }
 
-.footer .text-info {
-    position: absolute;
-    top: 300px;
+.text-info {
+    text-align: center;
+    padding: 20px 10px;
     line-height: 40px;
 }
 
-.footer .text-info i {
+.text-info i {
     color: #ff9933;
 }
+
+/* -------- */

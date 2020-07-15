@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.header {
+    background-color: #272626;
+    padding: 15px 0;
+}
+
+.header .wrap {
+    width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+}
+
+.header .wrap .btns i {
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    color: #000;
+    background-color: #fff;
+    margin: 0 3px;
+    border-radius: 50%;
+}
+
+.header .wrap .btns i:hover {
+    background-color: #FF9933;
+    transition: .8s;
+}
+
+.header .tel p {
+    display: inline;
+    color: #fff;
+    font-size: 20px;
+}
+
+.header .tel i {
+    color: #FF9933;
+}
+
+.header .btns a {
+    text-decoration: none;
+}
+
+/* ------- */
+.nav {
+    background-color: ivory;
+    width: 100%;
+    position: sticky;
+    top: 0;
+}
+
+.nav .wrap {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 60px;
+}
+
+.nav .logo {
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
+.nav .logo h1 {
+    padding-left: 10px;
+}
+
+.nav .menu {
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
+.nav .menu a {
+    color: #000;
+    text-decoration: none;
+    padding: 0 20px;
+}
+
+.nav button {
+    background-color: #FF9933;
+    color: #fff;
+    padding: 20px 40px;
+    margin: 30px 0;
+    border: 1px solid #FF9933;
+    width: 200px;
+}
+
+.nav button:hover {
+    background-color: #000;
+    border: 1px solid #000
+}

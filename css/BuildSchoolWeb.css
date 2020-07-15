@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 微軟正黑體;
 }
 
 .carousel {
@@ -188,18 +189,12 @@
     background-color: #2B689C;
 }
 
-/* .container {
-    display: flex;
-    justify-content: center;
-}*/
-
-.container .item {}
-
 
 .margintop50 {
     margin-top: 50px;
 }
 
+/* 置中 */
 .aline-center {
     align-items: center;
     align-content: center;

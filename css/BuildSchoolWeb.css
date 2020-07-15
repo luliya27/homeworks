@@ -531,3 +531,11 @@
     color: black;
     text-decoration: solid 1px black;
 }
+
+@media screen and (max-width:768px){
+    /* 版面縮小 顛倒 */
+    .reverse{
+        /* background-color: lemonchiffon; */
+        flex-direction: column-reverse;
+    }
+}

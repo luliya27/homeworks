@@ -8,9 +8,7 @@
     width: 100%;
 }
 
-.carousel .owl-carousel img {
-
-}
+.carousel .owl-carousel img {}
 
 .header {
     position: relative;
@@ -18,7 +16,7 @@
 }
 
 /* 幻燈片遮罩 */
-.banner-mask{
+.banner-mask {
     background-color: rgba(0, 0, 0, 0.541);
     width: 100%;
     height: 730px;
@@ -359,6 +357,7 @@
 }
 
 /* ------- */
+/* 細背景區 */
 .bg-block {
     position: relative;
     width: 100%;
@@ -385,12 +384,20 @@
 }
 
 .bg-img {
-    position: absolute;
-    pointer-events: auto;
+    
     width: 100%;
     height: 100%;
+    position: absolute;
+    opacity: 0.1;
     top: 0;
     left: 0
+}
+
+.bg-img img {
+    width: 2471px;
+    height: 100%;
+    object-position: 50% 50%;
+    object-fit: cover;
 }
 
 .slogan-label {
@@ -532,9 +539,10 @@
     text-decoration: solid 1px black;
 }
 
-@media screen and (max-width:768px){
+@media screen and (max-width:768px) {
+
     /* 版面縮小 顛倒 */
-    .reverse{
+    .reverse {
         /* background-color: lemonchiffon; */
         flex-direction: column-reverse;
     }

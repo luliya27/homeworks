@@ -1,0 +1,200 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav {
+    position: absolute;
+    top: 0;
+    z-index: 3;
+}
+
+form a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 14px;
+    padding: 0 10px;
+}
+
+form a:hover {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+form img {
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(48, 48, 48, 0.904);
+    padding: 20px 40px;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+}
+
+.header .left_menu {
+    display: flex;
+}
+
+.header .nav a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.item img {
+    object-fit: cover;
+}
+
+ul,
+li {
+    padding: 0;
+    margin: 0;
+    list-style: none
+}
+
+.Intro .img {
+    display: flex;
+    justify-content: center;
+
+}
+
+.Intro .text {
+    margin: 10px 150px;
+    text-align: center;
+}
+
+/* ------- */
+.Commodity .item .img {
+    display: flex;
+    justify-content: center;
+}
+
+.Commodity .item .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 10px;
+}
+
+.Commodity .text li {
+    list-style-type: none;
+}
+
+.Commodity .text h5 {
+    font-size: 16px;
+    color: #000000;
+    font-weight: bold;
+}
+
+.Commodity .text li strong {
+    font-size: 14px;
+    color: #1f1f1f;
+    font-weight: bold;
+}
+
+.Commodity .text li span {
+    font-size: 14px;
+    color: #800000;
+    font-weight: bold;
+}
+
+/* ------- */
+.parallax {
+    background-image: url(http://taken.co.kr/img/bnr/main_s/subbnr_01.jpg);
+    min-height: 400px;
+    margin-top: 50px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.Description .text li {
+    list-style-type: none;
+}
+
+.Description .text a {
+    font-size: 12px;
+    color: #555555;
+    text-decoration: none;
+}
+
+.Description .text strong {
+    font-size: 12px;
+    color: #555555;
+}
+
+.Description .text span {
+    font-size: 12px;
+    color: #008BCC;
+    font-weight: bold;
+}
+
+.footer {
+    background-color: #323232;
+    ;
+}
+
+.footer .info h6 {
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.footer .info span {
+    display: inline;
+    color: #888;
+}
+
+.footer .info {
+    font-size: 12px;
+    line-height: 30px;
+    padding: 50px 0;
+}
+
+.footer .info .btns img {
+    width: 25px;
+    height: 25px;
+}
+
+.footer .info .btns a {
+    padding-right: 10px;
+}
+
+.footer-bar {
+    padding: 10px;
+    background-color: #1f1f1f;
+}
+
+.footer-bar .left a {
+    color: #888;
+    padding: 0 10px;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.footer-bar .right {
+    font-size: 14px;
+    color: #888;
+}
+
+.between-x {
+    display: flex;
+    justify-content: space-between;
+}
+
+.between-y {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.b-bottom {
+    align-items: flex-end;
+    margin-top: 20px;
+}

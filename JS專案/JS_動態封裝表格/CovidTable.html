@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        table {
+            border: 1px solid #cccccc;
+        }
+
+        table td:first-child {
+            background-color: #b8dee7;
+        }
+
+        td,
+        th {
+            border: 1px solid #cccccc;
+            padding: 10px;
+        }
+
+        .green {
+            background-color: rgb(152, 226, 186);
+        }
+
+        .red {
+            background-color: rgb(243, 189, 189);
+        }
+
+        .yellow {
+            background-color: rgb(235, 230, 179);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <h1>全球肺炎統計表</h1> -->
+    <h1></h1>
+    <table>
+        <thead>
+            <tr>
+                <td>國家</td>
+                <td class="yellow">確診</td>
+                <td class="red">死亡</td>
+                <td class="green">治癒</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="area">台灣</td>
+                <td id="sick1"></td>
+                <td id="peson1"></td>
+                <td id="dead1"></td>
+            </tr>
+            <tr>
+                <td id="area">美國</td>
+                <td id="sick2"></td>
+                <td id="peson2"></td>
+                <td id="dead2"></td>
+            </tr>
+            <tr>
+                <td id="area">巴西</td>
+                <td id="sick3"></td>
+                <td id="peson3"></td>
+                <td id="dead3"></td>
+            </tr>
+            <tr>
+                <td id="area">印度</td>
+                <td id="sick4"></td>
+                <td id="peson4"></td>
+                <td id="dead4"></td>
+            </tr>
+            <tr>
+                <td id="area">俄羅斯</td>
+                <td id="sick5"></td>
+                <td id="peson5"></td>
+                <td id="dead5"></td>
+            </tr>
+            <tr>
+                <td>全球統計</td>
+                <td id="sick_total"></td>
+                <td id="peson_total"></td>
+                <td id="dead_total"></td>
+            </tr>
+        </tbody>
+    </table>
+    <ul>
+        <!-- <li>js</li>
+        <li>CSS</li>
+        <li>Html</li> -->
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <script>
+        //建立Virus資料，傳入Table中
+        //Selector 可以取代getElementById
+        let title = document.querySelector('h1');
+        title.innerText = '全球肺炎統計表';
+
+        let languages = document.querySelectorAll('li');
+        // console.log(languages);
+        languages.innerText = 'js'
+
+        let info = {
+            area: ['台灣', '美國', '巴西', '印度', '俄羅斯'],
+            sick: [455, 397, 217, 119, 78.9],
+            peson: [440, 116, 147, 75.3, 57.2],
+            die: [7, 14.4, 81.597, 28.732, 12.745]
+        }
+
+        show_Taiwan();
+
+        function show_Taiwan() {
+            var Taiwan = [455, 440, 7];
+            let sick = document.getElementById("sick1");
+            sick.innerText = Taiwan[0];
+            // sick.innerText = '455';
+            let peson = document.getElementById("peson1");
+            peson.innerText = Taiwan[1];
+            // peson.innerText = '440';
+            let dead = document.getElementById("dead1");
+            dead.innerText = Taiwan[2];
+            // dead.innerText = '7';
+        }
+
+        show_America();
+
+        function show_America() {
+            var America = [3970000, 1160000, 144000];
+            let sick = document.getElementById("sick2");
+            sick.innerText = America[0];
+            let peson = document.getElementById("peson2");
+            peson.innerText = America[1];
+            let dead = document.getElementById("dead2");
+            dead.innerText = America[2];
+        }
+
+        show_Brazil();
+
+        function show_Brazil() {
+            var Brazil = [2170000, 1470000, 81597];
+            let sick = document.getElementById("sick3");
+            sick.innerText = Brazil[0];
+            let peson = document.getElementById("peson3");
+            peson.innerText = Brazil[1];
+            let dead = document.getElementById("dead3");
+            dead.innerText = Brazil[2];
+        }
+
+        show_India();
+
+        function show_India() {
+            var India = [1190000, 753000, 28732];
+            let sick = document.getElementById("sick4");
+            sick.innerText = India[0];
+            let peson = document.getElementById("peson4");
+            peson.innerText = India[1];
+            let dead = document.getElementById("dead4");
+            dead.innerText = India[2];
+        }
+
+        show_Russia();
+
+        function show_Russia() {
+            var Russia = [789000, 572000, 12745];
+            let sick = document.getElementById("sick5");
+            sick.innerText = Russia[0];
+            let peson = document.getElementById("peson5");
+            peson.innerText = Russia[1];
+            let dead = document.getElementById("dead5");
+            dead.innerText = Russia[2];
+        }
+
+        // total();
+        // function total(...global) {
+        //     let dead = document.getElementById("dead_total");
+        //     let sum = global.reduce(() => {
+        //         // return a + b;
+        //         return 455 + 3970000 + 2170000 + 1190000 + 789000;
+        //         // return Russia[2]+India[2]+Brazil[2]+America[2]+Taiwan[2];
+        //     });
+        //     // dead.innerText = Russia[2]+India[2]+Brazil[2]+America[2]+Taiwan[2];
+        //     dead.innerText = sum;
+        //     // dead.innerText = 455+3970000+2170000+1190000+789000;
+
+        // }
+
+
+        var sicktotal = [455, 3970000, 2170000, 1190000, 789000];
+        document.getElementById("sick_total").innerHTML = sicktotal.reduce(total_sick);
+
+        function total_sick(total, num) {
+            return total + num;
+        }
+
+        var pesontotal = [440, 1160000, 1470000, 753000, 572000];
+        document.getElementById("peson_total").innerHTML = pesontotal.reduce(total_peson);
+
+        function total_peson(total, num) {
+            return total + num;
+        }
+
+        var deadtotal = [440, 1160000, 1470000, 753000, 572000];
+        document.getElementById("dead_total").innerHTML = deadtotal.reduce(total_dead);
+
+        function total_dead(total, num) {
+            return total + num;
+        }
+
+        // var Global = [Taiwan, America, Brazil, India, Russia];
+    </script>
+</body>
+
+</html>

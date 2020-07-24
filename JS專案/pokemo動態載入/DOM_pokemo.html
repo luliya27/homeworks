@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>寶可夢圖鑑列列表</h1>
+    <button onclick='showAll()'>全部顯示</button>
+    <button onclick='ShowAny()'>亂數單一顯示</button>
+    <div id='container'></div>
+    <script>
+        function AddElement() {
+            //1.創建與設定HTML元素
+            let img = document.createElement('img');
+            let file = $GetRandom(min, max).toString
+            console.log(file);
+            img.setAttribute('src', `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${file}.png`);
+
+            img.setAttribute('src', `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${file}.png`);
+            // img.setAttribute('src', 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png');
+            //2.選取HTML元素
+            let container = document.getElementById("container");
+            let div = document.querySelector("body div");
+            //3.加入元素旗下
+            container.appendChild(img);
+            div.appendChild(img);
+            //4.如果HTML畫⾯面要加入第⼆二張張圖應該如做？
+        }
+
+        function showAll() {
+            // 產生全部圖片
+            for (let i = 1; i <= 890; i++) {
+                // let i = Math.floor(Math.random() * 100);
+                // 往前補0
+                let pic = i.toString().padStart(3, "0");
+                let img = document.createElement("img");
+                Newimg(img, pic);
+                addpic(img);
+            }
+        }
+
+        function ShowAny() {
+            let i = Math.floor(Math.random() * 100);
+            let pic = i.toString().padStart(3, "0");
+            let img = document.createElement("img");
+            // AddElement()
+            Newimg(img, pic);
+            addpic(img);
+        }
+
+        // 新增圖片
+        function Newimg(data, file) {
+            data.setAttribute('src', `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${file}.png`);
+        }
+
+        //圖片放置區域
+        function addpic(data) {
+            let container = document.getElementById('container');
+            container.appendChild(data);
+        }
+
+        //數量
+        function $GetRandom(min, max) {
+            return Math.floor(Math.random() * (max - min) + min);
+        }
+
+        function AppendChile(selectorString, element) {
+            let parent = document.querySelector(selectorString);
+            parent.appendChild(element);
+        }
+    </script>
+</body>
+
+</html>

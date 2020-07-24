@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>pokemon圖鑑</h3>
+    <div id="container"></div>
+    <button onclick="showPokemo()">載入pokemo圖片</button>
+    <script>
+        var show = document.getElementById("container");
+        window.onload = showPokemo();
+
+        function showPokemo() {
+            let fileName = '001';
+            let pathFile = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png`;
+            let pokemoImg = `<img src='${pathFile}' />`;
+            let pokemo = '';
+            for (let i = 1; i < 890; i++) {
+                fileName = i.toString().padStart(3, '0');
+                pathFile = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png`;
+                pokemoImg = `<img src='${pathFile}' />`;
+                pokemo += pokemoImg;
+            }
+            show.innerHTML = pokemo;
+        }
+    </script>
+
+    <script>
+        var name = "apple";
+        // %s 字串
+        console.log("my name is %s", name);
+        // %c 改變樣式
+        console.log("my name is %c%s", "background:red;", name);
+        console.warn("my name is %c%s", "background:yellow;color:green", name);
+        var phoneNo = {
+            Home: "366-4946",
+            mobile: "0966192585"
+        };
+
+        let employees = [{
+                id: 1,
+                name: "A",
+                Email: "ykk40627@gmail.com"
+            },
+            {
+                id: 2,
+                name: "B",
+                Email: "ykk40627@gmail.com"
+            },
+            {
+                id: 3,
+                name: "C",
+                Email: "ykk40627@gmail.com"
+            },
+        ]
+        console.log(employees);
+        //以table方式呈現
+        console.table(employees);
+    </script>
+</body>
+
+</html>

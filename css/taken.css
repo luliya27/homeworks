@@ -58,6 +58,43 @@ li {
     list-style: none
 }
 
+.owl-carousel .item {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.owl-carousel .slogan {
+    text-align: center;
+    top: 150px;
+    position: absolute;
+    color: #ffffff;
+}
+
+.owl-carousel .slogan h3 {
+    font-size: 45px;
+}
+
+.owl-carousel .slogan h2 {
+    font-size: 200px;
+}
+
+.owl-carousel .slogan button {
+    font-size: 16px;
+    padding: 10px 50px;
+    color: #ffffff;
+    background-color: rgba(29, 29, 29, 0.808);
+    border: #ffffff 1.2px solid;
+    transition: ease 0.3s;
+}
+
+.owl-carousel .slogan button:hover {
+    color: #000000;
+    background-color: #ffffff;
+    border: #ffffff 1.2px solid;
+}
+
+/* ------- */
 .Intro .img {
     display: flex;
     justify-content: center;
@@ -70,6 +107,7 @@ li {
 }
 
 /* ------- */
+
 .Commodity .item .img {
     display: flex;
     justify-content: center;
@@ -113,6 +151,22 @@ li {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    text-align: center;
+}
+
+.parallax .text {
+    padding-top: 100px;
+    align-content: center;
+    align-items: center;
+    color: #ffffff;
+}
+
+.parallax h1 {
+    font-size: 100px;
+}
+
+.parallax p {
+    font-size: 40px;
 }
 
 .Description .text li {
@@ -197,4 +251,22 @@ li {
 .b-bottom {
     align-items: flex-end;
     margin-top: 20px;
+}
+
+/* 按鈕到最上 */
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    opacity: 0.8;
+    /* transition: ease 0.3s; */
+}
+
+#myBtn:hover {
+    /* background-color: #cccccc; */
 }

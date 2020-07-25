@@ -4,6 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
     <title>Document</title>
 </head>
 
@@ -28,7 +32,7 @@
             //3.加入元素旗下
             container.appendChild(img);
             div.appendChild(img);
-            //4.如果HTML畫⾯面要加入第⼆二張張圖應該如做？
+            //4.如果HTML畫⾯面要加入第二張圖應該如做？
         }
 
         function showAll() {
@@ -39,7 +43,7 @@
                 let pic = i.toString().padStart(3, "0");
                 let img = document.createElement("img");
                 Newimg(img, pic);
-                addpic(img);
+                picblock(img);
             }
         }
 
@@ -49,7 +53,7 @@
             let img = document.createElement("img");
             // AddElement()
             Newimg(img, pic);
-            addpic(img);
+            picblock(img);
         }
 
         // 新增圖片
@@ -58,7 +62,7 @@
         }
 
         //圖片放置區域
-        function addpic(data) {
+        function picblock(data) {
             let container = document.getElementById('container');
             container.appendChild(data);
         }

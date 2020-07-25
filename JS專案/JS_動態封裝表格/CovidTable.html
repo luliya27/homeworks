@@ -177,46 +177,53 @@
         //全域變數
         // var宣告會自動變成window的全域
 
-        global();
-        var data = [
-            [455, 440, 7],
-            [3970000, 1160000, 144000],
-            [2170000, 1470000, 81597],
-            [3970000, 1160000, 144000],
-            [789000, 572000, 12745]
-        ];
+        // global();
+        // var data = [
+        //     [455, 440, 7],
+        //     [3970000, 1160000, 144000],
+        //     [2170000, 1470000, 81597],
+        //     [3970000, 1160000, 144000],
+        //     [789000, 572000, 12745]
+        // ];
 
-        function global() {
-            let ginfo = [0, 0, 0];
-            for (let i = 0; i < data.length; i++) {
-                for (let j = 0; j < data.length; i++) {
-                    // global[i] = reduce(j)
-                }
-            }
-            // global.innerText
+        // function global() {
+        //     let ginfo = [0, 0, 0];
+        //     for (let i = 0; i < data.length; i++) {
+        //         for (let j = 1; j < data.length; i++) {
+        //             global[i] + global[j].reduce(ginfo)
+        //         }
+        //     }
+        //     var total_sick = document.getElementById('total_sick')
+        //     global.innerText = total_sick
+
+        //     var peson_total = document.getElementById('peson_total')
+        //     global.innerText = peson_total
+
+        //     var dead_total = document.getElementById('dead_total')
+        //     global.innerText = dead_total
+        // }
+
+
+        var sicktotal = [455, 3970000, 2170000, 1190000, 789000];
+        document.getElementById("sick_total").innerHTML = sicktotal.reduce(total_sick);
+
+        function total_sick(total, num) {
+            return total + num;
         }
 
+        var pesontotal = [440, 1160000, 1470000, 753000, 572000];
+        document.getElementById("peson_total").innerHTML = pesontotal.reduce(total_peson);
 
-        // var sicktotal = [455, 3970000, 2170000, 1190000, 789000];
-        // document.getElementById("sick_total").innerHTML = sicktotal.reduce(total_sick);
+        function total_peson(total, num) {
+            return total + num;
+        }
 
-        // function total_sick(total, num) {
-        //     return total + num;
-        // }
+        var deadtotal = [440, 1160000, 1470000, 753000, 572000];
+        document.getElementById("dead_total").innerHTML = deadtotal.reduce(total_dead);
 
-        // var pesontotal = [440, 1160000, 1470000, 753000, 572000];
-        // document.getElementById("peson_total").innerHTML = pesontotal.reduce(total_peson);
-
-        // function total_peson(total, num) {
-        //     return total + num;
-        // }
-
-        // var deadtotal = [440, 1160000, 1470000, 753000, 572000];
-        // document.getElementById("dead_total").innerHTML = deadtotal.reduce(total_dead);
-
-        // function total_dead(total, num) {
-        //     return total + num;
-        // }
+        function total_dead(total, num) {
+            return total + num;
+        }
 
         // var Global = [Taiwan, America, Brazil, India, Russia];
     </script>

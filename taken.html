@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> -->
-        <!-- http://taken.co.kr/ -->
+    <!-- http://taken.co.kr/ -->
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="/css/taken.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
@@ -29,34 +29,25 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">首頁 <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#">ABOUT <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="#">HANDLE</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="#">KNOB</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="#">PARTS</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        下拉選項
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">選項</a>
-                        <a class="dropdown-item" href="#">選項</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">其他選項</a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">ACC</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <a href="">공지사항</a>
                 <a href=""><img src="http://taken.co.kr/img/main/naver_tolk_icon_b.png" alt="">톡톡1:1문의 </a>
-                <a href=""><i class="fas fa-globe"></i>Global</a>
+                <a href=""><i class="fas fa-globe"></i> Global</a>
                 <a href="">Contact us</a>
                 <a href=""><img src="http://taken.co.kr/img/main/member_icon_b.png" alt=""></a>
                 <a href=""><img src="http://taken.co.kr/img/main/cart_icon_b.png" alt=""></a>
@@ -94,13 +85,24 @@
     <div class="owl-carousel owl-theme">
         <div class="item">
             <img src="http://taken.co.kr/img/bnr/main_s/mainbnr_13.jpg" width="100%" height="750px">
+            <div class="slogan">
+                <h3>Let's fish in my style!</h3>
+                <h2>TAKEN</h2>
+                <button>About Us</button>
+            </div>
         </div>
         <div class="item">
             <img src="http://taken.co.kr/img/bnr/main_s/mainbnr_13.jpg" width="100%" height="750px">
+            <div class="slogan">
+                <h3>Let's fish in my style!</h3>
+                <h2>TAKEN</h2>
+                <button>About Us</button>
+            </div>
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="/bower_components/OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+
     <div class="container">
         <div class="Intro">
             <div class="row">
@@ -333,6 +335,10 @@
         <br>
     </div>
     <div class="parallax">
+        <div class="text">
+            <h1>Take it TAKEN</h1>
+            <p>Let's fish in my style!</p>
+        </div>
     </div>
     <div class="container">
         <div class="row mt-5 mb-5">
@@ -1022,6 +1028,8 @@
                 <div class="col-lg-3 col-md-6 col-sm-8"></div>
             </div>
         </div>
+        <button onclick="topFunction()" id="myBtn" title="Go to top"><img src="http://taken.co.kr/inn/arrow_top.png"
+                alt="Back to Top"></button>
     </div>
     <div class="footer">
         <div class="container">
@@ -1093,18 +1101,52 @@
             loop: true,
             margin: 10,
             nav: true,
+            // autoplay: true,
+            autoplayTimeout: 2000,
+            autoplayHoverPause: true,
             responsive: {
                 0: {
                     items: 1
                 },
-                768: {
-                    items: 1
-                },
-                992: {
-                    items: 1
-                }
             }
         })
+        //Get the button
+        var topbutton = document.getElementById("myBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                topbutton.style.display = "block";
+
+            } else {
+                topbutton.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            window.onload = scrollFunction();
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+    <script>
+        (function (w, d, t, r, u) {
+            var f, n, i;
+            w[u] = w[u] || [], f = function () {
+                var o = {
+                    ti: "5976153"
+                };
+                o.q = w[u], w[u] = new UET(o), w[u].push("pageLoad")
+            }, n = d.createElement(t), n.src = r, n.async = 1, n.onload = n.onreadystatechange = function () {
+                var s = this.readyState;
+                s && s !== "loaded" && s !== "complete" || (f(), n.onload = n.onreadystatechange = null)
+            }, i = d.getElementsByTagName(t)[0], i.parentNode.insertBefore(n, i)
+        })(window, document, "script", "//bat.bing.com/bat.js", "uetq");
     </script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

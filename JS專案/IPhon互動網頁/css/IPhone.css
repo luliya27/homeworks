@@ -40,22 +40,42 @@
     align-content: center;
 }
 
+.box .color {
+    /* background-color: #dfc3b5; 金 */
+    /* background-color: #dfe1e0; 銀 */
+    /* background-color: #a8abad; 太空灰 */
+}
+
 .box .color-red {
-    background-color: brown;
+    background-color: #b70c2e;
     border-radius: 50%;
     width: 50px;
     height: 50px;
 }
 
 .box .color-yellow {
-    background-color: burlywood;
+    background-color: #fae27f;
     border-radius: 50%;
     width: 50px;
     height: 50px;
 }
 
 .box .color-black {
-    background-color: black;
+    background-color: #1f2120;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.box .color-green {
+    background-color: #ade0cd;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.box .color-purple {
+    background-color: #d1cddb;
     border-radius: 50%;
     width: 50px;
     height: 50px;
@@ -70,6 +90,11 @@
 }
 
 button {
-    background-color: none !important;
-    border: none !important;
+    width: 150px;
+    background-color: rgba(255, 255, 255, 0);
+    border: #ffffff 1px solid;
+}
+
+.display {
+    display: none;
 }

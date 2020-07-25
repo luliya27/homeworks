@@ -11,6 +11,8 @@
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
     <!-- https://www.apple.com/tw/shop/buy-iphone/iphone-11 -->
+    <!-- https://www.apple.com/tw/shop/buy-ipad/ipad-10-2 -->
+    <!-- https://www.apple.com/tw/shop/buy-mac/macbook-air -->
     <link rel="stylesheet" href="/JS專案/IPhon互動網頁/css/IPhone.css">
     <title>iphone</title>
 </head>
@@ -20,92 +22,78 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="btns">
-                    <button class="btn btn-info"><a href="">IPhone</a></button>
-                    <button class="btn btn-info"><a href="">IPad</a></button>
-                    <button class="btn btn-info"><a href="">MacPro</a></button>
+                    <button class="btn btn-info" id="IPhone" onclick="showIPhone()">IPhone</button>
+                    <button class="btn btn-info" id="IPad" onclick="showIPad()">IPad</button>
+                    <button class="btn btn-info" id="MacPro" onclick="showMacPro()">MacPro</button>
                 </div>
                 <div class="pic">
-                    <img src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/iphone11-select-2019-family?wid=441&amp;hei=529&amp;fmt=jpeg&amp;qlt=95&amp;op_usm=0.5,0.5&amp;.v=1567022175704"
-                        alt="">
+                    <img src="" alt="">
                 </div>
             </div>
             <div class="col-lg-6 align-items-center align-content-center">
-                <h2 class="">顏色</h2>
-                <div class="row">
-                    <div class="col-md-4">
-                        <button id="" onclick="">
-                            <div class="box">
+                <div id="show" class="display">
+                    <h2 class="mt-2">顏色</h2>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <button class="box" id="color-box1" onclick="iphonecolor1()">
                                 <div class="color-item">
-                                    <div class="color-red"></div>
-                                    <p>紅色</p>
+                                    <div class="color-red colors"></div>
+                                    <p class="color-text">紅色</p>
                                 </div>
-                            </div>
-                        </button>
-                    </div>
-                    <div class="col-md-4">
-                        <button>
-                            <div class="box">
+                            </button>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="box" id="color-box2" onclick="iphonecolor2()">
                                 <div class="color-item">
-                                    <div class="color-yellow"></div>
-                                    <p>黃色</p>
+                                    <div class="color-yellow colors"></div>
+                                    <p class="color-text">黃色</p>
                                 </div>
-                            </div>
-                        </button>
-                    </div>
-                    <div class="col-md-4">
-                        <button id="" onclick="">
-                            <div class="box">
+                            </button>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="box" id="color-box3" onclick="iphonecolor3()">
                                 <div class="color-item">
-                                    <div class="color-black"></div>
-                                    <p>黑色</p>
+                                    <div class="color-black colors"></div>
+                                    <p class="color-text">黑色</p>
                                 </div>
-                            </div>
-                        </button>
+                            </button>
+                        </div>
                     </div>
-                </div>
-                <h2>規格</h2>
-                <div class="row">
-                    <div class="col-md-4">
-                        <botton>
-                            <div class="box">
+                    <h2>規格</h2>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <button class="box BG" id="size-box1" onclick="iphoneBG1()" disabled="disabled">
                                 <div class="size-item">
                                     <h4>64BG</h4>
-                                    <p>NT$24900</p>
                                 </div>
-                            </div>
-                        </botton>
-                    </div>
-                    <div class="col-md-4">
-                        <botton>
-                            <div class="box">
+                            </button>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="box BG" id="size-box2" onclick="iphoneBG2()" disabled="disabled">
                                 <div class="size-item">
                                     <h4>128BG</h4>
-                                    <p>NT$24900</p>
                                 </div>
-                            </div>
-                        </botton>
-                    </div>
-                    <div class="col-md-4">
-                        <botton>
-                            <div class="box">
+                            </button>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="box BG" id="size-box3" onclick="iphoneBG3()" disabled="disabled">
                                 <div class="size-item">
                                     <h4>256BG</h4>
-                                    <p>NT$24900</p>
                                 </div>
-                            </div>
-                        </botton>
+                            </button>
+                        </div>
                     </div>
-                </div>
-                <h2>價格自算</h2>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="input-group input-group-lg mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">$</span>
-                            </div>
-                            <input type="text" class="form-control" id="">
-                            <div class="input-group-append">
-                                <span class="input-group-text">.00</span>
+                    <h2>價格自算</h2>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="input-group input-group-lg mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">$</span>
+                                </div>
+                                <input type="text" class="form-control" id="">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">元</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -114,8 +102,286 @@
         </div>
     </div>
     <script>
-        //加入動態
-        var row = [];
+        // var test = document.getElementById('IPhone');
+        // console.log(test);
+
+        // var colorbox =document.getElementById('color-box1');
+
+        // main();
+        // 初始頁面 隱藏商品項目資訊
+        // function main() {
+        // var start = document.getElementsByClassName('display')
+        // var start = document.getElementById('show')
+        // }
+        function showIPhone() {
+            var showIPhone = document.getElementById('IPhone')
+            //放置iphone 主圖
+            var mainimg = document.getElementsByTagName('img')[0];
+            iphonepic();
+            // 找到
+            var start = document.getElementById('show')
+            //移除 初始隱藏商品項目資訊
+            start.classList.remove('display')
+        }
+
+        function showIPad() {
+            var showIPhone = document.getElementById('IPhone')
+            //放置ipad 主圖
+            var mainimg = document.getElementsByTagName('img')[0];
+            ipadpic();
+            // 找到
+            var start = document.getElementById('show')
+            //移除 初始隱藏商品項目資訊
+            start.classList.remove('display')
+        }
+
+        // function iphone() {
+        //     iphonepic();
+        //     iphonecolor1();
+        //     iphonecolor2();
+        //     iphonecolor3();
+        //     iphoneBG1();
+        //     iphoneBG2();
+        //     iphoneBG3();
+        // }
+
+        // function ipad() {
+        //     ipadpic();
+        //     ipadcolor1();
+        //     ipadcolor2();
+        //     ipadcolor3();
+        //     ipadBG1();
+        //     ipadBG2();
+        //     ipadBG3();
+        // }
+
+        // function mac() {
+        //     macpic();
+        //     maccolor1();
+        //     maccolor2();
+        //     maccolor3();
+        //     macBG1();
+        //     macBG2();
+        //     macBG3();
+        // }
+
+        function showMacPro() {
+            var showIPhone = document.getElementById('IPhone')
+            //放置mac 主圖
+            var mainimg = document.getElementsByTagName('img')[0];
+            macpic();
+            // 找到
+            var start = document.getElementById('show')
+            //移除 初始隱藏商品項目資訊
+            start.classList.remove('display')
+        }
+        //iphone圖片function
+        function iphonepic() {
+            //新增iphone 主圖
+            var file = document.getElementsByTagName('img')[0]
+            file.src = 'img/iphone11-select-2019-family.jpg';
+        }
+        //iphone圖片function
+        function ipadpic() {
+            var file = document.getElementsByTagName('img')[0]
+            file.src = 'img/ipad-hero-unselected-201909_GEO_TW.jpg'
+        }
+        //iphone圖片function
+        function macpic() {
+            var file = document.getElementsByTagName('img')[0]
+            file.src = 'img/macbook-air-silver-select-201810.jpg'
+        }
+
+        
+
+        // 第一個顏色選項 紅
+        function iphonecolor1() {
+            var showcolor = document.getElementById('color-box1')
+            console.log(showcolor)
+            // 找到顏色按鈕
+            var colorbox = document.querySelectorAll('color-box')
+            // 移除 停用按鈕的方式
+            var showbtn = document.getElementsByClassName('BG')
+            for (let i = 0; i < 3; i++) {
+                showbtn[i].removeAttribute('disabled');
+            }
+
+            // 找到圖片放置區
+            var img = document.getElementsByTagName('img')[0]
+            img.src =
+                'img/iphone11-red-select-2019.png'
+            // value是把輸入框的值顯示出來
+        }
+
+        // 第二個顏色選項 黃
+        function iphonecolor2() {
+            var showcolor2 = document.getElementById('color-box')
+            //找到顏色按鈕
+            var colorbox = document.querySelectorAll('color-box')
+
+            // 移除 停用按鈕的方式
+            var showbtn = document.getElementsByClassName('BG')
+            for (let i = 0; i < 3; i++) {
+                showbtn[i].removeAttribute('disabled');
+            }
+            // 找到圖片放置區
+            var img = document.getElementsByTagName('img')[0]
+            img.src =
+                'img/iphone11-yellow-select-2019.png'
+            // value是把輸入框的值顯示出來
+        }
+
+        // 第三個顏色選項 黑
+        function iphonecolor3() {
+            var showcolor = document.getElementById('color-box')
+            //找到顏色按鈕
+            var colorbox = document.querySelectorAll('color-box')
+            // 移除 停用按鈕的方式
+            var showbtn = document.getElementsByClassName('BG')
+            for (let i = 0; i < 3; i++) {
+                showbtn[i].removeAttribute('disabled');
+            }
+            // 找到圖片放置區
+            var img = document.getElementsByTagName('img')[0]
+            img.src =
+                'img/iphone11-black-select-2019.png'
+            // value是把輸入框的值顯示出來
+
+        }
+
+        // 顯示價格
+        // 第一個規格64BG
+        function iphoneBG1() {
+            // 在按下規格後顯示
+            var showBG = document.getElementById('size-box')
+            // 當選取所有顏色
+            var showcolor2 = document.querySelector('#color-box')
+            // 找到對應輸入框
+            var input = document.getElementsByTagName('input')[0];
+            console.dir(input);
+            // 顯示價格
+            input.value = "24,900"
+        }
+        // 第二個規格128BG
+        function iphoneBG2() {
+            // 在按下規格後顯示
+            var showBG = document.getElementById('size-box')
+            // 當選取所有顏色
+            var showcolor = document.querySelectorAll('#color-box')
+            // 找到對應輸入框
+            var input = document.getElementsByTagName('input')[0];
+            console.dir(input);
+            // 顯示價格
+            input.value = "26,900"
+        }
+        // 第三個規格256BG
+        function iphoneBG3() {
+            // 在按下規格後顯示
+            var showBG = document.getElementById('size-box')
+            // 當選取所有顏色
+            var showcolor = document.querySelectorAll('#color-box')
+            // 找到對應輸入框
+            var input = document.getElementsByTagName('input')[0];
+            console.dir(input);
+            // 顯示價格
+            input.value = "30,400"
+        }
+
+        // -----ipad-----
+        // 第一個顏色選項 金
+        function ipadcolor1() {
+            //
+            var colors = document.getElementsByClassName('colors')[0];
+            colors.style.backgroundColor = '#dfc3b5'
+            var showcolor = document.getElementById('color-box1')
+            // 找到顏色按鈕
+            var colorbox = document.querySelectorAll('color-box')
+            // 移除 停用按鈕的方式
+            var showbtn = document.getElementsByClassName('BG')
+            for (let i = 0; i < 3; i++) {
+                showbtn[i].removeAttribute('disabled');
+            }
+
+            // 找到圖片放置區
+            var img = document.getElementsByTagName('img')[0]
+            img.src =
+                'img/ipad-wifi-select-gold-201909_GEO_TW.png'
+            // value是把輸入框的值顯示出來
+        }
+        // 第一個顏色選項 太空灰
+        function ipadcolor2() {
+            var showcolor = document.getElementById('color-box1')
+            console.log(showcolor)
+            // 找到顏色按鈕
+            var colorbox = document.querySelectorAll('color-box')
+            // 移除 停用按鈕的方式
+            var showbtn = document.getElementsByClassName('BG')
+            for (let i = 0; i < 3; i++) {
+                showbtn[i].removeAttribute('disabled');
+            }
+
+            // 找到圖片放置區
+            var img = document.getElementsByTagName('img')[0]
+            img.src =
+                'img/ipad-wifi-select-space-201909_GEO_TW.png'
+            // value是把輸入框的值顯示出來
+        }
+        // 第一個顏色選項 灰
+        function ipadcolor3() {
+            var showcolor = document.getElementById('color-box1')
+            console.log(showcolor)
+            // 找到顏色按鈕
+            var colorbox = document.querySelectorAll('color-box')
+            // 移除 停用按鈕的方式
+            var showbtn = document.getElementsByClassName('BG')
+            for (let i = 0; i < 3; i++) {
+                showbtn[i].removeAttribute('disabled');
+            }
+
+            // 找到圖片放置區
+            var img = document.getElementsByTagName('img')[0]
+            img.src =
+                'img/ipad-wifi-select-silver-201909_GEO_TW.png'
+            // value是把輸入框的值顯示出來
+        }
+
+        // 顯示價格
+        // 第一個規格64BG
+        function ipadBG1() {
+            // 在按下規格後顯示
+            var showBG = document.getElementById('size-box')
+            // 當選取所有顏色
+            var showcolor2 = document.querySelector('#color-box')
+            // 找到對應輸入框
+            var input = document.getElementsByTagName('input')[0];
+            console.dir(input);
+            // 顯示價格
+            input.value = "24,900"
+        }
+        // 第二個規格128BG
+        function ipadBG2() {
+            // 在按下規格後顯示
+            var showBG = document.getElementById('size-box')
+            // 當選取所有顏色
+            var showcolor = document.querySelectorAll('#color-box')
+            // 找到對應輸入框
+            var input = document.getElementsByTagName('input')[0];
+            console.dir(input);
+            // 顯示價格
+            input.value = "26,900"
+        }
+        // 第三個規格256BG
+        function ipadBG3() {
+            // 在按下規格後顯示
+            var showBG = document.getElementById('size-box')
+            // 當選取所有顏色
+            var showcolor = document.querySelectorAll('#color-box')
+            // 找到對應輸入框
+            var input = document.getElementsByTagName('input')[0];
+            console.dir(input);
+            // 顯示價格
+            input.value = "30,400"
+        }
     </script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

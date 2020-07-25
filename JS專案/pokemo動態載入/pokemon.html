@@ -9,11 +9,13 @@
 
 <body>
     <h3>pokemon圖鑑</h3>
-    <div id="container"></div>
     <button onclick="showPokemo()">載入pokemo圖片</button>
+    <div id="container"></div>
+    
     <script>
         var show = document.getElementById("container");
-        window.onload = showPokemo();
+        // window.onload = showPokemo();
+        body.onload = showPokemo();
 
         function showPokemo() {
             let fileName = '001';

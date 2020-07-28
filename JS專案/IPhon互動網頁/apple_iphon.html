@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="row">
+                <div class="col-12">
+                    <button class="btn btn-info">iphone</button>
+                    <button class="btn btn-info">iPad</button>
+                    <button class="btn btn-info">mac</button>
+                </div>
+            </div>
+            <div class="col-6">
+                <div id="productImg" class="col-12">
+                    <img src="/JS專案/IPhon互動網頁/img/ipad-hero-unselected-201909_GEO_TW.jpg" class="w-100">
+                </div>
+                <div class="col-12 d-flex text-center mt-3">
+                    <div class="col-6">
+                        <p><i class="fas fa-box"></i></p>
+                        <p>免額外付費的運送服務</p>
+                    </div>
+                    <div class="col-6">
+                        <p><i class="fas fa-box-open"></i></p>
+                        <p>免額外付費輕鬆退貨</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <h2>購買 iPad</h2>
+                <p>購買 iPad 可享免額外付費運送服務。</p>
+
+                <button class="accordion" id="color-title">太空灰色</button>
+                <div class="block d-flex my-3 flex-wrap">
+                    <div class="col-12">
+                        <h6>外觀</h6>
+                    </div>
+
+                    <div class="col-6">
+                        <!-- class="d-none" 隱藏 -->
+                        <!-- <input type="radio" name="color" id="gray" value="gray" class="d-none">
+                        <label class="item d-block color-item m-1" for="gray">
+                            <div class="content text-center py-2">
+                                <img src="./10.2 吋 iPad 與 Apple Pencil/colorgray.png" class="w-25">
+                                <h4 class="h6">太空灰色</h4>
+                            </div>
+                        </label> -->
+                    </div>
+                    <div class="col-6">
+                        <!-- <input type="radio" name="color" id="silver" value="silver" class="d-none">
+                        <label class="item d-block color-item m-1" for="silver">
+                            <div class="content text-center py-2">
+                                <img src="./10.2 吋 iPad 與 Apple Pencil/colorsilver.png" class="w-25">
+                                <h4 class="h6">銀色</h4>
+                            </div>
+                        </label> -->
+                    </div>
+                    <!-- <div class="col-6"> -->
+                    <!-- <input type="radio" name="color" id="gold" value="gold" class="d-none">
+                        <label class="item d-block color-item m-1" for="gold">
+                            <div class="content text-center py-2">
+                                <img src="./10.2 吋 iPad 與 Apple Pencil/colorgold.png" class="w-25">
+                                <h4 class="h6">金色</h4>
+                            </div>
+                        </label> -->
+                    <!-- </div> -->
+                </div>
+
+                <button class="accordion" id="GB">32GB</button>
+                <div class="block d-flex my-3 flex-wrap">
+                    <div class="col-12">
+                        <h6>儲存裝置</h6>
+                    </div>
+                    <div class="col-12 d-flex storage-area">
+                        <div class="col-6">
+                            <input type="radio" name="storage" id="32GB" value="32GB" class="d-none">
+                            <label class="item d-block storage-item m-1" for="32GB">
+                                <div class="content text-center py-2">
+                                    <h4>32<small>GB<sup>1</sup></small></h4>
+                                    <p><small>NT$10,900</small></p>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-6">
+                            <input type="radio" name="storage" id="128GB" value="128GB" class="d-none">
+                            <label class="item d-block storage-item m-1" for="128GB">
+                                <div class="content text-center py-2">
+                                    <h4>128<small>GB<sup>1</sup></small></h4>
+                                    <p><small>NT$13,900</small></p>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    <a href="https://timchen0409.azurewebsites.net/AppleProduct/index.html#!"
+                        class="note"><small>你需要多少儲存空間?</small></a>
+                </div>
+
+                <button class="accordion" id="WiFi">Wi-Fi</button>
+                <div class="block d-flex my-3 flex-wrap">
+                    <div class="col-12">
+                        <h6>連線能力</h6>
+                    </div>
+                    <div class="col-12 d-flex connection-area">
+                        <div class="col-6">
+                            <!-- <input type="radio" name="connection" id="WiFi" value="WiFi" class="d-none">
+                            <label class="item d-block connection-item m-1" for="WiFi">
+                                <div class="content text-center py-2">
+                                    <h4>WiFi</h4>
+                                    <p><small>NT$13,900</small></p>
+                                </div>
+                            </label> -->
+                        </div>
+                        <div class="col-6">
+                            <!-- <input type="radio" name="connection" id="WiFiCell" value="WiFiCell" class="d-none">
+                            <label class="item d-block connection-item m-1" for="WiFiCell">
+                                <div class="content text-center py-2">
+                                    <h4>WiFi + 行動網路</h4>
+                                    <p><small>NT$13,900</small></p>
+                                </div>
+                            </label> -->
+                        </div>
+                    </div>
+                    <a href="https://timchen0409.azurewebsites.net/AppleProduct/index.html#!" class="note"><small>你需要
+                            Wi-Fi 或 Wi-Fi + 行動網路機型？</small></a>
+                </div>
+
+                <div class="price-area bg-light">
+                    <h1 id="price">NT$10,900</h1>
+                    <p><small>含營業稅和其他法定稅費：約 NT$<span id="tex">544</span>。*</small></p>
+                    <a href="https://timchen0409.azurewebsites.net/AppleProduct/index.html#!"><small><i
+                                class="far fa-dot-circle"></i> 最低月付 NT$<span id="monthPay">908</span>，12
+                            個月，0%
+                            利率</small></a>
+
+                    <div class="row my-4">
+                        <div class="col-10"><button class="btn btn-primary px-5 mr-3 w-100">繼續</button></div>
+                        <div class="d-block col-2 text-primary text-center h3" data-toggle="tooltip"
+                            data-placement="top" title="" data-original-title="加入喜好項目">
+                            <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="text-center"><small>購買時取得協助。 <a
+                            href="https://timchen0409.azurewebsites.net/AppleProduct/index.html#">立即對談</a> 或致電
+                        0800-020-021</small></p>
+            </div>
+        </div>
+    </div>
+    <script>
+        //產品資料來源
+        var products = {
+            iphone: {},
+            ipad: {
+                // 顏色
+                color: [{
+                        colorName: "太空灰色",
+                        colorEnName: "gray",
+                        img: "/img/ipad-gray.png"
+                    },
+                    {
+                        colorName: "銀色",
+                        colorEnName: "silver",
+                        img: "/img/ipad-silver.png"
+                    },
+                    {
+                        colorName: "金色",
+                        colorEnName: "gold",
+                        img: "/img/ipad-gold.png"
+                    }
+                ],
+
+                // 容量
+                GB: [{
+                        size: "32GB",
+                        description: "32<small>GB<sup>1</sup><small>",
+                        price: "10,900"
+                    },
+                    {
+                        size: "32GB",
+                        description: "32<small>GB<sup>1</sup><small>",
+                        price: "10,900"
+                    }
+                ],
+
+                //wifi
+                WiFi: [{
+                        title: "WiFi",
+                        value: "WiFi",
+                        price: "10,900"
+                    },
+                    {
+                        title: "WiFi + 行動網路",
+                        value: "WiFiCell",
+                        price: "15,400"
+                    }
+                ],
+
+                //對不同容量、wifi 的價格方案
+                productsPrice: [{
+                        title: "32GB,WiFi",
+                        totalprice: "10,900",
+                        text: "544",
+                        monthPay: "908"
+                    }, {
+                        title: "128GB,WiFi",
+                        totalprice: "13,900",
+                        text: "687",
+                        monthPay: "1,158"
+                    },
+                    // WiFiCell
+                    {
+                        title: "32GB,WiFiCell",
+                        totalprice: "15,400",
+                        tex: "758",
+                        monthPay: "1,283"
+                    }, {
+                        title: "128GB,WiFiCell",
+                        totalprice: "18,400",
+                        tex: "901",
+                        monthPay: "1,533"
+                    }
+                ]
+            },
+        }
+
+        let ColorOption = document.getElementsByName('color');
+        let GBOption = document.getElementsByName('GB');
+        let WiFiOption = document.getElementsByName('WiFi');
+
+        // 宣告 會變動資料 變數
+        // 找到左圖顯示
+        let productImg = document.querySelector('#productImg');
+        // 找到價格顯示
+        let price = document.querySelector('#price');
+        // 找到稅率顯示
+        let tex = document.querySelector('#tex')
+        // 找到月支付顯示
+        let monthPay = document.querySelector('#monthPay');
+
+        render();
+        //添加
+        function render() {
+            showColor();
+        }
+
+        function showColor() {
+            let block = document.querySelector('#color-title+.block');
+            let detail ='';
+            // 找到產品資料來源products 裡的ipad
+            products.ipad.color.forEach(x =>{
+                detail +=`<div class="col-6">
+                        <input type="radio" name="color" id="${x.colorEnName}" value="${x.colorEnName}" class="d-none">
+                            <label class="item d-block color-item m-1" for="${x.colorEnName}">
+                                <div class="content text-center py-2">
+                                    <img src="${x.img}" class="w-25">
+                                    <h4 class="h6">${x.colorName}</h4>
+                                </div>
+                            </label>
+                    </div>`
+            })
+            block.insertAdjacentHTML('beforeend', str);
+        }
+
+        function showGB() {
+
+        }
+
+        function showWiFi() {
+
+        }
+    </script>
+
+</body>
+
+</html>

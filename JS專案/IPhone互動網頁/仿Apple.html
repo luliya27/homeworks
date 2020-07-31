@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>仿Apple網頁</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+
+        /* 手風琴 */
+        .accordion {
+            background-color: #fff;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            font-weight: bold;
+            width: 100%;
+            border: none;
+            text-align: left;
+            font-size: 15px;
+            transition: 0.4s;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .block {
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+
+        .block .note {
+            padding-left: 18px;
+        }
+
+        .item {
+            border-radius: 4px;
+            border: 1px solid #d6d6d6;
+        }
+
+        .item:hover {
+            border-color: #696969;
+        }
+
+        input[type="radio"]:checked+label {
+            border-color: #1c3fdb;
+            box-shadow: 0 0 5px #78c8e2;
+        }
+
+        .item label {
+            box-sizing: border-box;
+        }
+
+        .price-area i {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12">
+                <button class="btn btn-info" id="IPhone" onclick="showIPhone()">IPhone</button>
+                <button class="btn btn-info" id="IPad" onclick="showIPad()">IPad</button>
+                <button class="btn btn-info" id="MacPro" onclick="showMacPro()">MacPro</button>
+            </div>
+        </div><br>
+
+        <div class="row d-none" id="showIPhone">
+            <div class="col-lg-6 col-md-12">
+                <div id="iphone_productImg" class="col-12">
+                    <img src="img/iphone11s.jpg" class="w-100">
+                </div>
+                <div class="col-12 d-flex text-center mt-3">
+                    <div class="col-6">
+                        <p><i class="fas fa-box"></i></p>
+                        <p>免額外付費的運送服務</p>
+                    </div>
+                    <div class="col-6">
+                        <p><i class="fas fa-box-open"></i></p>
+                        <p>免額外付費輕鬆退貨</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <h2>購買 iPhone 11</h2>
+                <p>選擇外觀。</p>
+                <button class="accordion" id="iphonecolor-title">顏色</button>
+                <div class="block d-flex my-3 flex-wrap">
+                    <div class="col-12">
+                        <h6>外觀</h6>
+                    </div>
+                    <!-- script呈現 -->
+                </div>
+
+                <button class="accordion" id="iphoneGB-title">容量</button>
+                <div class="block d-flex my-3 flex-wrap">
+                    <div class="col-12">
+                        <h6>儲存裝置</h6>
+                    </div>
+                    <div class="col-12 d-flex iphoneGBinfo-area">
+                        <!-- script呈現 -->
+                    </div>
+                    <a href="" class="note"><small>你需要多少儲存空間?</small></a>
+                </div>
+                <div class="price-area bg-light">
+                    <h1 id="iphone_price">NT$</h1>
+                    <div class="row my-4">
+                        <div class="col-10"><button class="btn btn-info px-5 mr-3 w-100">繼續</button></div>
+                        <div class="d-block col-2 text-info text-center h3" data-toggle="tooltip" data-placement="top"
+                            title="" data-original-title="加入喜好項目">
+                            <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row d-none" id="showIPad">
+            <div class="col-lg-6 col-md-12">
+                <div id="productImg" class="col-12">
+                    <img src="img/ipad.png" class="w-100">
+                </div>
+                <div class="col-12 d-flex text-center mt-3">
+                    <div class="col-6">
+                        <p><i class="fas fa-box"></i></p>
+                        <p>免額外付費的運送服務</p>
+                    </div>
+                    <div class="col-6">
+                        <p><i class="fas fa-box-open"></i></p>
+                        <p>免額外付費輕鬆退貨</p>
+                    </div>
+                </div>
+            </div><br>
+            <div class="col-lg-6 col-md-12">
+                <h2>購買 iPad</h2>
+                <p>購買 iPad 可享免額外付費運送服務。</p>
+
+                <button class="accordion" id="color-title">顏色</button>
+                <div class="block d-flex my-3 flex-wrap">
+                    <div class="col-12">
+                        <h6>外觀</h6>
+                    </div>
+                    <!-- script呈現 -->
+                </div>
+
+                <button class="accordion" id="GB-title">容量</button>
+                <div class="block d-flex my-3 flex-wrap">
+                    <div class="col-12">
+                        <h6>儲存裝置</h6>
+                    </div>
+                    <div class="col-12 d-flex GBinfo-area">
+                        <!-- script呈現 -->
+                    </div>
+                    <a href="" class="note"><small>你需要多少儲存空間?</small></a>
+                </div>
+
+                <button class="accordion" id="WiFi-title">Wi-Fi</button>
+                <div class="block d-flex my-3 flex-wrap">
+                    <div class="col-12">
+                        <h6>連線能力</h6>
+                    </div>
+                    <div class="col-12 d-flex WiFi-area">
+                        <!-- script呈現 -->
+                    </div>
+                    <a href="" class="note"><small>你需要
+                            Wi-Fi 或 Wi-Fi + 行動網路機型？</small></a>
+                </div>
+
+                <div class="price-area bg-light">
+                    <h1 id="price">NT$</h1>
+                    <p><small>含營業稅和其他法定稅費：約 NT$<span id="tex"></span>。*</small></p>
+                    <a href=""><small><i class="far fa-dot-circle"></i> 最低月付 NT$<span id="monthPay">908</span>，12
+                            個月，0%
+                            利率</small></a>
+
+                    <div class="row my-4">
+                        <div class="col-10"><button class="btn btn-info px-5 mr-3 w-100">繼續</button></div>
+                        <div class="d-block col-2 text-info text-center h3" data-toggle="tooltip" data-placement="top"
+                            title="" data-original-title="加入喜好項目">
+                            <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="text-center"><small>購買時取得協助。 <a href="">立即對談</a> 或致電
+                        0800-020-021</small></p>
+            </div>
+        </div>
+        <div class="row d-none" id="showMacPro">
+            <div class="col-6">
+                <div id="productImg" class="col-12">
+                    <img src="img/macs.jpg" class="w-100">
+                </div>
+                <div class="col-12 d-flex text-center mt-3">
+                    <div class="col-6">
+                        <p><i class="fas fa-box"></i></p>
+                        <p>免額外付費的運送服務</p>
+                    </div>
+                    <div class="col-6">
+                        <p><i class="fas fa-box-open"></i></p>
+                        <p>免額外付費輕鬆退貨</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <h2>選擇你的全新 MacBook Air，並選定一種外觀。</h2>
+                <h3>13 吋 MacBook Air</h3>
+                <p>購買時取得協助。 立即與我們交流 (以新視窗開啟) 或致電 0800-020-021。</p>
+                <button class="accordion" id="color-title">顏色</button>
+                <div class="block d-flex my-3 flex-wrap">
+                    <div class="col-12">
+                        <h6>外觀</h6>
+                    </div>
+                    <!-- script呈現 -->
+                </div>
+
+                <button class="accordion" id="GB-title">容量</button>
+                <div class="block d-flex my-3 flex-wrap">
+                    <div class="col-12">
+                        <h6>儲存裝置</h6>
+                    </div>
+                    <div class="col-12 d-flex GBinfo-area">
+                        <!-- script呈現 -->
+                    </div>
+                    <a href="" class="note"><small>你需要多少儲存空間?</small></a>
+                </div>
+                <div class="price-area bg-light">
+                    <h1 id="price">NT$</h1>
+                    <div class="row my-4">
+                        <div class="col-10"><button class="btn btn-info px-5 mr-3 w-100">繼續</button></div>
+                        <div class="d-block col-2 text-info text-center h3" data-toggle="tooltip" data-placement="top"
+                            title="" data-original-title="加入喜好項目">
+                            <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+        //手風琴功能
+        var acc = document.querySelectorAll(".accordion");
+        for (let i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                let accblock = this.nextElementSibling;
+                if (accblock.style.maxHeight) {
+                    accblock.style.maxHeight = null;
+                } else {
+                    accblock.style.maxHeight = accblock.scrollHeight + 20 + "px";
+                }
+            });
+        }
+        // 顯出畫面
+        function showIPhone() {
+            var show = document.getElementById('IPhone')
+            var start = document.getElementById('showIPhone')
+            //切換 初始隱藏商品項目資訊 
+            start.classList.toggle("d-none");
+        }
+
+        function showIPad() {
+            var show = document.getElementById('IPad')
+            var start = document.getElementById('showIPad')
+            //切換 初始隱藏商品項目資訊 
+            start.classList.toggle("d-none");
+        }
+
+        function showMacPro() {
+            var show = document.getElementById('MacPro')
+            var start = document.getElementById('showMacPro')
+            //切換 初始隱藏商品項目資訊 
+            start.classList.toggle("d-none");
+        }
+
+
+        //產品資料來源
+        var products = {
+            iphone: {
+                // 顏色
+                color: [{
+                    colorName: "紅色",
+                    colorEnName: "red",
+                    img: "img/finish-red.jpg"
+                }, {
+                    colorName: "黃色",
+                    colorEnName: "yellow",
+                    img: "img/finish-yellow.jpg"
+                }, {
+                    colorName: "黑色",
+                    colorEnName: "black",
+                    img: "img/finish-black.jpg"
+                }],
+                // 容量
+                GBinfo: [{
+                    size: "64GB",
+                    description: "64<small>GB<sup>1</sup></small>",
+                    lowestPrice: "24,900"
+                }, {
+                    size: "128GB",
+                    description: "128<small>GB<sup>1</sup></small>",
+                    lowestPrice: "26,900"
+                }, {
+                    size: "256GB",
+                    description: "256<small>GB<sup>1</sup></small>",
+                    lowestPrice: "30,400"
+                }],
+                //對不同容量 價格方案
+                productsPrice: [{
+                        title: "64GB",
+                        price: "24,900",
+                    },
+                    {
+                        title: "128GB",
+                        price: "26,900",
+                    }, {
+                        title: "256GB",
+                        price: "30,400",
+                    },
+                ]
+            },
+            ipad: {
+                // 顏色
+                color: [{
+                        colorName: "太空灰色",
+                        colorEnName: "gray",
+                        img: "img/colorgray.png"
+                    },
+                    {
+                        colorName: "銀色",
+                        colorEnName: "silver",
+                        img: "img/colorsilver.png"
+                    },
+                    {
+                        colorName: "金色",
+                        colorEnName: "gold",
+                        img: "img/colorgold.png"
+                    }
+                ],
+                // 容量
+                GBinfo: [{
+                    size: "32GB",
+                    description: "32<small>GB<sup>1</sup></small>",
+                    lowestPrice: "10,900"
+                }, {
+                    size: "128GB",
+                    description: "128<small>GB<sup>1</sup></small>",
+                    lowestPrice: "13,900"
+                }],
+                //wifi
+                WiFi: [{
+                        title: "WiFi",
+                        value: "WiFi",
+                        lowestPrice: [10900, 13900]
+                        // "10,900", //13,900
+                    },
+                    {
+                        title: "WiFi + 行動網路",
+                        value: "WiFiCell",
+                        lowestPrice: [15400, 18900]
+                        // "15,400" //18,900
+                    }
+                ],
+                //對不同容量、wifi 的價格方案
+                productsPrice: [{
+                        title: "32GB,WiFi",
+                        price: "10,900",
+                        tex: "544",
+                        monthPay: "908"
+                    },
+                    {
+                        title: "128GB,WiFi",
+                        price: "13,900",
+                        tex: "687",
+                        monthPay: "1,158"
+                    }, {
+                        title: "32GB,WiFiCell",
+                        price: "15,400",
+                        tex: "758",
+                        monthPay: "1,283"
+                    }, {
+                        title: "128GB,WiFiCell",
+                        price: "18,400",
+                        tex: "901",
+                        monthPay: "1,533"
+                    }
+                ]
+            },
+            mac: {
+                // 顏色
+                color: [{
+                        colorName: "太空灰色",
+                        colorEnName: "gray",
+                        img: "img/colorgray.png"
+                    },
+                    {
+                        colorName: "銀色",
+                        colorEnName: "silver",
+                        img: "img/colorsilver.png"
+                    },
+                    {
+                        colorName: "金色",
+                        colorEnName: "gold",
+                        img: "img/colorgold.png"
+                    }
+                ],
+                // 容量
+                GBinfo: [{
+                        size: "64GB",
+                        description: "32<small>GB<sup>1</sup></small>",
+                        price: "10,900"
+                    },
+                    {
+                        size: "128GB",
+                        description: "128<small>GB<sup>1</sup></small>",
+                        price: "13,900"
+                    }
+                ]
+            }
+        }
+
+    </script>
+    <script src="/JS專案/IPhone互動網頁/js/ipad.js"></script>
+    <script src="/JS專案/IPhone互動網頁/js/iphone.js"></script>
+    <!-- <script src="/JS專案/IPhone互動網頁/js/mac.js"></script> -->
+
+</body>
+
+</html>

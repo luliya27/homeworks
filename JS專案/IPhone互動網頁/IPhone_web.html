@@ -1,0 +1,627 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!-- https://www.apple.com/tw/shop/buy-iphone/iphone-11 -->
+    <!-- https://www.apple.com/tw/shop/buy-ipad/ipad-10-2 -->
+    <!-- https://www.apple.com/tw/shop/buy-mac/macbook-air -->
+    <link rel="stylesheet" href="/JS專案/IPhone互動網頁/css/IPhone.css">
+    <title>iphone</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">HTML DOM 練習</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <!-- <li class="nav-item active">
+                    <a class="nav-link" href="#">新版的仿Apple</a>
+                </li> -->
+            </ul>
+            <form class="form-inline">
+                <a href="https://luliyahomeworks.azurewebsites.net/Naturio_noRWD.html"><input class="btn btn-success"
+                        type="button" value="新版的仿Apple"></a>
+            </form>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="btns">
+                    <button class="btn btn-info" id="IPhone" onclick="showIPhone()">IPhone</button>
+                    <button class="btn btn-info" id="IPad" onclick="showIPad()">IPad</button>
+                    <button class="btn btn-info" id="MacPro" onclick="showMacPro()">MacPro</button>
+                </div>
+                <div class="pic">
+                    <img src="" alt="">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div id="showIPhone" class="d-none">
+                    <h2 class="mt-2">顏色</h2>
+                    <div class="row" id="color-display">
+                        <!-- <div class="col-md-4">
+                            <button class="box" onclick="iphonecolor1()">
+                                <div class="color-item">
+                                    <div class="color-red colors"></div>
+                                    <p class="color-text">紅色</p>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="box" onclick="iphonecolor2()">
+                                <div class="color-item">
+                                    <div class="color-yellow colors"></div>
+                                    <p class="color-text">黃色</p>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="box" onclick="iphonecolor3()">
+                                <div class="color-item">
+                                    <div class="color-black colors"></div>
+                                    <p class="color-text">黑色</p>
+                                </div>
+                            </button>
+                        </div> -->
+                    </div>
+                    <h2>規格</h2>
+                    <div class="row" id="size-display">
+                        <!-- <div class="col-md-4">
+                            <button class="box iphone-BG" id="" onclick="iphoneBG1()" disabled="disabled">
+                                <div class="size-item">
+                                    <h4>64BG</h4>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="box iphone-BG" id="" onclick="iphoneBG2()" disabled="disabled">
+                                <div class="size-item">
+                                    <h4>128BG</h4>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="box iphone-BG" id="" onclick="iphoneBG3()" disabled="disabled">
+                                <div class="size-item">
+                                    <h4>256BG</h4>
+                                </div>
+                            </button>
+                        </div> -->
+                    </div>
+                    <h2>價格自算</h2>
+                    <div class="row">
+                        <div id="price-display"></div>
+                        <!-- ------------- -->
+                        <div class="col-12">
+                            <div class="input-group input-group-lg mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">$</span>
+                                </div>
+                                <input type="text" class="form-control" id="">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">元</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="showIPad" class="d-none">
+                    <h2 class="mt-2">顏色</h2>
+                    <div class="row ">
+                        <div id="color-display"></div>
+                        <div class="col-md-4">
+                            <button class="box" onclick="ipadcolor1()">
+                                <div class="color-item">
+                                    <div class="color-gold colors"></div>
+                                    <p class="color-text">金色</p>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="box" onclick="ipadcolor2()">
+                                <div class="color-item">
+                                    <div class="color-gray colors"></div>
+                                    <p class="color-text">太空灰色</p>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="box" onclick="ipadcolor3()">
+                                <div class="color-item">
+                                    <div class="color-silver colors"></div>
+                                    <p class="color-text">銀色</p>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                    <h2>規格</h2>
+                    <div class="row">
+                        <div id="size-display"></div>
+                        <div class="col-md-4">
+                            <button class="box ipad-BG" onclick="ipadBG1()" disabled="disabled">
+                                <div class="size-item">
+                                    <h4>64BG</h4>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="box ipad-BG" onclick="ipadBG2()" disabled="disabled">
+                                <div class="size-item">
+                                    <h4>128BG</h4>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="box ipad-BG" onclick="ipadBG3()" disabled="disabled">
+                                <div class="size-item">
+                                    <h4>256BG</h4>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                    <h2>價格自算</h2>
+                    <div class="row">
+                        <div id="price-display"></div>
+                        <div class="col-12">
+                            <div class="input-group input-group-lg mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">$</span>
+                                </div>
+                                <input type="text" class="form-control" id="">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">元</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="showMac" class="d-none">
+                    <h2 class="mt-2">顏色</h2>
+                    <div class="row ">
+                        <div id="color-display"></div>
+                        <div class="col-md-4">
+                            <button class="box" onclick="maccolor1()">
+                                <div class="color-item">
+                                    <div class="color-gold colors"></div>
+                                    <p class="color-text">金色</p>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="box" onclick="maccolor1()">
+                                <div class="color-item">
+                                    <div class="color-gray colors"></div>
+                                    <p class="color-text">太空灰色</p>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="box" onclick="maccolor2()">
+                                <div class="color-item">
+                                    <div class="color-silver colors"></div>
+                                    <p class="color-text">銀色</p>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                    <h2>規格</h2>
+                    <div class="row">
+                        <div id="size-display"></div>
+                        <div class="col-md-4">
+                            <button class="box mac-BG" onclick="macBG1()" disabled="disabled">
+                                <div class="size-item">
+                                    <h4>64BG</h4>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="box mac-BG" onclick="macBG2()" disabled="disabled">
+                                <div class="size-item">
+                                    <h4>128BG</h4>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="box mac-BG" onclick="macBG3()" disabled="disabled">
+                                <div class="size-item">
+                                    <h4>256BG</h4>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                    <h2>價格自算</h2>
+                    <div class="row">
+                        <div id="price-display"></div>
+                        <div class="col-12">
+                            <div class="input-group input-group-lg mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">$</span>
+                                </div>
+                                <input type="text" class="form-control" id="macprice">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">元</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        // 初始頁面 隱藏商品項目資訊
+        function showIPhone() {
+            var showIPhone = document.getElementById('IPhone')
+            //放置iphone 主圖
+            var mainimg = document.getElementsByTagName('img')[0];
+            iphonepic();
+            // 找到
+            var start = document.getElementById('showIPhone')
+            //移除 初始隱藏商品項目資訊
+            start.classList.remove('d-none')
+            var showcolor = document.getElementById('color-display');
+            showcolor.innerHTML = `<div class="col-md-4">
+                            <button class="box" onclick="iphonecolor1()">
+                                <div class="color-item">
+                                    <div class="color-red colors"></div>
+                                    <p class="color-text">紅色</p>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="box" onclick="iphonecolor2()">
+                                <div class="color-item">
+                                    <div class="color-yellow colors"></div>
+                                    <p class="color-text">黃色</p>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="box" onclick="iphonecolor3()">
+                                <div class="color-item">
+                                    <div class="color-black colors"></div>
+                                    <p class="color-text">黑色</p>
+                                </div>
+                            </button>
+                        </div>`
+            var showsize = document.getElementById('size-display');
+            showsize.innerHTML = ` <div class="col-md-4">
+                            <button class="box iphone-BG" id="" onclick="iphoneBG1()" disabled="disabled">
+                                <div class="size-item">
+                                    <h4>64BG</h4>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="box iphone-BG" id="" onclick="iphoneBG2()" disabled="disabled">
+                                <div class="size-item">
+                                    <h4>128BG</h4>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="box iphone-BG" id="" onclick="iphoneBG3()" disabled="disabled">
+                                <div class="size-item">
+                                    <h4>256BG</h4>
+                                </div>
+                            </button>
+                        </div>`
+        }
+
+        function showIPad() {
+            var showIPhone = document.getElementById('IPad')
+            //放置ipad 主圖
+            var mainimg = document.getElementsByTagName('img')[0];
+            ipadpic();
+            // 找到
+            var start = document.getElementById('showIPad')
+            //移除 初始隱藏商品項目資訊
+            start.classList.remove('d-none')
+        }
+
+        function showMacPro() {
+            var showIPhone = document.getElementById('MacPro')
+            //放置mac 主圖
+            var mainimg = document.getElementsByTagName('img')[0];
+            macpic();
+            // 找到
+            var start = document.getElementById('showMac')
+            //移除 初始隱藏商品項目資訊
+            start.classList.remove('d-none')
+        }
+        //iphone圖片function
+        function iphonepic() {
+            //新增iphone 主圖
+            var file = document.getElementsByTagName('img')[0]
+            file.src = 'img/iphone11s.jpg';
+        }
+        //ipad圖片function
+        function ipadpic() {
+            var file = document.getElementsByTagName('img')[0]
+            file.src = 'img/ipad.png'
+        }
+        //mac圖片function
+        function macpic() {
+            var file = document.getElementsByTagName('img')[0]
+            file.src = 'img/macbook-silver.jpg'
+        }
+
+        // -----iphone-----
+        // 第一個顏色選項 紅
+        function iphonecolor1() {
+            // 移除 停用按鈕的方式
+            var showbtn = document.getElementsByClassName('iphone-BG')
+            for (let i = 0; i < 3; i++) {
+                showbtn[i].removeAttribute('disabled');
+            }
+
+            // 找到圖片放置區
+            var img = document.getElementsByTagName('img')[0]
+            img.src =
+                'img/iphone11red.png'
+            // value是把輸入框的值顯示出來
+
+        }
+
+        // 第二個顏色選項 黃
+        function iphonecolor2() {
+            // 移除 停用按鈕的方式
+            var showbtn = document.getElementsByClassName('iphone-BG')
+            for (let i = 0; i < 3; i++) {
+                showbtn[i].removeAttribute('disabled');
+            }
+            // 找到圖片放置區
+            var img = document.getElementsByTagName('img')[0]
+            img.src =
+                'img/iphone11yellow.png'
+            // value是把輸入框的值顯示出來
+        }
+
+        // 第三個顏色選項 黑
+        function iphonecolor3() {
+            // 移除 停用按鈕的方式
+            var showbtn = document.getElementsByClassName('iphone-BG')
+            for (let i = 0; i < 3; i++) {
+                showbtn[i].removeAttribute('disabled');
+            }
+            // 找到圖片放置區
+            var img = document.getElementsByTagName('img')[0]
+            img.src =
+                'img/iphone11black.png'
+            // value是把輸入框的值顯示出來
+        }
+
+        // 顯示價格
+        // 第一個規格64BG
+        function iphoneBG1() {
+            // 找到對應輸入框
+            var input = document.getElementsByTagName('input')[1];
+            console.dir(input);
+            // 顯示價格
+            input.value = "24,900"
+        }
+        // 第二個規格128BG
+        function iphoneBG2() {
+            // 找到對應輸入框
+            var input = document.getElementsByTagName('input')[1];
+            console.dir(input);
+            // 顯示價格
+            input.value = "26,900"
+        }
+        // 第三個規格256BG
+        function iphoneBG3() {
+            // 找到對應輸入框
+            var input = document.getElementsByTagName('input')[1];
+            console.dir(input);
+            // 顯示價格
+            input.value = "30,400"
+        }
+
+        // -----ipad-----
+        // 第一個顏色選項 金
+        function ipadcolor1() {
+            // 移除 停用按鈕的方式
+            var showbtn = document.getElementsByClassName('ipad-BG')
+            for (let i = 0; i < 3; i++) {
+                showbtn[i].removeAttribute('disabled');
+            }
+
+            // 找到圖片放置區
+            var img = document.getElementsByTagName('img')[0]
+            img.src =
+                'img/ipadgold.png'
+            // value是把輸入框的值顯示出來
+        }
+        // 第一個顏色選項 太空灰
+        function ipadcolor2() {
+            // 移除 停用按鈕的方式
+            var showbtn = document.getElementsByClassName('ipad-BG')
+            for (let i = 0; i < 3; i++) {
+                showbtn[i].removeAttribute('disabled');
+            }
+
+            // 找到圖片放置區
+            var img = document.getElementsByTagName('img')[0]
+            img.src =
+                'img/ipadgray.png'
+            // value是把輸入框的值顯示出來
+        }
+        // 第一個顏色選項 灰
+        function ipadcolor3() {
+            console.log(showcolor)
+            // 移除 停用按鈕的方式
+            var showbtn = document.getElementsByClassName('ipad-BG')
+            for (let i = 0; i < 3; i++) {
+                showbtn[i].removeAttribute('disabled');
+            }
+
+            // 找到圖片放置區
+            var img = document.getElementsByTagName('img')[0]
+            img.src =
+                'img/ipadsilver.png'
+            // value是把輸入框的值顯示出來
+        }
+
+        // 顯示價格
+        // 第一個規格64BG
+        function ipadBG1() {
+            // 找到對應輸入框
+            var input = document.getElementsByTagName('input')[2];
+            console.dir(input);
+            // 顯示價格
+            input.value = "24,900"
+        }
+        // // 第二個規格128BG
+        function ipadBG2() {
+            // 找到對應輸入框
+            var input = document.getElementsByTagName('input')[2];
+            console.dir(input);
+            // 顯示價格
+            input.value = "26,900"
+        }
+        // // 第三個規格256BG
+        function ipadBG3() {
+            // 找到對應輸入框
+            var input = document.getElementsByTagName('input')[2];
+            console.dir(input);
+            // 顯示價格
+            input.value = "30,400"
+        }
+        // -----mac-----
+        // 第一個顏色選項 金
+        function maccolor1() {
+            // 移除 停用按鈕的方式
+            var showbtn = document.getElementsByClassName('mac-BG')
+            for (let i = 0; i < 3; i++) {
+                showbtn[i].removeAttribute('disabled');
+            }
+
+            // 找到圖片放置區
+            var img = document.getElementsByTagName('img')[0]
+            img.src =
+                'img/macbook-gold.jpg'
+            // value是把輸入框的值顯示出來
+        }
+        // 第一個顏色選項 太空灰
+        function maccolor2() {
+            // 移除 停用按鈕的方式
+            var showbtn = document.getElementsByClassName('mac-BG')
+            for (let i = 0; i < 3; i++) {
+                showbtn[i].removeAttribute('disabled');
+            }
+
+            // 找到圖片放置區
+            var img = document.getElementsByTagName('img')[0]
+            img.src =
+                'img/macbook-gray.jpg'
+            // value是把輸入框的值顯示出來
+        }
+        // 第一個顏色選項 灰
+        function maccolor3() {
+            console.log(showcolor)
+            // 移除 停用按鈕的方式
+            var showbtn = document.getElementsByClassName('mac-BG')
+            for (let i = 0; i < 3; i++) {
+                showbtn[i].removeAttribute('disabled');
+            }
+
+            // 找到圖片放置區
+            var img = document.getElementsByTagName('img')[0]
+            img.src =
+                'img/macbook-silver.jpg'
+            // value是把輸入框的值顯示出來
+        }
+
+        // 顯示價格
+        // 第一個規格64BG
+        function macBG1() {
+            // 找到對應輸入框
+            // var input = document.querySelector('input + #macprice');
+            var input = document.getElementsByTagName('input')[3];
+            // 顯示價格
+            input.value = "24,900"
+        }
+        // // 第二個規格128BG
+        function macBG2() {
+            // 找到對應輸入框
+            // var input = document.querySelector('input + #macprice');
+            var input = document.getElementsByTagName('input')[3];
+            // 顯示價格
+            input.value = "26,900"
+        }
+        // // 第三個規格256BG
+        function macBG3() {
+            // 找到對應輸入框
+            // var input = document.querySelector('input + #macprice');
+            var input = document.getElementsByTagName('input')[3];
+            // 顯示價格
+            input.value = "30,400"
+        }
+
+        //隱藏重複
+        // 當顯示IPhone
+        function heidde1() {
+            var start = document.getElementById('showIPhone')
+            start.classList.remove('d-none')
+        }
+        // 隱藏
+        heidde1.show(function () {
+            var show_ipone = document.getElementById('showIPad');
+            show_ipone.classList.add('d-none')
+            var show_mac = document.getElementById('showMac');
+            show_mac.classList.add('d-none')
+        });
+        // 當顯示IPad
+        function heidde2() {
+            var start = document.getElementById('showIPad')
+            start.classList.remove('d-none')
+        }
+        // 隱藏
+        heidde2.show(function () {
+            var show_ipone = document.getElementById('showIPhone');
+            show_ipone.classList.add('d-none')
+            var show_mac = document.getElementById('showMac');
+            show_mac.classList.add('d-none')
+        });
+        // 當顯示Mac
+        function heidde3() {
+            var start = document.getElementById('showMac')
+            start.classList.remove('d-none')
+        }
+        // 隱藏
+        heidde3.show(function () {
+            var show_ipone = document.getElementById('showIPhone');
+            show_ipone.classList.add('d-none')
+            var show_ipone = document.getElementById('showIPad');
+            show_ipone.classList.add('d-none')
+        });
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

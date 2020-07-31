@@ -27,7 +27,7 @@
     /* height: 200px; */
     border: 1px solid #cccccc;
     text-align: center;
-    padding: 50px 50px;
+    padding: 40px 40px;
     margin-bottom: 20px;
     /* position: relative; */
 }
@@ -40,10 +40,30 @@
     align-content: center;
 }
 
-.box .color {
-    /* background-color: #dfc3b5; 金 */
-    /* background-color: #dfe1e0; 銀 */
-    /* background-color: #a8abad; 太空灰 */
+
+.color-gold {
+    background-color: #dfc3b5;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.color-gray {
+    background-color: #a8abad;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.color-silver {
+    background-color: #dfe1e0;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.color-text{
+    font-size: 14px;
 }
 
 .box .color-red {
@@ -95,6 +115,6 @@ button {
     border: #ffffff 1px solid;
 }
 
-.display {
+/* .display {
     display: none;
-}
+} */

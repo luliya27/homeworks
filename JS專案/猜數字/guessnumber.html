@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+        button {
+            margin: 0 10px;
+        }
+
+        .showguessnumber {
+            height: 500px;
+            overflow: auto;
+        }
+
+        .showguessnumber .input-group-text {
+            margin-bottom: 10px;
+        }
+    </style>
+    <title>1A2B猜數字</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mt-5">
+                <h2>1A2B猜數字</h2>
+                <hr>
+            </div>
+            <div class="col-12  mb-5">
+                <div class="row">
+                    <div class="col-6">
+                        <h3>猜數字顯示板 :</h3>
+                    </div>
+                    <div class="col-6 text-right">
+                        <button onclick="startplay()" class="btn btn-secondary" id="btn_start">開始遊戲</button>
+                        <button onclick="restart()" class="btn btn-secondary" id="btn_restart">放棄重來</button>
+                        <button onclick="checkanswer()" class="btn btn-secondary" id="btn_checkanswer">查看答案</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg col-sm-10">
+                <!-- 猜數字顯示板 -->
+                <div class="showguessnumber" id="showguessNum">
+                    <div class="input-group-text bg-light">
+                        <!-- <span class="input-group-text bg-danger text-white font-weight-bold m-1 mr-3">0A0B</span>
+                        <span>1234</span> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg col-sm-10">
+                <div class="input-group input-group-lg">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">猜數字</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-default" id="input_answer">
+                    <button class="btn btn-info btn-lg" onclick="guess()" id="btn_guess">送出</button>
+                </div>
+            </div>
+
+        </div>
+        <script>
+
+        </script>
+        <script src="/JS專案/猜數字/js/guessnumber.js"></script>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+    <template>
+        <div id="app">
+            <div class="row no-gutters">
+                <!-- 選擇所在區域 -->
+                <div class="toolbox col-sm-3 p-2 bg-white">
+                    <div class="form-group d-flex">
+                        <label for="cityName" class="col-form-label mr-2 text-right">縣市</label>
+                        <div class="flex-fill">
+                            <select id="cityName" class="form-control"></select>
+                        </div>
+                    </div>
+                    <div class="form-group d-flex">
+                        <label for="area" class="col-form-label mr-2 text-right">地區</label>
+                        <div class="flex-fill">
+                            <select id="area" class="form-control"></select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 顯示藥局位置 -->
+                <div class="col-sm-9">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- ... -->
+
+    <style lang="scss">
+        @import 'bootstrap/scss/bootstrap';
+
+        #map {
+            position: relative;
+            height: 100vh;
+        }
+    </style>
+
+    <style lang="scss">
+    </style>
+    <script src="/GoogleMap/js/vue.js"></script>
+</body>
+
+</html>

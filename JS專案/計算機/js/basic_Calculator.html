@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>計算機</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6">
+                <h3 class="text-center mt-3 mb-3">基本計算機</h3>
+                <hr>
+                <div class="row mt-5 justify-content-center">
+                    <div class="col-8 input-group input-group-lg ">
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default" id="showbox" placeholder="0">
+                    </div>
+                </div>
+                <div class="row mt-3  justify-content-center">
+                    <div class="col-2"><input class="btn btn-secondary w-100" onclick="number(1)" type="button"
+                            value="1">
+                    </div>
+                    <div class="col-2"><input class="btn btn-secondary w-100" onclick="number(2)" type="button"
+                            value="2">
+                    </div>
+                    <div class="col-2"><input class="btn btn-secondary w-100" onclick="number(3)" type="button"
+                            value="3">
+                    </div>
+                    <div class="col-2"><input class="btn btn-secondary w-100" onclick="calc(&#39;+&#39;)" type="button"
+                            value="+">
+                    </div>
+                </div>
+                <div class="row mt-3  justify-content-center">
+                    <div class="col-2"><input class="btn btn-secondary w-100" onclick="number(4)" type="button"
+                            value="4">
+                    </div>
+                    <div class="col-2"><input class="btn btn-secondary w-100" onclick="number(5)" type="button"
+                            value="5">
+                    </div>
+                    <div class="col-2"><input class="btn btn-secondary w-100" onclick="number(6)" type="button"
+                            value="6">
+                    </div>
+                    <div class="col-2"><input class="btn btn-secondary w-100" onclick="calc(&#39;-&#39;)" type="button"
+                            value="-">
+                    </div>
+                </div>
+                <div class="row mt-3  justify-content-center">
+                    <div class="col-2"><input class="btn btn-secondary w-100" onclick="number(7)" type="button"
+                            value="7">
+                    </div>
+                    <div class="col-2"><input class="btn btn-secondary w-100" onclick="number(8)" type="button"
+                            value="8">
+                    </div>
+                    <div class="col-2"><input class="btn btn-secondary w-100" onclick="number(9)" type="button"
+                            value="9">
+                    </div>
+                    <div class="col-2"><input class="btn btn-secondary w-100" onclick="calc(&#39;*&#39;)" type="button"
+                            value="*">
+                    </div>
+                </div>
+                <div class="row mt-3  justify-content-center">
+                    <div class="col-2"><input class="btn btn-secondary w-100" onclick="clean()" type="button" value="C">
+                    </div>
+                    <div class="col-2"><input class="btn btn-secondary w-100" onclick="number(0)" type="button"
+                            value="0">
+                    </div>
+                    <div class="col-2"><input class="btn btn-secondary w-100" onclick="ans()" type="button" value="=">
+                    </div>
+                    <div class="col-2"><input class="btn btn-secondary w-100" onclick="calc(&#39;/&#39;)" type="button"
+                            value="÷">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h3 class="container text-center mt-3 mb-3">紀錄</h3>
+                <hr>
+                <div class="row justify-content-center">
+                    <div class="col-9">
+                        <label for="exampleFormControlTextarea1">紀錄顯示 :</label>
+                        <div  id="show">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var showbox = document.getElementById("showbox");
+
+        function number(x) {
+            if (showbox.value == '0') {
+                showbox.value = x;
+            } else if (showbox.value.length > 12) {} else {
+                showbox.value = showbox.value + x;
+            }
+        };
+
+        // function clean() {
+        //     showbox.value = 0;
+        // };
+        // 清除
+        var clean = () => showbox.value = 0;
+        function calc(y) {
+            if (showbox.value.charAt(showbox.value.length - 1) != y) {
+                showbox.value = showbox.value + y
+            }
+        }
+
+        function ans() {
+            // var text = showbox.value + '=' + eval(showbox.value);
+            // var br = ''
+            // br.innerHTML = '<br>'
+            // document.getElementById("show").innerHTML = document.getElementById("show").innerHTML + text + br;
+            // document.getElementById("show").innerHTML = document.getElementById("show").innerHTML +
+            //     "onclick=back('" + showbox.value + "')" + showbox.value + '=' + eval(showbox
+            //         .value) + "<br>";
+            document.getElementById("show").innerHTML = document.getElementById("show").innerHTML +
+            "<p href='#' onclick=back('" + showbox.value + "')>" + showbox.value + '=' + eval(showbox
+                .value) + "</p>";
+            showbox.value = eval(showbox.value);
+        }
+    </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

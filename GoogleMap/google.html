@@ -23,76 +23,16 @@
             margin: 0;
             padding: 0;
         }
-
-        .menu {
-            /* width: 50px; */
-            height: 100%;
-            background-color: aliceblue;
-            position: absolute;
-            /* left: 0; */
-            z-index: 2;
-        }
-
-        .accordion {
-            background-color: #fff;
-            color: #444;
-            cursor: pointer;
-            padding: 18px;
-            font-weight: bold;
-            width: 100%;
-            border: none;
-            text-align: left;
-            font-size: 15px;
-            transition: 0.4s;
-            border-bottom: 1px solid #ccc;
-        }
     </style>
 </head>
 
 <body>
-    <!-- <button id="showmap" onclick="btnshow()">顯示</button> -->
-    <!-- <div class="container"> -->
-    <div class="menu">
-        <!-- 口罩導航欄 -->
-        <div class="row">
-            <div class="col">
-                <button class="accordion btn" id="color-title">選擇地區</button>
-                <div class="block d-flex flex-wrap">
-                    <button class="btn">地區</button>
-                    <button class="btn">地區</button>
-                    <button class="btn">地區</button>
-                    <!-- <button class="btn">地區</button>
-                        <button class="btn">地區</button>
-                        <button class="btn">地區</button>
-                        <button class="btn">地區</button>
-                        <button class="btn">地區</button>
-                        <button class="btn">地區</button>
-                        <button class="btn">地區</button> -->
-                </div>
-            </div>
-        </div>
 
+
+    <div id="map" class="">
     </div>
-
-    <div id="map" class="" style="position: relative;">
-    </div>
-    <!-- </div> -->
-    <script>
-        //手風琴功能
-        var acc = document.querySelectorAll(".accordion");
-        for (let i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function () {
-                this.classList.toggle("active");
-                let block = this.nextElementSibling;
-                if (block.style.maxHeight) {
-                    block.style.maxHeight = null;
-                } else {
-                    block.style.maxHeight = block.scrollHeight + 0 + "px";
-                }
-            });
-        }
-    </script>
-
+    <script src="/GoogleMap/js/googleMapAPI內建方法塞資料.js"></script>
+    <!-- <script src="/GoogleMap/js/dataforEach塞資料.js"></script> -->
     <script>
         const URL = "https://raw.githubusercontent.com/kiang/pharmacies/master/json/points.json";
         var mapElement;

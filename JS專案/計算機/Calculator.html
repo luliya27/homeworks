@@ -10,6 +10,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
+    <style>
+        #show {
+            height: 300px;
+            overflow: auto;
+        }
+    </style>
     <title>計算機</title>
 </head>
 
@@ -86,8 +92,9 @@
                 <div class="row justify-content-center">
                     <div class="col-9">
                         <label for="exampleFormControlTextarea1">紀錄顯示 :</label>
-                        <div  id="show">
+                        <div id="show">
                         </div>
+                        <button class="btn btn-info" id="btn-clen" onclick="cleantext2()">清除紀錄</button>
                     </div>
                 </div>
             </div>
@@ -104,11 +111,21 @@
             }
         };
 
-        // function clean() {
-        //     showbox.value = 0;
-        // };
+
+        function cleantext() {
+            var text = document.getElementById('show');
+            var btn = document.getElementById('btn-clen');
+            text.innerHTML = '';
+        }
+
+        function cleantext2() {
+            $("#show").empty();
+        }
+
+
         // 清除
         var clean = () => showbox.value = 0;
+
         function calc(y) {
             if (showbox.value.charAt(showbox.value.length - 1) != y) {
                 showbox.value = showbox.value + y
@@ -117,15 +134,13 @@
 
         function ans() {
             // var text = showbox.value + '=' + eval(showbox.value);
-            // var br = ''
-            // br.innerHTML = '<br>'
             // document.getElementById("show").innerHTML = document.getElementById("show").innerHTML + text + br;
             // document.getElementById("show").innerHTML = document.getElementById("show").innerHTML +
             //     "onclick=back('" + showbox.value + "')" + showbox.value + '=' + eval(showbox
             //         .value) + "<br>";
             document.getElementById("show").innerHTML = document.getElementById("show").innerHTML +
-            "<p href='#' onclick=back('" + showbox.value + "')>" + showbox.value + '=' + eval(showbox
-                .value) + "</p>";
+                "<p href='#' onclick=back('" + showbox.value + "')>" + showbox.value + '=' + eval(showbox
+                    .value) + "</p>";
             showbox.value = eval(showbox.value);
         }
     </script>

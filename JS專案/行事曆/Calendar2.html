@@ -123,10 +123,17 @@
             // var now_m = new Date().getMonth(); //取得現在所屬月份 (會少1數)
             var getMonth = month + 1; // 取得當月 (+1 補回來)
 
-            var Numday = new Date(year, getMonth - 1, 1).getDay() //判斷星期幾
+            var Numday = new Date(year, getMonth - 1, 1).getDay() == 0 ? 7 : new Date(year, getMonth - 1, 1).getDay();//判斷星期幾
+            // 原本寫法
+            // var Numday2;
+            // if(new Date(year, getMonth - 1, 1).getDay()){
+            //     Numday2 = new Date(year, getMonth - 1, 1).getDay();
+            // }
+            // else{
+            //     Numday2 = 7;
+            // }
             var MaxNumday = new Date(year, getMonth, 0).getDate() //判斷當月有幾天
             var number = 1 - (Numday - 1); //初始值 判斷 星期幾減1
-
 
             // let rows = Math.ceil((monthDay - day + 1) / 7) //後續天數處理
             // 判斷有幾列tr

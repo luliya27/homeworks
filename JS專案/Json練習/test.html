@@ -1,0 +1,86 @@
+<html>
+
+<style>
+    body {
+        font-family: Impact, sans-serif;
+        background: #082f43;
+        color: white;
+        padding: 50px;
+    }
+    
+    h1 {
+        font-size: 60px;
+    }
+    
+    h2 {
+        color: #ffc621;
+    }
+    
+    .data {
+        background: #0093a0;
+        border-radius: 5px;
+        float: left;
+        margin: 10px;
+        width: 20%;
+        padding: 10px;
+        height: 180px;
+        position: relative;
+        overflow: auto;
+    }
+    
+    .dtag {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 15px;
+        padding: 5px 10px;
+        border-radius: 10px;
+        background-color: #f76b61;
+        color: white;
+    }
+</style>
+
+<body>
+
+    <h1>HEADING</h1>
+
+    <div class="results">
+        <!-- data will be inserted here-->
+    </div>
+
+    <h1>BOTTOM</h1>
+
+    <script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
+
+    <script>
+        $(function() {
+            $.get('https://spreadsheets.google.com/feeds/list/1y_Z3NKA7ZhPvH3WdQ5zdcwd4-kP5s_xNF1nixtuYxMA/1/public/values?alt=json', function(data) {
+                var d = data.feed.entry;
+                var items = [];
+                for (var i in d) {
+                    var item = {};
+                    item.title = d[i].gsx$title.$t;
+                    item.desc = d[i].gsx$desc.$t;
+                    item.tag = d[i].gsx$tag.$t;
+                    items.push(item);
+                }
+                console.table(items);
+                for (var i in items) {
+                    var Card = `
+
+                <div class="data">
+                    <h2>${items[i].title}</h2>
+                    <p>${items[i].desc}</p>
+                    <span class="dtag">${items[i].tag}</span>
+                </div>
+
+            `;
+                    $('.results').append(Card);
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

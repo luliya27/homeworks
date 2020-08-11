@@ -9,7 +9,7 @@
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <style>
         .card {
-            border: 1px solid black;
+            border: 1px solid rgb(131, 131, 131);
             margin-bottom: 30px;
             overflow: hidden;
         }
@@ -33,11 +33,13 @@
         .card:hover {
             box-shadow: 8px 8px 15px #808080;
             transform: translate(5px, 5px);
+            transition: 0.3s 1s;
         }
 
         .card:hover img {
             transform: scale(1.2);
             transition: transform 0.5s;
+            transition: 0.3s 1s;
         }
 
         .card:not(:hover) img {
@@ -61,22 +63,20 @@
         <div class='jumbotron'>Pizza Template</div>
         <div class='row'>
             <!-- 卡片資訊 放置 -->
+            <template id='cardPizza'>
+                <div class="col-lg-3 col-md-6 col-sm-10 card" style="width: 18rem;">
+                    <img src="" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <p class="card-text"></p>
+                        <p class="card-lprice"><span>L</span></p>
+                        <p class="card-sprice"><span>S</span></p>
+                        <button href="#" class="btn btn-dark">詳細內容</a>
+                    </div>
+                </div>
+            </template>
         </div>
     </div>
-
-    <template id='cardPizza'>
-        <div class="card" style="width: 18rem;">
-            <img src="" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title"></h5>
-                <p class="card-text"></p>
-                <p class="card-lprice"></p>
-                <p class="card-sprice"></p>
-                <button href="#" class="btn btn-primary">詳細內容</a>
-            </div>
-        </div>
-    </template>
-
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -141,8 +141,9 @@
                 let cloneContent = card.content.cloneNode(true); //複製節點
                 cloneContent.querySelector('h5').innerText = element.name; //顯示標題
                 cloneContent.querySelector('img').src = element.picture;
-                cloneContent.querySelector('.card-lprice').innerText=element.lprice;
-                cloneContent.querySelector('.card-sprice').innerText=element.sprice;
+                cloneContent.querySelector('.card-lprice').innerText=element.lprice+"$";
+                cloneContent.querySelector('.card-sprice').innerText=element.sprice+"$";
+                
                 cloneContent.querySelector('.btn').addEventListener('click',function(){
                 this.setAttribute("data-toggle","modal");
                 this.setAttribute("data-target","#exampleModal");

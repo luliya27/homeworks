@@ -22,7 +22,7 @@
             "name": "龍蝦沙拉披薩",
             "engname":"Lobster Salad Pizza",
             "lprice":329,    
-            "sprice":0,
+            // "sprice":0,
             "food":["fish","smhot"],
             "Description":"特調濃郁白醬搭配肥美的花枝與蟹肉棒, 加上特調龍蝦沙拉,吃出滿口鮮甜的海洋風味! ",
             "picture": "https://www.0800076666.com.tw/Files/MenuPizza/30/%E9%BE%8D%E8%9D%A6%E6%B2%99%E6%8B%89.png"

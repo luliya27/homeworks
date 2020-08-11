@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>行事曆</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+        table {
+            border: 1px solid #cccccc;
+            text-align: center;
+        }
+
+        table tr {
+            /* padding: 20px; */
+        }
+
+        table th,
+        td {
+            border: 1px solid #cccccc;
+            padding: 15px 25px;
+            height: 70px;
+            max-height: 100px !important;
+        }
+
+        #Calendar {
+            /* display: flex;
+            justify-content: center; */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #ctrl-future button {
+            margin: 0px 20px;
+        }
+
+        #ctrl-past button {
+            margin: 0px 20px;
+        }
+
+        #btn-ctrl {
+            /* display: flex;
+            justify-content: center; */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #btn-ctrl button {
+            padding: 5px 15px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center mt-3">
+                <div id="ctrl-past"></div>
+                <div id="showdate"></div>
+                <div id="ctrl-future"></div>
+                <div id="new-text"></div>
+                <!-- <button class="" id=""></button> -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center mt-3">
+                <div id="Calendar"></div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+                <!-- <div id="btn-ctrl"></div> -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var goale_month = new Date(); //全域變數 控制月份
+        // var now_m = new Date().getMonth(); //取得現在所屬月份 (會少1數)
+        table(goale_month); //goale_month參考
+        btn();
+
+        function table(now_m) { //now_m 全域宣告
+            var year = now_m.getFullYear(); //年
+            var month = now_m.getMonth(); //月
+
+            // // 得到 我的當日
+            // var firstDay = new Date(year, month, 1); //6
+            // // 得到 我的當月
+            // var monthDay = new Date(year, month + 1, 0).getDate(); //31
+            // // 得到 我的當天
+            // var day = new Date(); //日期變數
+
+            var display = document.getElementById('showdate')
+            display.innerHTML = `<h2>${year}年${month+1}月</h2>`
+
+            var body = document.getElementById('Calendar')
+
+            let table = document.createElement('table');
+            let thead = document.createElement('thead');
+            let tbody = document.createElement('tbody');
+
+            for (let k = 1; k < 2; k++) {
+                let theadtr = document.createElement('tr'); //thead tr
+                // 一周七天 7個空格 th
+                for (let i = 1; i < 8; i++) {
+                    // 建立th
+                    let theadtrth = document.createElement('th'); //thead th
+                    // 建立 i個th
+                    theadtrth.innerText = i;
+                    // 建立 th 於theadtr tr裡
+                    theadtr.appendChild(theadtrth)
+                }
+                thead.appendChild(theadtr)
+            }
+
+            // ------------------------
+            // var now_m = new Date().getMonth(); //取得現在所屬月份 (會少1數)
+            var getMonth = month + 1; // 取得當月 (+1 補回來)
+
+            var Numday = new Date(year, getMonth - 1, 1).getDay() //判斷星期幾
+            var MaxNumday = new Date(year, getMonth, 0).getDate() //判斷當月有幾天
+            var number = 1 - (Numday - 1); //初始值 判斷 星期幾減1
+
+
+            // let rows = Math.ceil((monthDay - day + 1) / 7) //後續天數處理
+            // 判斷有幾列tr
+            for (let j = 0; j < 6; j++) {
+                let tbodytr = document.createElement('tr'); //tbody tr
+                // 一周七天 7個空格 td
+                for (let i = 0; i < 7; i++) {
+                    // 建立 td
+                    let tbodytrtd = document.createElement('td'); //thead td
+                    // 判斷數字
+                    if (number <= 0) {
+                        tbodytrtd.innerText = ''; //字串清空
+                    } else if (MaxNumday < number) {
+                        // tbodytrtd.innerText = ''
+                        console.log(MaxNumday)
+
+                    } else {
+                        tbodytrtd.innerText = number
+                    }
+
+                    number++
+                    // 建立 td 於tbodytr tr裡
+                    tbodytr.appendChild(tbodytrtd);
+                }
+                tbody.appendChild(tbodytr)
+            }
+
+            table.appendChild(thead) //添加thead
+            table.appendChild(tbody) //添加tbody
+            body.appendChild(table) //添加table
+
+            // -----------------------------------
+            // 改變thead th 標題
+            let week = ["Mon", "Tue", "Wen", "Thu", "Fri", "Sat", "Sun"];
+            // let week = ["Sun","Mon", "Tue", "Wen", "Thu", "Fri", "Sat" ];
+            // 放到對應 th
+            let weekName = document.querySelectorAll('th')
+            for (let i = 0; i <= 6; i++) {
+                // 打印出星期字樣
+                weekName[i].innerText = week[i];
+            }
+
+        }
+
+        function btn() {
+            // var btn = document.getElementById('btn-ctrl')
+            // btn.innerHTML =
+            //     `<button class="btn btn-info" onclick="btn_past()">＜</button> <button class="btn btn-info" onclick="btn_future()">＞</button>`
+            var btn_past = document.getElementById('ctrl-past')
+            btn_past.innerHTML = `<button class="btn btn-info" id="past" onclick="btn_past()">＜</button>`
+            var btn_future = document.getElementById('ctrl-future')
+            btn_future.innerHTML = `<button class="btn btn-info" id="future" onclick="btn_future()">＞</button>`
+        }
+
+        function btn_past() {
+            // var past = document.getElementById('past')
+            var display = document.getElementById('showdate')
+            var calender = document.getElementById('Calendar')
+            calender.innerHTML = ''
+            display.innerHTML = ''
+
+            goale_month.setMonth(goale_month.getMonth() - 1);
+            table(goale_month);
+        }
+
+        function btn_future() {
+            // var future = document.getElementById('future')
+            var display = document.getElementById('showdate')
+            var calender = document.getElementById('Calendar')
+            calender.innerHTML = ''
+            display.innerHTML = ''
+            console.log(goale_month + 1);
+
+            goale_month.setMonth(goale_month.getMonth() + 1);
+            console.log(goale_month);
+            table(goale_month);
+        }
+
+        function newtext() {
+            var new_text = document.getElementById('new-next')
+            new_text.innerHTML=''
+        }
+        // -----------
+        // var dateA = new Date(); //new 不帶參數
+        // console.log(dateA)
+        // var dateB = new Date(2020, 2, 27); //參數年月日 月份從0開始 所以8月，就是7
+        // console.log(dateB)
+        // var dateC = new Date(2020, 7, 1);
+
+        // // 拿年分
+        // console.log(dateB.getFullYear())
+        // // 拿月分
+        // console.log(dateB.getMonth()); //月份從0開始
+        // // 拿日
+        // console.log(dateB.getDate());
+        // // 拿星期
+        // console.log(dateB.getDay()); //從0開始 禮拜天是0
+
+        // // 取幾月的幾個天
+        // console.log(new Date(2020, 1, 0).getDate());
+
+
+        // console.log(new Date(2020, 6, 1).getDay());
+    </script>
+
+</body>
+
+</html>

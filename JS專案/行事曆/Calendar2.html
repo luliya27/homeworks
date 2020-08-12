@@ -173,7 +173,7 @@
             var getMonth = month + 1; // 取得當月 (+1 補回來)
 
             var Numday = new Date(year, getMonth - 1, 1).getDay() == 0 ? 7 : new Date(year, getMonth - 1, 1)
-                .getDay(); //判斷星期幾
+                .getDay(); //判斷日期為1 要是星期天
             // 原本寫法
             // var Numday2;
             // if(new Date(year, getMonth - 1, 1).getDay()){
@@ -191,17 +191,16 @@
                 let tbodytr = document.createElement('tr'); //tbody tr
                 // 一周七天 7個空格 td
                 for (let i = 0; i < 7; i++) {
-                    var textid =document.querySelectorAll('td')
-                    
+                    var textid = document.querySelectorAll('td')
+                    //console.log(textid)
                     textid.forEach(x => {
-                        
+                        tbodytrtd.setAttribute("id", `${year}-${month.toString().padStart(2,"0")}`)
                     });
-
+                    // td.setAttribute("id", `${nowyear}-${nowMonth.toString().padStart(2,"0")}-${day.toString().padStart(2,"0")}`);
                     // 建立 td
                     let tbodytrtd = document.createElement('td'); //thead td
                     // 判斷數字
                     if (number <= 0) {
-                        // number.
                         tbodytrtd.innerText = ''; //字串清空
                     } else if (MaxNumday < number) {
                         // tbodytrtd.innerText = ''
@@ -297,6 +296,10 @@
                         <input type="date" class="form-control" placeholder="輸入時間" aria-label="Username"
                             aria-describedby="inputGroup-sizing-default">
                         </div>
+                        <div class="input-group flex-nowrap mb-3">
+                        <input type="time" class="form-control" placeholder="輸入時間" aria-label="Username"
+                            aria-describedby="inputGroup-sizing-default">
+                        </div>
                         <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroup-sizing-default">標題</span>
@@ -319,22 +322,33 @@
             `
         }
 
-        
-        
-        
+
+
+
         // 儲存
         function SaveData() {
             // 如果key一樣的時候，他會覆蓋原本的value
             let temp = {
+                day: dayinpute,
                 time: timeinpute,
-                Name: 'luliy',
-                CName: '雅蓮',
-                Color: "red"
+                title: titleinput,
+                text: textinput
             }
-            localStorage.setItem(timeinpute, JSON.stringify(temp));
+            localStorage.setItem(dayinpute, JSON.stringify(temp));
+
             //哪一天處理代辦事項
-            var timeinpute =document.getElementsByTagName('input')[0].value
+            var dayinpute = document.getElementsByTagName('input')[0].value
+            console.log(dayinpute)
+            // 哪一時間處理代辦事項
+            var timeinpute = document.getElementsByTagName('input')[1].value
             console.log(timeinpute)
+            // 代辦事項 標題
+            var titleinput = document.getElementsByTagName('input')[2].value
+            console.log(titleinput)
+            // 代辦事項 內容
+            var textinput = document.getElementsByTagName('textarea')[0].value
+            console.log(textinput)
+            
         }
 
         // function LoadData() {

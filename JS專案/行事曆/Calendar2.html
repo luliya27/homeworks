@@ -74,12 +74,60 @@
         <br>
         <div class="row">
             <div class="col-12 d-flex justify-content-center">
-                <!-- <div id="btn-ctrl"></div> -->
-                <button>新增記事</button>
+                <!-- <button>新增記事</button> -->
+                <div id="new-text"></div>
+                <div id="text"></div>
             </div>
         </div>
     </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="textModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group flex-nowrap">
+                        <input type="date" class="form-control" placeholder="輸入時間" aria-label="Username"
+                            aria-describedby="inputGroup-sizing-default">
+                    </div>
+                    <br>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Default</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default">
+                    </div>
+                    <div class="input-group mb-3">
+                        <textarea id="textarea" rows="5"></textarea>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
     <script>
         var goale_month = new Date(); //全域變數 控制月份
         // var now_m = new Date().getMonth(); //取得現在所屬月份 (會少1數)
@@ -143,10 +191,17 @@
                 let tbodytr = document.createElement('tr'); //tbody tr
                 // 一周七天 7個空格 td
                 for (let i = 0; i < 7; i++) {
+                    var textid =document.querySelectorAll('td')
+                    
+                    textid.forEach(x => {
+                        
+                    });
+
                     // 建立 td
                     let tbodytrtd = document.createElement('td'); //thead td
                     // 判斷數字
                     if (number <= 0) {
+                        // number.
                         tbodytrtd.innerText = ''; //字串清空
                     } else if (MaxNumday < number) {
                         // tbodytrtd.innerText = ''
@@ -214,41 +269,80 @@
             table(goale_month);
         }
 
+        newtext()
+
         function newtext() {
-            var new_text = document.getElementById('new-next')
-            new_text.innerHTML = ''
+            var new_text = document.getElementById('new-text')
+            new_text.innerHTML =
+                '<button class="btn btn-primary" data-toggle="modal" data-target="#textModal">新增記事</button>'
         }
         // -----------
-        EditTodoItem()
-        function EditTodoItem() {
-            var add = document.createElement('button');
-            add.innerHTML=`<button id="addtext" onclick="EditTodoItem()">新增記事</button>`
-            var addbtn = document.querySelector('#addtext')
-            let date = document.querySelector('#info-area #info-date').value;
-            let todoItem = document.querySelector('#info-area #info-todo-item').value;
+        modal()
 
-            let todoList = JSON.parse(localStorage.getItem(date));
-
-            console.log(currentIndex);
-
-            todoList[currentIndex] = {
-                title: todoItem
-            };
-
-            localStorage.setItem(date, JSON.stringify(todoList));
-            Init();
+        function modal() {
+            var text = document.getElementById('text');
+            text.innerHTML =
+                `
+            <div class="modal fade" id="textModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">新增事項</h5>
+                        <button class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="input-group flex-nowrap mb-3">
+                        <input type="date" class="form-control" placeholder="輸入時間" aria-label="Username"
+                            aria-describedby="inputGroup-sizing-default">
+                        </div>
+                        <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-default">標題</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default">
+                        </div>
+                        <div class="input-group mb-3">
+                        <textarea class="form-control" id="textarea" rows="5"></textarea>
+                        </div>
+                        <button type="button" class="btn btn-secondary" onclick="">修改</button>
+                    </div>
+                    <div class="modal-footer">
+                    <button class="btn btn-secondary" data-dismiss="modal">取消</button>
+                    <button class="btn btn-info" onclick="SaveData()">儲存新增</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+            `
         }
 
-        function DeleteTodoItem() {
-            let date = document.querySelector('#info-area #info-date').value;
-
-            let todoList = JSON.parse(localStorage.getItem(date));
-
-            todoList.splice(currentIndex, 1);
-
-            localStorage.setItem(date, JSON.stringify(todoList));
-            Init();
+        
+        
+        
+        // 儲存
+        function SaveData() {
+            // 如果key一樣的時候，他會覆蓋原本的value
+            let temp = {
+                time: timeinpute,
+                Name: 'luliy',
+                CName: '雅蓮',
+                Color: "red"
+            }
+            localStorage.setItem(timeinpute, JSON.stringify(temp));
+            //哪一天處理代辦事項
+            var timeinpute =document.getElementsByTagName('input')[0].value
+            console.log(timeinpute)
         }
+
+        // function LoadData() {
+        //     let temp = JSON.parse(localStorage.getItem('Name'));
+        //     // 改變顏色
+        //     document.getElementById('text').innerText = temp.CName;
+        //     document.getElementById('text').innerText = temp.Color;
+        // }
     </script>
 
 </body>

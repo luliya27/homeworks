@@ -1,5 +1,6 @@
 into();
-
+SaveData();
+LoadData();
 // 記事
 // function into() {
 //     SaveData()
@@ -7,18 +8,23 @@ into();
 // }
 
 
-// function SaveData() {
-//     // let temp = document.getElementById('input').value;
-//     let temp = {
+function SaveData() {
+    // 如果key一樣的時候，他會覆蓋原本的value
+    let temp = {
+        Name: value,
+        CName: value,
+        Color: value
+    }
+    // localStorage 只能放字串
+    localStorage.setItem('Name',JSON.stringify(temp));
+}
 
-//     }
-//     localStorage.setItem('Name', JSON.stringify(temp));
-// }
-
-// function LoadData() {
-//     let temp = JSON.parse(localStorage.getItem('Name'));
-//     document.getElementById('text').innerText = temp.CName;
-// }
+function LoadData() {
+    let temp = JSON.parse(localStorage.getItem('Name'));
+    // 改變顏色
+    document.getElementById('text').innerText = temp.CName;
+    document.getElementById('text').innerText = temp.Color;
+}
 
 function EditTodoItem() {
     let date = document.querySelector('#info-area #info-date').value;

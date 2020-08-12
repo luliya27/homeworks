@@ -52,7 +52,7 @@
             padding: 5px 15px;
         }
     </style>
-
+    <!-- <script src="/JS專案/行事曆/Calendar2.js"></script> -->
 </head>
 
 <body>
@@ -75,6 +75,7 @@
         <div class="row">
             <div class="col-12 d-flex justify-content-center">
                 <!-- <div id="btn-ctrl"></div> -->
+                <button>新增記事</button>
             </div>
         </div>
     </div>
@@ -123,7 +124,8 @@
             // var now_m = new Date().getMonth(); //取得現在所屬月份 (會少1數)
             var getMonth = month + 1; // 取得當月 (+1 補回來)
 
-            var Numday = new Date(year, getMonth - 1, 1).getDay() == 0 ? 7 : new Date(year, getMonth - 1, 1).getDay();//判斷星期幾
+            var Numday = new Date(year, getMonth - 1, 1).getDay() == 0 ? 7 : new Date(year, getMonth - 1, 1)
+                .getDay(); //判斷星期幾
             // 原本寫法
             // var Numday2;
             // if(new Date(year, getMonth - 1, 1).getDay()){
@@ -214,29 +216,39 @@
 
         function newtext() {
             var new_text = document.getElementById('new-next')
-            new_text.innerHTML=''
+            new_text.innerHTML = ''
         }
         // -----------
-        // var dateA = new Date(); //new 不帶參數
-        // console.log(dateA)
-        // var dateB = new Date(2020, 2, 27); //參數年月日 月份從0開始 所以8月，就是7
-        // console.log(dateB)
-        // var dateC = new Date(2020, 7, 1);
+        EditTodoItem()
+        function EditTodoItem() {
+            var add = document.createElement('button');
+            add.innerHTML=`<button id="addtext" onclick="EditTodoItem()">新增記事</button>`
+            var addbtn = document.querySelector('#addtext')
+            let date = document.querySelector('#info-area #info-date').value;
+            let todoItem = document.querySelector('#info-area #info-todo-item').value;
 
-        // // 拿年分
-        // console.log(dateB.getFullYear())
-        // // 拿月分
-        // console.log(dateB.getMonth()); //月份從0開始
-        // // 拿日
-        // console.log(dateB.getDate());
-        // // 拿星期
-        // console.log(dateB.getDay()); //從0開始 禮拜天是0
+            let todoList = JSON.parse(localStorage.getItem(date));
 
-        // // 取幾月的幾個天
-        // console.log(new Date(2020, 1, 0).getDate());
+            console.log(currentIndex);
 
+            todoList[currentIndex] = {
+                title: todoItem
+            };
 
-        // console.log(new Date(2020, 6, 1).getDay());
+            localStorage.setItem(date, JSON.stringify(todoList));
+            Init();
+        }
+
+        function DeleteTodoItem() {
+            let date = document.querySelector('#info-area #info-date').value;
+
+            let todoList = JSON.parse(localStorage.getItem(date));
+
+            todoList.splice(currentIndex, 1);
+
+            localStorage.setItem(date, JSON.stringify(todoList));
+            Init();
+        }
     </script>
 
 </body>

@@ -194,9 +194,10 @@
                     var textid = document.querySelectorAll('td')
                     //console.log(textid)
                     textid.forEach(x => {
-                        tbodytrtd.setAttribute("id", `${year}-${month.toString().padStart(2,"0")}`)
+                        tbodytrtd.setAttribute("id",
+                            `${year.toString().padStart(2,"0")}-${month.toString().padStart(2,"0")}`)
                     });
-                    // td.setAttribute("id", `${nowyear}-${nowMonth.toString().padStart(2,"0")}-${day.toString().padStart(2,"0")}`);
+                    //console.log(textid)
                     // 建立 td
                     let tbodytrtd = document.createElement('td'); //thead td
                     // 判斷數字
@@ -322,20 +323,13 @@
             `
         }
 
+        function clicksave() {
 
+        }
 
 
         // 儲存
         function SaveData() {
-            // 如果key一樣的時候，他會覆蓋原本的value
-            let temp = {
-                day: dayinpute,
-                time: timeinpute,
-                title: titleinput,
-                text: textinput
-            }
-            localStorage.setItem(dayinpute, JSON.stringify(temp));
-
             //哪一天處理代辦事項
             var dayinpute = document.getElementsByTagName('input')[0].value
             console.log(dayinpute)
@@ -348,7 +342,14 @@
             // 代辦事項 內容
             var textinput = document.getElementsByTagName('textarea')[0].value
             console.log(textinput)
-            
+            // 如果key一樣的時候，他會覆蓋原本的value
+            let temp = {
+                day: dayinpute,
+                time: timeinpute,
+                title: titleinput,
+                text: textinput
+            }
+            localStorage.setItem(timeinpute,JSON.stringify(temp));
         }
 
         // function LoadData() {

@@ -51,6 +51,30 @@
         #btn-ctrl button {
             padding: 5px 15px;
         }
+
+        .mark-today {
+            background-color: aliceblue;
+        }
+
+        input::-webkit-input-placeholder {
+            /* WebKit browsers */
+            color: #ccc;
+        }
+
+        input:-moz-placeholder {
+            /* Mozilla Firefox 4 to 18 */
+            color: #ccc;
+        }
+
+        input::-moz-placeholder {
+            /* Mozilla Firefox 19+ */
+            color: #ccc;
+        }
+
+        input::-ms-input-placeholder {
+            /* Internet Explorer 10+ */
+            color: #ccc;
+        }
     </style>
     <!-- <script src="/JS專案/行事曆/Calendar2.js"></script> -->
 </head>
@@ -74,49 +98,55 @@
         <br>
         <div class="row">
             <div class="col-12 d-flex justify-content-center">
-                <!-- <button>新增記事</button> -->
+                <div id="test"></div>
                 <div id="new-text"></div>
                 <div id="text"></div>
             </div>
         </div>
     </div>
-
-    <!-- Modal -->
     <div class="modal fade" id="textModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">新增事項</h5>
                     <button class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="input-group flex-nowrap">
+                    <div class="input-group flex-nowrap mb-3">
                         <input type="date" class="form-control" placeholder="輸入時間" aria-label="Username"
                             aria-describedby="inputGroup-sizing-default">
                     </div>
-                    <br>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-default">Default</span>
-                        </div>
-                        <input type="text" class="form-control" aria-label="Sizing example input"
+                    <div class="input-group flex-nowrap mb-3">
+                        <input type="time" class="form-control" placeholder="輸入時間" aria-label="Username"
                             aria-describedby="inputGroup-sizing-default">
                     </div>
                     <div class="input-group mb-3">
-                        <textarea id="textarea" rows="5"></textarea>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-default">標題</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default">
+                        <div class="input-group-prepend">
+                            <input type="color" class="form-control input-group-text">
+                        </div>
                     </div>
-
+                    <div class="input-group mb-3">
+                        <textarea class="form-control" id="textarea" rows="5"></textarea>
+                    </div>
+                    <div class="input-group flex-nowrap mb-3">
+                        <input data-jscolor="{position:'right'}" value="2CAFFE" class="form-control">
+                    </div>
+                    <button type="button" class="btn btn-secondary" onclick="">修改</button>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button class="btn btn-primary">Save changes</button>
+                    <button class="btn btn-secondary" data-dismiss="modal">取消</button>
+                    <button class="btn btn-info" onclick="SaveData()" id="save">儲存新增</button>
                 </div>
             </div>
         </div>
     </div>
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -128,7 +158,12 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
     </script>
+    <script src="/bower_components/jscolor/jscolor.js"></script>
     <script>
+        let dateNow = new Date();
+        let currentYear = dateNow.getFullYear();
+        let currentMonth = dateNow.getMonth() + 1; //getMonth()返回數字 0(一月)~11(十二月)
+
         var goale_month = new Date(); //全域變數 控制月份
         // var now_m = new Date().getMonth(); //取得現在所屬月份 (會少1數)
         table(goale_month); //goale_month參考
@@ -137,6 +172,9 @@
         function table(now_m) { //now_m 全域宣告
             var year = now_m.getFullYear(); //年
             var month = now_m.getMonth(); //月
+            var today = now_m.getDate(); //天
+            var mark = document.getElementsByTagName('td');
+            //today.classList.add('mark-today');
 
             // // 得到 我的當日
             // var firstDay = new Date(year, month, 1); //6
@@ -225,14 +263,13 @@
             // -----------------------------------
             // 改變thead th 標題
             let week = ["Mon", "Tue", "Wen", "Thu", "Fri", "Sat", "Sun"];
-            // let week = ["Sun","Mon", "Tue", "Wen", "Thu", "Fri", "Sat" ];
             // 放到對應 th
             let weekName = document.querySelectorAll('th')
             for (let i = 0; i <= 6; i++) {
                 // 打印出星期字樣
                 weekName[i].innerText = week[i];
             }
-
+            // showTodoData(currentYear, currentMonth);
         }
 
         function btn() {
@@ -246,9 +283,9 @@
         }
 
         function btn_past() {
-            // var past = document.getElementById('past')
             var display = document.getElementById('showdate')
             var calender = document.getElementById('Calendar')
+            //清空月曆生成
             calender.innerHTML = ''
             display.innerHTML = ''
 
@@ -256,16 +293,16 @@
             table(goale_month);
         }
 
+
         function btn_future() {
-            // var future = document.getElementById('future')
             var display = document.getElementById('showdate')
             var calender = document.getElementById('Calendar')
+            //清空月曆生成
             calender.innerHTML = ''
             display.innerHTML = ''
             console.log(goale_month + 1);
 
             goale_month.setMonth(goale_month.getMonth() + 1);
-            console.log(goale_month);
             table(goale_month);
         }
 
@@ -302,6 +339,7 @@
                             aria-describedby="inputGroup-sizing-default">
                         </div>
                         <div class="input-group mb-3">
+                            <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroup-sizing-default">標題</span>
                         </div>
@@ -311,11 +349,16 @@
                         <div class="input-group mb-3">
                         <textarea class="form-control" id="textarea" rows="5"></textarea>
                         </div>
-                        <button type="button" class="btn btn-secondary" onclick="">修改</button>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-default">標籤</span>
+                            </div>
+                            <input data-jscolor="{position:'right'}" value="#DCFBFF" class="form-control">
+                        </div>
                     </div>
                     <div class="modal-footer">
                     <button class="btn btn-secondary" data-dismiss="modal">取消</button>
-                    <button class="btn btn-info" onclick="SaveData()">儲存新增</button>
+                    <button class="btn btn-info" onclick="SaveData()" id="save">儲存新增</button>
                     </div>
                 </div>
             </div>
@@ -327,37 +370,90 @@
 
         }
 
-
-        // 儲存
-        function SaveData() {
+        function SaveData(day, time, title, text, color) {
             //哪一天處理代辦事項
             var dayinpute = document.getElementsByTagName('input')[0].value
-            console.log(dayinpute)
+
             // 哪一時間處理代辦事項
             var timeinpute = document.getElementsByTagName('input')[1].value
-            console.log(timeinpute)
+
             // 代辦事項 標題
             var titleinput = document.getElementsByTagName('input')[2].value
-            console.log(titleinput)
+
             // 代辦事項 內容
             var textinput = document.getElementsByTagName('textarea')[0].value
-            console.log(textinput)
-            // 如果key一樣的時候，他會覆蓋原本的value
+
+            // 代辦事項 標簽顏色
+            var colorinput = document.getElementsByTagName('input')[3].value
+
+
+            // key值
             let temp = {
                 day: dayinpute,
                 time: timeinpute,
                 title: titleinput,
-                text: textinput
+                text: textinput,
+                color: colorinput
             }
-            localStorage.setItem(timeinpute,JSON.stringify(temp));
+            localStorage.setItem(Date.now(), JSON.stringify(temp));
+
+            //顯示記事內容
+            let showtemp = JSON.parse(localStorage.getItem('title'));
+            document.getElementById('test').innerText = temp.title;
+
+            let catchtemp = JSON.parse(localStorage.getItem('day'));
+            document.querySelectorAll('table + td').innerText = temp.day
         }
 
-        // function LoadData() {
-        //     let temp = JSON.parse(localStorage.getItem('Name'));
-        //     // 改變顏色
-        //     document.getElementById('text').innerText = temp.CName;
-        //     document.getElementById('text').innerText = temp.Color;
+        // 顯示記事標籤
+        // function showTodoData(currentYear, currentMonth) {
+
+        //     for (var i = 0; i < localStorage.length; i++) {
+        //         let data = JSON.parse(localStorage.getItem(localStorage.key(i)));
+        //         let dataDate = data.date;
+
+        //         if ((currentYear + "-" + currentMonth.toString().padStart(2, "0")) == dataDate.substring(0, 7)) { //判斷是否為該月事項
+        //             let datakey = localStorage.key(i);
+        //             let title = (data.title).toString();
+        //             let targetTD = document.getElementById(dataDate); //querySelector不支援搜尋數字開頭的ID所以要改用getElementById
+        //             let button = document.createElement("button");
+        //             button.classList.add("btn", "btn-block", "text-left", "border", "border-secondary", "rounded")
+        //             button.style.backgroundColor = data.color;
+        //             button.textContent = title.length <= 5 ? title : title.substring(0, 5) + "...";
+        //             button.dataset.toggle = "modal";
+        //             button.dataset.target = "#textModal"
+
+        //             button.addEventListener("click", function () {
+        //                 //Model切換
+        //                 addBtn.classList.add("d-none");
+        //                 deleteBtn.classList.remove("d-none");
+        //                 modifyBtn.classList.remove("d-none");
+        //                 document.querySelector(".modal-title").textContent = "修改行程";
+        //                 document.querySelector("#modifyTime").textContent = `更新時間：${data.updateTime}`;
+
+        //                 //把Data的key設定在按鈕上
+        //                 deleteBtn.setAttribute("value", datakey);
+        //                 modifyBtn.setAttribute("value", datakey);
+
+        //                 document.querySelector("#title").value = data.title;
+        //                 document.querySelector("#date").value = dataDate;
+        //                 document.querySelector("#time").value = data.time;
+        //                 document.querySelector("#contents").value = data.contents;
+        //                 document.querySelector("#color").value = data.color;
+        //                 document.querySelector("#position").value = data.position;
+        //             })
+        //             targetTD.append(button);
+        //         }
+        //     }
         // }
+
+
+        function LoadData() {
+            let temp = JSON.parse(localStorage.getItem('Name'));
+            // 改變顏色
+            document.getElementById('text').innerText = temp.CName;
+            document.getElementById('text').innerText = temp.Color;
+        }
     </script>
 
 </body>

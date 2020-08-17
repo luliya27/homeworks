@@ -362,11 +362,7 @@
                 '<button class="btn btn-primary" data-toggle="modal" data-target="#textModal">新增記事</button>'
         }
         // ----------
-
-        function clicksave() {
-
-        }
-
+        var test =[];
         function SaveData(day, time, title, text, color) {
             //哪一天處理代辦事項
             var dayinpute = document.getElementsByTagName('input')[0].value
@@ -392,6 +388,7 @@
                 text: textinput,
                 color: colorinput
             }
+            test.push(temp)
             localStorage.setItem(temp.day, JSON.stringify(temp)); //
 
             // var get_title = localStorage.getItem(temp, JSON.stringify(temp));

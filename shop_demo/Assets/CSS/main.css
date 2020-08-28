@@ -18,6 +18,33 @@ a {
 }
 
 /* -------------- */
+
+.class-lable:nth-child(even) h3 {
+    background-color: #329940;
+    display: inline;
+    padding: 10px 10px;
+}
+
+.class-lable:nth-child(odd) h3 {
+    background-color: #e9db90;
+    display: inline;
+    padding: 10px 20px;
+}
+
+.class-lable:nth-child(even) hr {
+    margin-top: 1px;
+    height: 1.2px;
+    background-color: #329940;
+}
+
+.class-lable:nth-child(odd) hr {
+    margin-top: 1px;
+    height: 1.2px;
+    background-color: #e9db90;
+}
+
+
+/* -------------- */
 .card {
     background-color: #f7f7f7;
     border-radius: 8px;
@@ -51,7 +78,7 @@ a {
     border-radius: 2px;
 }
 
-.card-tab .timer-{
+.card-tab .timer- {
     display: flex;
     justify-items: center;
     margin-top: 5px;

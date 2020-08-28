@@ -1,0 +1,205 @@
+* {
+    font-family: 微軟正黑體;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* 搜尋 */
+.seach-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-items: center;
+    margin: auto;
+}
+
+/* -------------- */
+.card {
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    position: relative;
+    padding: 10px 6px;
+    box-shadow: #afafaf 2.5px 2px 3px;
+}
+
+.card-tab {
+    position: absolute;
+    top: 25px;
+    left: -2px;
+    background-color: #be2525;
+    color: #ffffff;
+    padding: 3px 5px;
+}
+
+.card-tab h5 {
+    text-align: center;
+    font-weight: 600;
+}
+
+.card-text {
+    padding: 6px 8px;
+}
+
+.card-tab .timer {
+    padding: 4px;
+    margin: 0px 8px 5px 8px;
+    background-color: #252525;
+    border-radius: 2px;
+}
+
+.card-tab .timer-{
+    display: flex;
+    justify-items: center;
+    margin-top: 5px;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: start;
+}
+
+/* -------------- */
+.card-shop {
+    /* width: 200px; */
+    height: 200px;
+    background-color: #cccccc;
+    border-radius: 5px;
+    margin: 10px 10px;
+}
+
+
+.browse-card {
+    height: 200px;
+    background-color: #ffffff;
+    box-shadow: #cccccc 1px 2px 3px;
+    border-radius: 5px;
+    margin: 10px 10px;
+}
+
+/* -------------- */
+.footbg {
+    background-color: #333333;
+    color: #ffffff;
+    font-size: 16px;
+    /* height: 600px; */
+    padding: 50px 0px;
+}
+
+.f-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    margin: 15px 0;
+}
+
+.f-item .icon {
+    width: 100%;
+    height: 80px;
+    /* position: relative; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.f-item .icon img {
+    width: 90px;
+    margin-top: 70px;
+    margin-bottom: 40px;
+}
+
+.f-item .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+}
+
+.f-item .text h5 {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+.f-item .text hr {
+    color: #ffffff;
+    background-color: #ffffff;
+    width: 140px;
+}
+
+.f-item .text a {
+    text-decoration: none;
+    color: #ffffff;
+    display: block;
+    font-weight: 400;
+    line-height: 45px;
+}
+
+.f-item .text a:hover {
+    color: #cecece;
+    transition: ease 0.4s;
+}
+
+.f-item .text-mb {
+    font-weight: bolder;
+    text-align: center;
+    padding: 50px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+}
+
+.f-item .text-mb a {
+    text-decoration: none;
+    color: #ffffff;
+    display: block;
+    font-weight: 400;
+    line-height: 45px;
+}
+
+.text-mb .btns {
+    margin: 15px 0;
+}
+
+.text-mb .btns i {
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+}
+
+.text-mb .btns button {
+    width: 30px;
+    height: 30px;
+    padding: 7px;
+    border-radius: 100%;
+    border: none;
+    margin: 0px 3px;
+}
+
+.text-mb .btns button:focus {
+    outline: none;
+}
+
+.text-mb .btns button:hover {
+    background-color: #17a2b8;
+    color: #ffffff;
+    transition: ease 0.4s;
+}
+
+
+/* -------------- */
+.footbar {
+    background-color: #17a2b8;
+    color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+}

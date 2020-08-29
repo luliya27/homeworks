@@ -64,9 +64,18 @@ h3.title-group-item {
 
 .img-md {
     width: 100%;
-    height: 190px;
+    height: 200px;
 }
 
+.img-md2 {
+    width: 100%;
+    height: 290px;
+}
+
+.img-lg{
+    width: 100%;
+    height: 350px;
+}
 
 .product-detail {
     padding: 0.5rem;
@@ -243,8 +252,14 @@ h3.title-group-item {
     font-size: 0.9rem;
     margin: 0 0.1rem 0;
     padding: 0 5.5px;
-    /* height: 21px; */
 }
+
+.tag-right{
+    position: absolute;
+    right: 15px;
+    margin-top: -30px;
+}
+
 
 .tag-purple {
     color: #4951DE;

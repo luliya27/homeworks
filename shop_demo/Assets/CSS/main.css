@@ -20,9 +20,9 @@ a {
 /* -------------- */
 
 .class-lable:nth-child(even) h3 {
-    background-color: #329940;
+    /* background-color: #329940;
     display: inline;
-    padding: 10px 10px;
+    padding: 10px 20px; */
 }
 
 .class-lable:nth-child(odd) h3 {
@@ -46,20 +46,21 @@ a {
 
 /* -------------- */
 .card {
-    background-color: #f7f7f7;
+    background-color: #ffffff;
     border-radius: 8px;
     position: relative;
-    padding: 10px 6px;
-    box-shadow: #afafaf 2.5px 2px 3px;
+    padding: 5px 6px;
+    box-shadow: #c0c0c0 2.5px 2px 3px;
 }
 
 .card-tab {
     position: absolute;
     top: 25px;
     left: -2px;
-    background-color: #be2525;
+    background-color: #a52b2b;
     color: #ffffff;
     padding: 3px 5px;
+    z-index: 2;
 }
 
 .card-tab h5 {
@@ -69,6 +70,13 @@ a {
 
 .card-text {
     padding: 6px 8px;
+    text-overflow: ellipsis;
+}
+
+.card-text h5 {
+    margin-top: 5px;
+    color: #0084b8;
+    font-weight: 600;
 }
 
 .card-tab .timer {
@@ -105,6 +113,35 @@ a {
     box-shadow: #cccccc 1px 2px 3px;
     border-radius: 5px;
     margin: 10px 10px;
+}
+
+/* -------------- */
+#btnScroll {
+    position: fixed;
+    right: 10px;
+    bottom: 15px;
+    width: 50px;
+    height: 50px;
+    background-color: #1bb2c9;
+    color: #ffffff;
+    border-radius: 50px;
+    outline: none;
+    border: none;
+}
+
+#btnScroll:active{
+    background-color: #0a95aa;
+}
+
+#btnScroll:hover{
+    background-color: #0a95aa;
+    transition: ease 0.3s;
+}
+
+#btnScroll .active{
+    bottom:32px;
+    pointer-events: auto;
+    opacity: 1;
 }
 
 /* -------------- */
@@ -220,8 +257,6 @@ a {
     transition: ease 0.4s;
 }
 
-
-/* -------------- */
 .footbar {
     background-color: #17a2b8;
     color: #f7f7f7;

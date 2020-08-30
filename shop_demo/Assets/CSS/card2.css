@@ -1,147 +1,121 @@
-.lazyload-img {
-    background: linear-gradient(to bottom, transparent, transparent 10%, rgba(0, 0, 0, 0.6) 100%);
+.home-banner {
+    position: relative;
+    overflow-anchor: none;
 }
 
-.product-img .map-subject,
-.carousel .map-subject {
+.banner-img {
+    /* position: relative; */
+    padding-top: 133.33333333333331%;
+}
+
+@media (min-width: 744px) {
+    .banner-img {
+        /* padding-top: max(550px, min(85vh, 56.25%)); */
+    }
+}
+
+@media (min-width: 950px) {
+    .banner-img {
+        padding-top: max(570px, min(85vh, 56.25%));
+    }
+}
+
+.bannerimg-position {
     position: absolute;
-    /* top: 160px; */
-    margin-top: -30px;
-    border-radius: 0;
-    z-index: 100;
-    padding-left: 0.5rem;
-    display: flex;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
 }
 
-
-.i-map {
-    background-image: url('data:image/svg+xml;charset=US-ASCII,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%20standalone%3D%22no%22%3F%3E%0A%3Csvg%20width%3D%2214px%22%20height%3D%2215px%22%20viewBox%3D%220%200%2014%2015%22%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%3E%0A%20%20%20%20%3C%21--%20Generator%3A%20Sketch%2050.2%20%2855047%29%20-%20http%3A//www.bohemiancoding.com/sketch%20--%3E%0A%20%20%20%20%3Ctitle%3Eicon/mapview-white%3C/title%3E%0A%20%20%20%20%3Cdesc%3ECreated%20with%20Sketch.%3C/desc%3E%0A%20%20%20%20%3Cdefs%3E%3C/defs%3E%0A%20%20%20%20%3Cg%20id%3D%22icon/mapview-white%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%0A%20%20%20%20%20%20%20%20%3Cg%20id%3D%22Page-1%22%20transform%3D%22translate%282.000000%2C%201.000000%29%22%20fill%3D%22%23FFFFFF%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M4.78194444%2C12.4931284%20C4.78194444%2C12.4931284%200.0243055556%2C8.69969092%200.0243055556%2C4.87650097%20C0.0243055556%2C2.24733639%202.15441943%2C0.11610882%204.78194444%2C0.11610882%20C7.40946946%2C0.11610882%209.53958333%2C2.24733639%209.53958333%2C4.87650097%20C9.53958333%2C8.69969092%204.78194444%2C12.4931284%204.78194444%2C12.4931284%20Z%20M6.685%2C4.87650097%20C6.685%2C3.82481134%205.83290687%2C2.97234411%204.78194444%2C2.97234411%20C3.73098201%2C2.97234411%202.87888889%2C3.82481134%202.87888889%2C4.87650097%20C2.87888889%2C5.92819061%203.73098201%2C6.78065783%204.78194444%2C6.78065783%20C5.83290687%2C6.78065783%206.685%2C5.92819061%206.685%2C4.87650097%20Z%22%20id%3D%22Combined-Shape%22%3E%3C/path%3E%0A%20%20%20%20%20%20%20%20%3C/g%3E%0A%20%20%20%20%3C/g%3E%0A%3C/svg%3E');
-    background-position: 2px 3px;
-}
-
-.label-icon {
-    background-repeat: no-repeat;
-    background-size: 20px 20px;
-    text-align: center;
-    display: inline-block;
-    vertical-align: middle;
-    padding-left: 21px;
-    margin-right: 0rem;
-}
-
-.local-tag {
-    font-size: 0.95rem;
-    color: #ffffff;
-    font-weight: 600;
-}
-
-.status-tag {
-    font-size: 0.95rem;
-    text-align: center;
-    display: inline-block;
-    color: #F8E71C;
-    margin-left: 2px;
-    font-weight: 600;
-}
-
-.ellipsis {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-
-.tagblock {
-    margin: 10px 0;
-}
-
-.tagBox .tag {
-    border-radius: 10px;
-    font-size: 0.9rem;
-    margin: 0 0.1rem 0;
-    padding: 0 5.5px;
-    /* height: 21px; */
-}
-
-.tag-purple {
-    color: #4951DE;
-    border: 1px solid #4951DE;
-}
-
-.tag-green {
-    border: 1px solid #35821e;
-    color: #35821e;
-}
-
-.tag-red {
-    border: 1px solid #AA523A;
-    color: #AA523A;
-}
-
-.tag-orange {
-    border: 1px solid #ff961f;
-    color: #ff961f;
-}
-
-.tag-blue {
-    border: 1px solid #446CB3;
-    color: #446CB3;
-}
-
-.product-detail .pricewrap {
-    /* margin-top: -0.5rem; */
-    height: 3rem;
-}
-
-.pricewrap .priceBox {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-}
-
-.sales-volume {
-    color: #FF8800;
-    font-size: 0.9rem;
-    font-weight: 600;
-}
-
-/* .btn-select {
-    display: flex;
-    flex-direction:row;
-    justify-content: space-between;
-} */
-
-.wish-btn {
-    background-color: #cf3737;
-    width: 40px;
-    height: 40px;
-    padding: 13px 0;
-    display: flex;
-    justify-content: center;
-    border-radius: 50px;
+.displayimg {
+    height: 100%;
+    width: 100%;
     position: absolute;
-    /* top: 160px; */
-    margin-top: -20px;
-    right: 20px;
-    justify-items: center;
+    object-fit: cover;
+    vertical-align: bottom
 }
 
-.wish-btn i {
-    color: #ffffff;
-    font-size: 16px;
-    text-align: center;
+
+@supports (object-fit: cover) {
+    .displayimg {
+        height: 100% !important;
+        width: 100% !important;
+        position: absolute;
+        object-fit: cover;
+        vertical-align: bottom
+    }
 }
-/* 
-.buy-btn{
-    background-color: #259ebd;
-    padding: 5px 15px;
+
+.banner-text {
     display: flex;
-    justify-content: center;
-    border-radius: 3px;
-    color: #ffffff;
-    font-weight: 600;
-    display: block;
-    text-align: center;
-} */
+    align-items: center;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+}
 
-/* --------------------- */
+.text-Xcenter {
+    margin: 0 auto;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+@media (min-width: 744px) {
+    .text-Xcenter {
+        /* margin: 0 auto; */
+        /* padding-top: 48px; */
+        /* padding-bottom: 48px; */
+    }
+}
+
+@media (min-width: 1128px) {
+    .text-Xcenter {
+        /* margin: 0 auto; */
+        /* padding-right: 20px; */
+        /* padding-left: 20px; */
+    }
+}
+
+
+.banner-textstyle {
+    text-align: center;
+    font-size: 40px;
+    line-height: 30px;
+}
+
+@media (min-width: 744px) {
+    .banner-textstyle {
+        font-size: 32px;
+    }
+}
+
+@media (min-width: 1128px) {
+    .banner-textstyle {
+        font-size: 35px;
+    }
+}
+
+.title-font {
+    color: #FFFFFF;
+    font-size: 1em;
+    font-weight: 800;
+    font-size: 26px;
+    padding: 10px;
+}
+
+.p-font {
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 16px;
+}
+
+@media (min-width: 744px) {
+    .p-font {
+        font-size: 14px;
+        line-height: 18px;
+    }
+}

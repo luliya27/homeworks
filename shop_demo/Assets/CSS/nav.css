@@ -104,8 +104,9 @@
 #main_nav .nav-link {
     color: #17a2b8;
     font-weight: 600;
-    height: 100px;
-    padding: 0.5rem 1rem;
+    font-size: 18px;
+    height: 80px;
+    padding: 0.5rem 10px;
     display: flex;
     align-items: center;
     position: relative;

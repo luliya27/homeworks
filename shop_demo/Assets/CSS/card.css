@@ -72,7 +72,7 @@ h3.title-group-item {
     height: 280px;
 }
 
-.img-lg{
+.img-lg {
     width: 100%;
     height: 350px;
 }
@@ -254,7 +254,7 @@ h3.title-group-item {
     padding: 0 5.5px;
 }
 
-.tag-right{
+.tag-right {
     position: absolute;
     right: 15px;
     margin-top: -30px;
@@ -324,6 +324,113 @@ h3.title-group-item {
     color: #ffffff;
     font-size: 16px;
     text-align: center;
+}
+
+/* ----------------------------------- */
+/* 評論星星 */
+.product-star {
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+.product-star span {
+    color: #999;
+}
+
+.product-star .star {
+    display: inline-block;
+    /* 星星svg大小 */
+    font-size: 1.2rem;
+    margin-right: .3em;
+    background-size: 100% 100%;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    margin-bottom: -1px
+}
+
+.product-star .star-sm {
+    display: inline-block;
+    /* 星星svg大小 */
+    font-size: 0.9rem;
+    margin-right: .3em;
+    background-size: 100% 100%;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    margin-bottom: -1px;
+    
+}
+
+.product-star.text-sm .star {
+    font-size: 14px
+}
+
+.product-star .star-0 {
+    color: #ccc;
+    background-image: url(/shop_demo/Assets/image/ic_star4_0.svg)
+}
+
+.product-star .star-25 {
+    fill: url(#star_25);
+    background-image: url(/shop_demo/Assets/image/ic_star4_1.svg)
+}
+
+.product-star .star-50 {
+    fill: url(#star_50);
+    background-image: url(/shop_demo/Assets/image/ic_star4_2.svg)
+}
+
+.product-star .star-75 {
+    fill: url(#star_75);
+    background-image: url(/shop_demo/Assets/image/ic_star4_3.svg)
+}
+
+.product-star .star-100 {
+    color: #26bec9;
+    background-image: url(/shop_demo/Assets/image/ic_star4_4.svg)
+}
+
+.product-pricing {
+    letter-spacing: 0;
+    text-align: right;
+    position: relative;
+    right: 0;
+}
+
+.review-score .product-star .star {
+    font-size: 2.5rem
+}
+
+.review-score .product-star .review-num {
+    color: #666;
+    font-size: 1.4rem;
+    margin: 5px 0 0 4px
+}
+
+.info-subtitle .product-star {
+    margin-bottom: 30px;
+    color: #666;
+    line-height: 1
+}
+
+.info-subtitle .product-star .star {
+    width: 25px;
+    height: 25px;
+    margin-right: 2.5px
+}
+
+.info-subtitle .product-star span {
+    font-weight: 400
+}
+
+.page-menu li.active .kk-icon {
+    color: #26bec9
+}
+
+.kk-icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    fill: currentColor
 }
 
 /* ----------------------------------- */

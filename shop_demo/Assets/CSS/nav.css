@@ -4,7 +4,7 @@
     color: #ffffff;
     padding: 10px 10px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between !important;
     align-items: center;
 }
 
@@ -98,7 +98,7 @@
 }
 
 #main_nav .nav-item {
-    padding: 0 2.375rem;
+    padding: 0 2.35rem;
 }
 
 #main_nav .nav-link {
@@ -257,8 +257,7 @@
     transform: rotate(-45deg);
 }
 
-
-
+/* 寬度小於767 */
 @media only screen and (max-width: 767px) {
     .top_bar {
         padding-left: 5px;
@@ -301,7 +300,29 @@
     }
 }
 
-@media only screen and (max-width: 320px) {
+
+/* 寬度大於768 */
+@media (min-width:768px) {
+    #main_nav .navbar-nav .dropdown-menu {
+        left: 50%;
+        -webkit-transform: translate3d(-50%, 0, 0);
+        transform: translate3d(-50%, 0, 0);
+    }
+
+    .checkout_step ul li.active:not(:first-child) {
+        border-left-color: #fff;
+    }
+}
+
+@media (max-width:992px) {
+
+}
+
+@media (min-width:992px) {
+    
+}
+
+/* @media only screen and (max-width: 320px) {
     .top_bar {
         padding-left: 5px;
         padding-right: 5px;
@@ -316,16 +337,6 @@
         -webkit-transform-origin-x: 0;
         -webkit-transform: scale(0.90);
     }
-}
+} */
 
-@media (min-width:768px) {
-    #main_nav .navbar-nav .dropdown-menu {
-        left: 50%;
-        -webkit-transform: translate3d(-50%, 0, 0);
-        transform: translate3d(-50%, 0, 0);
-    }
 
-    .checkout_step ul li.active:not(:first-child) {
-        border-left-color: #fff;
-    }
-}

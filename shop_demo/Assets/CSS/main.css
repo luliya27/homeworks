@@ -8,13 +8,18 @@ a {
     text-decoration: none;
 }
 
-/* 搜尋 */
+/* 下拉搜尋 */
 .seach-bar {
     display: flex;
     flex-direction: row;
     justify-content: center;
     justify-items: center;
     background-color: rgba(255, 255, 255, 0.767);
+}
+
+.seach-title {
+    font-size: 18px;
+    font-weight: 600;
 }
 
 ul,

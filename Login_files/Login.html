@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" data-triggered="true" class="">
+<!-- https://www.flaticon.com/profile/login -->
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+	<title>Login</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="/Login_files/profile.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+
+	<script>
+		var ACCOUNTS_URL = '',
+			FLATICON_URL = '',
+			SUPPORT_URL = '',
+			HUBSPOT_ENDPOINT_URL = '',
+			ACCOUNTS_URL_STATIC_IMG = '';
+	</script>
+	<script src="/Login_files/vendors.js"></script>
+
+	<!--End Google Optimize -->
+	<script>
+		try {
+			Analytics.init();
+			Analytics.push(
+				new AnalyticsGA('UA-42742855-1', 'GTM-5LCSG3B')
+			);
+		} catch (err) {
+			var msg = 'Analytics init failed';
+			if (gr) {
+				gr.log(msg);
+			} else {
+				console.error(msg, err);
+			}
+		}
+	</script>
+
+	<!-- Facebook Pixel Code -->
+	<script>
+		! function (f, b, e, v, n, t, s) {
+			if (f.fbq) return;
+			n = f.fbq = function () {
+				n.callMethod ?
+					n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+			};
+			if (!f._fbq) f._fbq = n;
+			n.push = n;
+			n.loaded = !0;
+			n.version = '2.0';
+			n.queue = [];
+			t = b.createElement(e);
+			t.async = !0;
+			t.src = v;
+			s = b.getElementsByTagName(e)[0];
+			s.parentNode.insertBefore(t, s)
+		}(window, document, 'script', '//connect.facebook.net/en_US/fbevents.js');
+
+		fbq('init', '1740793276230158');
+		fbq('track', "PageView");
+	</script>
+</head>
+
+<body class="flaticon bg-login" style="overflow: visible;">
+	<script type="text/javascript">
+		var ACCOUNTS_BASE_URL = '';
+		var ACCOUNTS_API_KEY = 'aHR0cHM6Ly8=';
+		var FACEBOOK_APP_ID = '117646314917595';
+		var FACEBOOK_APP_VERSION = 'v3.2';
+		var GOOGLE_CLIENT_ID = '544984668822-l66ipmg9o5lpalcntjckr651vbo72tcv.apps.googleusercontent.com';
+		var GOOGLE_API_KEY = 'AIzaSyCkyUw3UxCwg618Bknm9vdoWnYWji4lQSM';
+		var LANGUAGE_LOCALE = 'en_US.utf8';
+	</script>
+
+	<script src="/Login_files/bundle.js"></script>
+
+	<section id="gr_loginbox" class="gr_box login" style="display: block;">
+		<div class="box__holder">
+			<a href="javascript:void(0)" id="logo">
+				<!-- <img src="/Login_files/freepik-company.svg" alt="Freepik Company" width="270" height="50"> -->
+			</a>
+			<p class="terms-of-service">Registering to this website, you accept our <a href="" target="_blank">Terms of
+					Use</a> and our <a href="" target="_blank">Privacy Policy</a></p>
+			<div class="box">
+				<h1 class="text__gray--9">Log in</h1>
+				<p class="mg-bottom-lv3">with your social network</p>
+
+				<!-- <div class="contrainer"> -->
+					<div class="row">
+						<div class="col-6"><button id="login-google btn-block" class="google"
+								onclick="if (typeof gr != &#39;undefined&#39;) {gr.google.connect();}"><i
+									class="fab fa-google"></i> <span>Google</span></button></div>
+						<div class="col-6">
+							<button id="login-facebook btn-block" class="facebook"
+								onclick="if (typeof gr != &#39;undefined&#39;) {gr.facebook.connect();}"><i
+									class="fab fa-facebook-f"></i> <span>Facebook</span></button>
+						</div>
+					</div>
+				<!-- </div> -->
+				<div class="social social-login">
+					<button id="login-google btn-block" class="google"
+						onclick="if (typeof gr != &#39;undefined&#39;) {gr.google.connect();}"><i
+							class="fab fa-google"></i> <span>Google</span></button>
+					<button id="login-facebook btn-block" class="facebook"
+						onclick="if (typeof gr != &#39;undefined&#39;) {gr.facebook.connect();}"><i
+							class="fab fa-facebook-f"></i> <span>Facebook</span></button>
+				</div>
+				<ul class="social social-login">
+					<li><button id="login-google" class="google flaticon-google"
+							onclick="if (typeof gr != &#39;undefined&#39;) {gr.google.connect();}"><span>Google</span></button>
+					</li>
+					<li><button id="login-facebook" class="facebook flaticon-facebook"
+							onclick="if (typeof gr != &#39;undefined&#39;) {gr.facebook.connect();}"><span>Facebook</span></button>
+					</li>
+					<!-- <li><button id="login-twitter" class="twitter flaticon-twitter"
+							onclick="if (typeof gr != &#39;undefined&#39;) {gr.twitter.connect();}"><span>Twitter</span></button>
+					</li> -->
+				</ul>
+
+				<p class="separator"><span>or</span></p>
+
+				<form method="post">
+					<span class="input-group to_be_hidden">
+						<input type="text" name="username" id="gr_login_username" tabindex="1" autocomplete="off"
+							autofocus="" autocapitalize="off" autocorrect="off" class="hascontent">
+						<label for="gr_login_username">Username or email</label>
+						<a href="javascript:void(0);" class="reset-input">×</a>
+					</span>
+
+					<span class="input-group to_be_hidden">
+						<input type="password" name="password" id="gr_login_password" tabindex="2" autocomplete="off"
+							autocapitalize="off" autocorrect="off" class="hascontent">
+						<label for="gr_login_password">Password</label>
+						<a href="javascript:void(0);" class="reset-input">×</a>
+					</span>
+
+					<!-- <span class="checkbox-group  to_be_hidden">
+						<label for="gr_login_rememberme" class="text">Keep me signed in</label>
+						<input type="checkbox" name="remember" id="gr_login_rememberme" value="">
+						<label for="gr_login_rememberme" class="fake-checkbox"></label>
+					</span> -->
+					<span class="checkbox-group">
+						<label for="gr_login_rememberme" class="text"> Keep me signed in
+							<input type="checkbox" id="gr_login_rememberme" class="fake-checkbox" name="remember"
+								value="" checked>
+						</label>
+					</span>
+					<p class="to_be_shown" style="display: none;">Checking your credentials...</p>
+
+
+					<button class="btn fullwidth spinner_button" id="signin_button" tabindex="3">Log in</button>
+				</form>
+				<div class="bottom-links">
+					<a href="javascript:void(0);" class="href-sign-up" onclick="gr.auth.register_form();">Not a member?
+						Sign up</a>
+					<a href="javascript:void(0);" class="href-lost-password to_be_hidden pull-right"
+						onclick="gr.auth.lostpassword_form();">I can't remember my password</a>
+				</div><!-- .bottom-links -->
+			</div>
+			<!-- .box -->
+		</div>
+		<br>
+	</section>
+
+</body>
+
+</html>

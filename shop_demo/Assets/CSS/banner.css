@@ -8,9 +8,9 @@
     padding-top: 133.33333333333331%;
 }
 
-@media (min-width: 744px) {
+@media (min-width: 589px) {
     .banner-img {
-        /* padding-top: max(550px, min(85vh, 56.25%)); */
+        padding-top: max(550px, min(85vh, 56.25%));
     }
 }
 

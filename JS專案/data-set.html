@@ -8,14 +8,14 @@
 </head>
 
 <body>
-    <div data-time="今天">
+    <div id="day" data-time="今天">
 
     </div>
     <script>
         test()
 
         function test() {
-            var time =document.querySelector('div')
+            var time =document.querySelector('#day')
             alert(time.dataset.time)
         }
     </script>

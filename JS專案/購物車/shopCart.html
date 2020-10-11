@@ -1,0 +1,1982 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <link rel="apple-touch-icon" type="image/png"
+        href="https://static.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png">
+    <meta name="apple-mobile-web-app-title" content="CodePen">
+
+    <link rel="shortcut icon" type="image/x-icon"
+        href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+
+    <link rel="mask-icon" type=""
+        href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg"
+        color="#111">
+
+
+    <title>CodePen - Shopping cart 2 (responsive)</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+
+
+    <style>
+        .product {
+            width: 200px;
+            height: 200px;
+            font-size: 10px;
+            font-family: 'Arial';
+            margin-bottom: 8px;
+            padding-top: 8px;
+        }
+
+        .container .product span {
+            text-transform: uppercase;
+            font-size: 8px;
+            font-family: 'Arial';
+            color: #ccc;
+            display: inline-block;
+            transform: translateY(-16px);
+        }
+
+        .add-to-cart {
+            margin-right: 8px;
+        }
+
+        .container {
+            display: inline-block;
+            margin: 24px;
+            text-align: center;
+        }
+
+        .container span.add-to-cart,
+        .container span.add-to-wish {
+            font-size: 10px;
+            font-family: 'Arial';
+            font-weight: 800;
+            color: #666;
+            padding-bottom: 12px;
+            display: inline-block;
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        window.console = window.console || function (t) {};
+    </script>
+
+
+
+    <script>
+        if (document.location.search.match(/type=embed/gi)) {
+            window.parent.postMessage("resize", "*");
+        }
+    </script>
+
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CMontserrat+Alternates:400,700" media="all"
+        id="cart-webfont">
+    <style type="text/css" id="cart-style">
+        html {
+            font-size: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body,
+        div,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        blockquote,
+        pre,
+        dl,
+        dt,
+        dd,
+        ol,
+        ul,
+        li,
+        fieldset,
+        form,
+        label,
+        legend,
+        th,
+        td,
+        article,
+        aside,
+        figure,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        section {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        hgroup,
+        main,
+        menu,
+        nav,
+        section,
+        summary {
+            display: block;
+        }
+
+        audio,
+        canvas,
+        progress,
+        video {
+            display: inline-block;
+            /* 1 */
+            vertical-align: baseline;
+            /* 2 */
+        }
+
+        audio:not([controls]) {
+            display: none;
+            height: 0;
+        }
+
+        [hidden],
+        template {
+            display: none;
+        }
+
+        a {
+            background-color: transparent;
+        }
+
+        a:active,
+        a:hover {
+            outline: 0;
+        }
+
+        abbr[title] {
+            border-bottom: 1px dotted;
+        }
+
+        b,
+        strong {
+            font-weight: bold;
+        }
+
+        dfn {
+            font-style: italic;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin: 0.67em 0;
+        }
+
+        mark {
+            background: #ff0;
+            color: #000;
+        }
+
+        small {
+            font-size: 80%;
+        }
+
+        sub,
+        sup {
+            font-size: 75%;
+            line-height: 0;
+            position: relative;
+            vertical-align: baseline;
+        }
+
+        sup {
+            top: -0.5em;
+        }
+
+        sub {
+            bottom: -0.25em;
+        }
+
+        img {
+            border: 0;
+        }
+
+        svg:not(:root) {
+            overflow: hidden;
+        }
+
+        figure {
+            margin: 1em 40px;
+        }
+
+        hr {
+            box-sizing: content-box;
+            height: 0;
+        }
+
+        pre {
+            overflow: auto;
+        }
+
+        code,
+        kbd,
+        pre,
+        samp {
+            font-family: monospace, monospace;
+            font-size: 1em;
+        }
+
+        button,
+        input,
+        optgroup,
+        select,
+        textarea {
+            color: inherit;
+            /* 1 */
+            font: inherit;
+            /* 2 */
+            margin: 0;
+            /* 3 */
+        }
+
+        button {
+            overflow: visible;
+        }
+
+        button,
+        select {
+            text-transform: none;
+        }
+
+        button,
+        html input[type="button"],
+        input[type="reset"],
+        input[type="submit"] {
+            -webkit-appearance: button;
+            /* 2 */
+            cursor: pointer;
+            /* 3 */
+        }
+
+        button[disabled],
+        html input[disabled] {
+            cursor: default;
+        }
+
+        button::-moz-focus-inner,
+        input::-moz-focus-inner {
+            border: 0;
+            padding: 0;
+        }
+
+        input {
+            line-height: normal;
+        }
+
+        input[type="checkbox"],
+        input[type="radio"] {
+            box-sizing: border-box;
+            /* 1 */
+            padding: 0;
+            /* 2 */
+        }
+
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            height: auto;
+        }
+
+        input[type="search"] {
+            -webkit-appearance: textfield;
+            /* 1 */
+            box-sizing: content-box;
+            /* 2 */
+        }
+
+        input[type="search"]::-webkit-search-cancel-button,
+        input[type="search"]::-webkit-search-decoration {
+            -webkit-appearance: none;
+        }
+
+        fieldset {
+            border: 1px solid #c0c0c0;
+            margin: 0 2px;
+            padding: 0.35em 0.625em 0.75em;
+        }
+
+        legend {
+            border: 0;
+            /* 1 */
+            padding: 0;
+            /* 2 */
+        }
+
+        textarea {
+            overflow: auto;
+        }
+
+        optgroup {
+            font-weight: bold;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        td,
+        th {
+            padding: 0;
+        }
+
+        /* 1 */
+        /*img[src*=".svg"] { 
+          width: 100%;
+      }*/
+        /* 2 */
+        /*@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+          img[src*=".svg"] {
+              width: 100%; 
+          }
+      }*/
+        /**
+           * BODY COMMON STYLE
+           */
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+        }
+
+        body.blocked {
+            overflow: hidden;
+        }
+
+        .cart-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            color: #262626;
+            z-index: 100000;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        /**
+           *	Primary color
+           */
+        .p-color {
+            background-color: #111111;
+        }
+
+        /**
+           *	Button
+           */
+        .gs-btn {
+            background-color: #111111;
+            color: #ffffff;
+            cursor: pointer;
+            -webkit-box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.2);
+            -moz-box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.2);
+        }
+
+        .gs-btn svg {
+            stroke: #ffffff;
+        }
+
+        .gs-btn:hover {
+            background-color: #292929;
+            color: #ffffff;
+        }
+
+        .gs-btn:hover svg {
+            stroke: #ffffff;
+        }
+
+        /**
+           *	Tint
+           */
+        .gs-tint {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        /**
+           *	Panel
+           */
+        .gs-panel {
+            background-color: #f5f5f5;
+        }
+
+        .gs-tabs {
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #262626;
+        }
+
+        .gs-tabs svg {
+            stroke: #262626;
+        }
+
+        .gs-tabs .gs-tab-selected {
+            color: #424346;
+            cursor: default;
+        }
+
+        .gs-tabs .gs-tab-selected svg {
+            stroke: #424346;
+        }
+
+        .gs-container {
+            color: #bdc3c7;
+        }
+
+        .gs-item {
+            background-color: #ffffff;
+        }
+
+        .gs-item .gs-item-price {
+            color: #a8a8b2;
+        }
+
+        .gs-item .gs-item-label {
+            color: #111111;
+        }
+
+        .gs-item svg {
+            stroke: #bdc3c7;
+        }
+
+        .iScrollVerticalScrollbar {
+            position: absolute;
+            z-index: 9999;
+            width: 0.25em;
+            bottom: 0.5em;
+            top: 0.5em;
+            right: 0.125em;
+            overflow: hidden;
+            margin: 0.25em 0em;
+            margin-top: 3.5em;
+        }
+
+        .iScrollVerticalScrollbar.iScrollBothScrollbars {
+            bottom: 0.5em;
+        }
+
+        .iScrollIndicator {
+            position: absolute;
+            background: rgba(38, 38, 38, 0.2);
+            border-radius: 2px;
+        }
+
+        .iScrollVerticalScrollbar .iScrollIndicator {
+            width: 100%;
+            background: rgba(38, 38, 38, 0.5);
+        }
+
+        @media screen and (min-width: 20em) {
+            .iScrollVerticalScrollbar {
+                margin-top: 4.25em;
+            }
+        }
+
+        @media (min-width: 26.25em) and (max-height: 26em) {
+            .iScrollVerticalScrollbar {
+                margin-top: 3em;
+            }
+        }
+
+        .cart-panel {
+            width: 100%;
+            height: 100%;
+            top: 0;
+            right: 0;
+            min-width: 17.5em;
+            display: none;
+            position: fixed;
+            z-index: 30;
+            -webkit-transition: width 0.5s cubic-bezier(0.61, 0, 0.25, 0.99);
+            -moz-transition: width 0.5s cubic-bezier(0.61, 0, 0.25, 0.99);
+            -o-transition: width 0.5s cubic-bezier(0.61, 0, 0.25, 0.99);
+            transition: width 0.5s cubic-bezier(0.61, 0, 0.25, 0.99);
+        }
+
+        /** 550 */
+        @media screen and (min-width: 34.375em) {
+            .cart-panel {
+                width: 34.375em;
+            }
+        }
+
+        /** 1024 */
+        @media screen and (min-width: 64em) {
+            .cart-panel {
+                width: 40em;
+            }
+        }
+
+        .cp-header {
+            width: 100%;
+            height: 3em;
+            position: absolute;
+            z-index: 20;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .cp-header ul {
+            width: 100%;
+            height: 100%;
+            display: table;
+        }
+
+        .cp-header li {
+            height: 100%;
+            position: relative;
+            display: table-cell;
+            white-space: nowrap;
+        }
+
+        .cp-tab-ic {
+            margin-right: 0.125em;
+            vertical-align: middle;
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+        }
+
+        .cp-tab-ic svg {
+            fill: none;
+            stroke-width: 2.6;
+            stroke-linecap: round;
+            stroke-miterlimit: 4;
+        }
+
+        .cp-tab-label {
+            vertical-align: middle;
+            display: inline-block;
+            font-size: 0.875em;
+            line-height: 1em;
+        }
+
+        /*.cp-section_cart .cart-tab, .cp-section_wish .wish-tab {
+              cursor: default;
+  
+              .cp-tab-label {
+                  color: @panel-selected-color;
+              }
+  
+              .cp-tab-ic {
+                  svg {
+                      stroke: @panel-selected-color;
+                  }
+              }
+          }*/
+        .cp-back {
+            width: 3em;
+            cursor: pointer;
+        }
+
+        .cp-back .cp-tab-ic {
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translate(0.625em, -50%);
+            -moz-transform: translate(0.625em, -50%);
+            -ms-transform: translate(0.625em, -50%);
+            -o-transform: translate(0.625em, -50%);
+            transform: translate(0.625em, -50%);
+        }
+
+        .cp-back:hover .cp-tab-ic {
+            -webkit-transform: translate(0.5em, -50%);
+            -moz-transform: translate(0.5em, -50%);
+            -ms-transform: translate(0.5em, -50%);
+            -o-transform: translate(0.5em, -50%);
+            transform: translate(0.5em, -50%);
+        }
+
+        .cp-tab-wrapper {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        .cp-tabs li {
+            cursor: pointer;
+        }
+
+        .cp-tabs li.selected {
+            cursor: default;
+        }
+
+        .cp-tab-cursor {
+            width: 50%;
+            height: 0.125em;
+            top: 0;
+            left: 0;
+            position: absolute;
+            -webkit-transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            -moz-transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            -o-transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .cp-section_cart .cp-tab-cursor {
+            -webkit-transform: translateX(0);
+            -moz-transform: translateX(0);
+            -ms-transform: translateX(0);
+            -o-transform: translateX(0);
+            transform: translateX(0);
+        }
+
+        .cp-section_wish .cp-tab-cursor {
+            -webkit-transform: translateX(100%);
+            -moz-transform: translateX(100%);
+            -ms-transform: translateX(100%);
+            -o-transform: translateX(100%);
+            transform: translateX(100%);
+        }
+
+        @media screen and (min-width: 20em) {
+            .cp-header {
+                height: 3.75em;
+            }
+
+            .cp-back {
+                width: 3.75em;
+            }
+
+            .cp-back .cp-tab-ic {
+                -webkit-transform: translate(1.125em, -50%);
+                -moz-transform: translate(1.125em, -50%);
+                -ms-transform: translate(1.125em, -50%);
+                -o-transform: translate(1.125em, -50%);
+                transform: translate(1.125em, -50%);
+            }
+
+            .cp-back:hover .cp-tab-ic {
+                -webkit-transform: translate(1em, -50%);
+                -moz-transform: translate(1em, -50%);
+                -ms-transform: translate(1em, -50%);
+                -o-transform: translate(1em, -50%);
+                transform: translate(1em, -50%);
+            }
+
+            .cp-tab-ic {
+                margin-right: 0.25em;
+                width: 1.1875em;
+                height: 1.1875em;
+            }
+
+            .cp-tab-label {
+                font-size: 1em;
+                line-height: 1.25em;
+            }
+        }
+
+        /**
+           * PORTRAIT MOBILE MODE (~416px)
+           */
+        @media (min-width: 26.25em) and (max-height: 26em) {
+            .cp-header {
+                height: 2.5em;
+            }
+
+            .cp-back {
+                width: 2.5em;
+            }
+
+            .cp-back .cp-tab-ic {
+                -webkit-transform: translate(0.625em, -50%);
+                -moz-transform: translate(0.625em, -50%);
+                -ms-transform: translate(0.625em, -50%);
+                -o-transform: translate(0.625em, -50%);
+                transform: translate(0.625em, -50%);
+            }
+
+            .cp-back:hover .cp-tab-ic {
+                -webkit-transform: translate(0.5em, -50%);
+                -moz-transform: translate(0.5em, -50%);
+                -ms-transform: translate(0.5em, -50%);
+                -o-transform: translate(0.5em, -50%);
+                transform: translate(0.5em, -50%);
+            }
+
+            .cp-tab-ic {
+                margin-right: 0.125em;
+                width: 1em;
+                height: 1em;
+            }
+
+            .cp-tab-label {
+                font-size: 0.875em;
+                line-height: 1em;
+            }
+        }
+
+        .cp-container {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: 10;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+        }
+
+        .cp-container ul {
+            list-style-type: none;
+        }
+
+        .cp-container>ul {
+            width: 100%;
+            height: 100%;
+            display: table;
+            position: relative;
+        }
+
+        .cp-container>ul>li {
+            height: 100%;
+            width: 50%;
+            position: relative;
+            display: table-cell;
+        }
+
+        .cp-container>ul.cp-sections {
+            width: 200%;
+        }
+
+        .cp-container>ul {
+            -webkit-transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            -moz-transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            -o-transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .cp-section_cart .cp-container>ul {
+            -webkit-transform: translateX(0);
+            -moz-transform: translateX(0);
+            -ms-transform: translateX(0);
+            -o-transform: translateX(0);
+            transform: translateX(0);
+        }
+
+        .cp-section_wish .cp-container>ul {
+            -webkit-transform: translateX(-50%);
+            -moz-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            -o-transform: translateX(-50%);
+            transform: translateX(-50%);
+        }
+
+        .cp-section-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            /* Prevent native touch events on Windows */
+            -ms-touch-action: none;
+            /* Prevent the callout on tap-hold and text selection */
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            /* Prevent text resize on orientation change, useful for web-apps */
+            -webkit-text-size-adjust: none;
+            -moz-text-size-adjust: none;
+            -ms-text-size-adjust: none;
+            -o-text-size-adjust: none;
+            text-size-adjust: none;
+        }
+
+        .cp-section-content {
+            position: absolute;
+            width: 100%;
+            /* Prevent elements to be highlighted on tap */
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            /* Put the scroller into the HW Compositing layer right from the start */
+            -webkit-transform: translateZ(0);
+            -moz-transform: translateZ(0);
+            -ms-transform: translateZ(0);
+            -o-transform: translateZ(0);
+            transform: translateZ(0);
+        }
+
+        .cp-section-top,
+        .cp-section-bottom {
+            display: block;
+        }
+
+        .cp-section-top {
+            height: 3.625em;
+        }
+
+        .cp-section-cart .cp-section-bottom {
+            height: 3.5em;
+        }
+
+        .cp-section-wish .cp-section-bottom {
+            height: 0em;
+        }
+
+        .cp-section-list {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            padding: 0 0.625em;
+        }
+
+        .cp-section-list>li {
+            margin-bottom: 0.625em;
+        }
+
+        .cp-item-wrapper {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            -webkit-border-radius: 20px;
+            -moz-border-radius: 20px;
+            border-radius: 20px;
+            -webkit-transition: all 0.5s cubic-bezier(0.61, 0, 0.25, 0.99);
+            -moz-transition: all 0.5s cubic-bezier(0.61, 0, 0.25, 0.99);
+            -o-transition: all 0.5s cubic-bezier(0.61, 0, 0.25, 0.99);
+            transition: all 0.5s cubic-bezier(0.61, 0, 0.25, 0.99);
+            -webkit-transform: translateY(10%);
+            -moz-transform: translateY(10%);
+            -ms-transform: translateY(10%);
+            -o-transform: translateY(10%);
+            transform: translateY(10%);
+            opacity: 0;
+        }
+
+        .cp-item-wrapper.active {
+            -webkit-transform: translateY(0%);
+            -moz-transform: translateY(0%);
+            -ms-transform: translateY(0%);
+            -o-transform: translateY(0%);
+            transform: translateY(0%);
+            opacity: 1;
+        }
+
+        .cp-item-img {
+            width: 100%;
+            padding-bottom: 100%;
+            background-repeat: no-repeat;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            -webkit-transition: all 0.5s cubic-bezier(0.61, 0, 0.25, 0.99);
+            -moz-transition: all 0.5s cubic-bezier(0.61, 0, 0.25, 0.99);
+            -o-transition: all 0.5s cubic-bezier(0.61, 0, 0.25, 0.99);
+            transition: all 0.5s cubic-bezier(0.61, 0, 0.25, 0.99);
+        }
+
+        /** CART ITEM BLOCK */
+        .cp-item-block-wrapper {
+            width: 100%;
+            height: 5em;
+            display: table;
+            -webkit-transition: all 0.5s cubic-bezier(0.61, 0, 0.25, 0.99);
+            -moz-transition: all 0.5s cubic-bezier(0.61, 0, 0.25, 0.99);
+            -o-transition: all 0.5s cubic-bezier(0.61, 0, 0.25, 0.99);
+            transition: all 0.5s cubic-bezier(0.61, 0, 0.25, 0.99);
+        }
+
+        .cp-item-block-wrapper>div {
+            position: relative;
+            display: table-cell;
+        }
+
+        .cp-item-description>span {
+            position: absolute;
+            padding: 0 1.125em;
+            top: 50%;
+            -webkit-transform: translate(0, -50%);
+            -moz-transform: translate(0, -50%);
+            -ms-transform: translate(0, -50%);
+            -o-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+        }
+
+        .cp-item-label {
+            line-height: 1.3em;
+            max-height: 2.6em;
+            font-size: 0.875em;
+            overflow: hidden;
+            display: block;
+        }
+
+        .cp-item-price {
+            font-size: 0.875em;
+            display: block;
+            margin-top: 0.125em;
+        }
+
+        .cp-item-cart,
+        .cp-item-wish,
+        .cp-item-trash {
+            width: 2.5em;
+            cursor: pointer;
+        }
+
+        .cp-item-trash .cp-item-ic {
+            transform: translate(-16px, -50%);
+            left: auto;
+            right: 0;
+        }
+
+        .cp-item-ic {
+            position: absolute;
+            display: inline-block;
+            width: 0.9375em;
+            height: 0.9375em;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        .cp-item-ic svg {
+            fill: none;
+            stroke-width: 2.6;
+            stroke-linecap: round;
+            stroke-miterlimit: 4;
+        }
+
+        .cp-empty-section {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            -webkit-transition: all 0.5s cubic-bezier(0.61, 0, 0.25, 0.99);
+            -moz-transition: all 0.5s cubic-bezier(0.61, 0, 0.25, 0.99);
+            -o-transition: all 0.5s cubic-bezier(0.61, 0, 0.25, 0.99);
+            transition: all 0.5s cubic-bezier(0.61, 0, 0.25, 0.99);
+            -webkit-transform: translateY(1em);
+            -moz-transform: translateY(1em);
+            -ms-transform: translateY(1em);
+            -o-transform: translateY(1em);
+            transform: translateY(1em);
+            opacity: 0;
+        }
+
+        .cp-empty-section.active {
+            -webkit-transform: translateY(0%);
+            -moz-transform: translateY(0%);
+            -ms-transform: translateY(0%);
+            -o-transform: translateY(0%);
+            transform: translateY(0%);
+            opacity: 1;
+        }
+
+        .cp-empty-section-label {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            font-size: 0.875em;
+            white-space: nowrap;
+        }
+
+        @media screen and (min-width: 20em) {
+            .cp-section-top {
+                height: 4.375em;
+            }
+
+            .cp-section-cart .cp-section-bottom {
+                height: 5em;
+            }
+
+            .cp-item-ic {
+                width: 1.5em;
+                height: 1.5em;
+            }
+
+            .cp-item-cart,
+            .cp-item-wish,
+            .cp-item-trash {
+                width: 3em;
+            }
+        }
+
+        @media screen and (min-width: 22.5em) {
+            .cp-section-top {
+                height: 5em;
+            }
+
+            .cp-section-cart .cp-section-bottom {
+                height: 5em;
+            }
+
+            .cp-section-wish .cp-section-bottom {
+                height: 0em;
+            }
+
+            .cp-section-list {
+                padding: 0 1.25em;
+            }
+
+            .cp-section-list>li {
+                margin-bottom: 1.25em;
+            }
+
+            .cp-item-label {
+                line-height: 1.3em;
+                max-height: 2.6em;
+                font-size: 1em;
+            }
+
+            .cp-item-price {
+                font-size: 1em;
+            }
+        }
+
+        @media screen and (min-width: 26.25em) {
+            .cp-section-list {
+                padding: 0 0.625em;
+            }
+
+            .cp-section-list>li {
+                margin-bottom: 0.125em;
+            }
+
+            .cp-section-top {
+                height: 4.375em;
+            }
+
+            .cp-section-cart .cp-section-bottom {
+                height: 6.125em;
+            }
+
+            .cp-section-wish .cp-section-bottom {
+                height: 0.5em;
+            }
+
+            .cp-item-wrapper {
+                height: 5em;
+                display: table;
+                -webkit-border-radius: 5px;
+                -moz-border-radius: 5px;
+                border-radius: 5px;
+                /** CART ITEM IMG */
+            }
+
+            .cp-item-wrapper>div {
+                display: table-cell;
+            }
+
+            .cp-item-wrapper .cp-item-img {
+                width: 5em;
+                padding: 0;
+                display: table-cell;
+            }
+
+            .cp-item-ic {
+                width: 0.9375em;
+                height: 0.9375em;
+            }
+
+            .cp-item-label {
+                line-height: 1.3em;
+                max-height: 2.6em;
+                font-size: 0.875em;
+            }
+
+            .cp-item-price {
+                font-size: 0.875em;
+            }
+
+            .cp-item-cart,
+            .cp-item-wish,
+            .cp-item-trash {
+                width: 2.5em;
+            }
+        }
+
+        /**
+           * PORTRAIT MOBILE MODE (~416px)
+           */
+        @media (min-width: 26.25em) and (max-height: 26em) {
+            .cp-section-top {
+                height: 3.125em;
+            }
+
+            .cp-section-cart .cp-section-bottom {
+                height: 4em;
+            }
+        }
+
+        @media screen and (min-width: 30em) {
+            .cp-section-list {
+                padding: 0 1.25em;
+            }
+
+            .cp-section-list>li {
+                margin-bottom: 0.25em;
+            }
+
+            .cp-section-top {
+                height: 5em;
+            }
+
+            .cp-section-cart .cp-section-bottom {
+                height: 6.625em;
+            }
+
+            .cp-section-wish .cp-section-bottom {
+                height: 1em;
+            }
+
+            .cp-item-cart,
+            .cp-item-wish,
+            .cp-item-trash {
+                width: 3em;
+            }
+
+            .cp-item-ic {
+                width: 1.25em;
+                height: 1.25em;
+            }
+        }
+
+        /**
+           * PORTRAIT MOBILE MODE (~480px)
+           */
+        @media (min-width: 30em) and (max-height: 26em) {
+            .cp-section-top {
+                height: 3.75em;
+            }
+
+            .cp-section-cart .cp-section-bottom {
+                height: 4.5em;
+            }
+        }
+
+        @media screen and (min-width: 64em) {
+            .cp-item-ic {
+                width: 1.375em;
+                height: 1.375em;
+            }
+
+            .cp-section-list {
+                padding: 0 1.875em;
+            }
+
+            .cp-section-list>li {
+                margin-bottom: 0.25em;
+            }
+
+            .cp-section-top {
+                height: 5.625em;
+            }
+
+            .cp-section-cart .cp-section-bottom {
+                height: 7.25em;
+            }
+
+            .cp-section-wish .cp-section-bottom {
+                height: 1.625em;
+            }
+
+            .cp-item-block-wrapper {
+                height: 7.5em;
+            }
+
+            .cp-item-wrapper {
+                height: 7.5em;
+                /** CART ITEM IMG */
+            }
+
+            .cp-item-wrapper .cp-item-img {
+                width: 7.5em;
+            }
+
+            .cp-item-label {
+                line-height: 1.3em;
+                max-height: 2.6em;
+                font-size: 1em;
+            }
+
+            .cp-item-price {
+                font-size: 1em;
+            }
+
+            .cp-item-cart,
+            .cp-item-wish,
+            .cp-item-trash {
+                width: 3.75em;
+            }
+
+            .cp-item-trash .cp-item-ic {
+                left: 50%;
+                right: auto;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        /*.cp-footer {
+  
+      }*/
+        .cp-checkout-btn {
+            position: absolute;
+            z-index: 30;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            width: 2.5em;
+            height: 2.5em;
+            -webkit-border-radius: 1.25em;
+            -moz-border-radius: 1.25em;
+            border-radius: 1.25em;
+            bottom: 1em;
+            left: 50%;
+            -webkit-transform: translate(-50%, 0);
+            -moz-transform: translate(-50%, 0);
+            -ms-transform: translate(-50%, 0);
+            -o-transform: translate(-50%, 0);
+            transform: translate(-50%, 0);
+            /*&:hover {
+                  background-color: @checkout-color-hover;
+              }*/
+            -webkit-transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            -moz-transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            -o-transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            -webkit-transition-property: width, height, bottom, -webkit-border-radius, -webkit-transform, opacity;
+            -moz-transition-property: width, height, bottom, border-radius, -moz-transform, opacity;
+            -o-transition-property: width, height, bottom, border-radius, -o-transform, opacity;
+            transition-property: width, height, bottom, border-radius, -webkit-transform, -moz-transform, -o-transform, transform, opacity;
+            -webkit-transition-delay: 0s;
+            -moz-transition-delay: 0s;
+            -o-transition-delay: 0s;
+            transition-delay: 0s;
+        }
+
+        .cp-checkout-btn.hidden {
+            -webkit-transition-delay: 0s;
+            -moz-transition-delay: 0s;
+            -o-transition-delay: 0s;
+            transition-delay: 0s;
+            -webkit-transform: translate(-50%, 300%);
+            -moz-transform: translate(-50%, 300%);
+            -ms-transform: translate(-50%, 300%);
+            -o-transform: translate(-50%, 300%);
+            transform: translate(-50%, 300%);
+            opacity: 0;
+        }
+
+        .cp-checkout-label {
+            display: none;
+        }
+
+        .cp-checkout-ic {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            display: block;
+            width: 1em;
+            height: 1em;
+        }
+
+        .cp-checkout-ic svg {
+            fill: none;
+            stroke: #ffffff;
+            stroke-width: 2.6;
+            stroke-linecap: round;
+            stroke-miterlimit: 4;
+        }
+
+        @media screen and (min-width: 20em) {
+            .cp-checkout-ic {
+                width: 1.5em;
+                height: 1.5em;
+            }
+
+            .cp-checkout-btn {
+                width: 3.75em;
+                height: 3.75em;
+                -webkit-border-radius: 1.875em;
+                -moz-border-radius: 1.875em;
+                border-radius: 1.875em;
+                bottom: 1.25em;
+            }
+        }
+
+        @media screen and (min-width: 26.25em) {
+            .cp-checkout-ic {
+                display: none;
+            }
+
+            .cp-checkout-btn {
+                width: 15.625em;
+                height: 3.125em;
+                bottom: 2.5em;
+            }
+
+            .cp-checkout-label {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                -moz-transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                -o-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                display: block;
+                color: #ffffff;
+                font-size: 0.875em;
+                text-transform: uppercase;
+            }
+        }
+
+        /**
+           * PORTRAIT MOBILE MODE (~416px)
+           */
+        @media (min-width: 26.25em) and (max-height: 26em) {
+            .cp-checkout-btn {
+                bottom: 1em;
+                width: 11.25em;
+                height: 2.5em;
+            }
+
+            .cp-checkout-label {
+                font-size: 0.75em;
+            }
+        }
+
+        .cart-tint {
+            width: 100%;
+            height: 100%;
+            display: none;
+            position: fixed;
+            z-index: 20;
+        }
+
+        .cart-button {
+            position: fixed;
+            left: auto;
+            top: 1.5em;
+            right: 1.5em;
+            bottom: auto;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            display: none;
+            z-index: 10;
+        }
+
+        .cb-wrapper {
+            width: 2.5em;
+            height: 2.5em;
+            position: relative;
+            -webkit-border-radius: 1.25em;
+            -moz-border-radius: 1.25em;
+            border-radius: 1.25em;
+            /*&:hover {
+                  background-color: @button-color-hover;
+              }*/
+        }
+
+        .cb-wrapper ul {
+            display: table;
+            list-style-type: none;
+            height: 100%;
+            width: 100%;
+        }
+
+        .cb-wrapper li {
+            display: table-cell;
+            height: 100%;
+        }
+
+        .cb-ic {
+            width: 1.125em;
+            height: 1.125em;
+            position: absolute;
+            display: inline-block;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        .cb-ic svg {
+            fill: none;
+            stroke-width: 2.6;
+            stroke-linecap: round;
+            stroke-miterlimit: 4;
+        }
+
+        .cb-label {
+            display: none;
+        }
+
+        .cb-wrapper.cb-state_both .cb-wish-cell,
+        .cb-wrapper.cb-state_cart .cb-wish-cell {
+            display: none;
+        }
+
+        .cb-wrapper.cb-state_wish .cb-cart-cell {
+            display: none;
+        }
+
+        .cb-counter {
+            width: 1.25em;
+            height: 1.25em;
+            position: absolute;
+            display: inline-block;
+            right: -12%;
+            top: -12%;
+            background-color: #ffffff;
+            color: #424346;
+            -webkit-border-radius: 0.625em;
+            -moz-border-radius: 0.625em;
+            border-radius: 0.625em;
+            -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+            -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            z-index: 10;
+        }
+
+        .cb-counter-label {
+            position: absolute;
+            display: inline-block;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            font-size: 0.6875em;
+        }
+
+        @media screen and (min-width: 20em) {
+            .cb-ic {
+                width: 1.5em;
+                height: 1.5em;
+            }
+
+            .cb-wrapper {
+                width: 3.75em;
+                height: 3.75em;
+                -webkit-border-radius: 1.875em;
+                -moz-border-radius: 1.875em;
+                border-radius: 1.875em;
+            }
+
+            .cb-counter {
+                width: 1.625em;
+                height: 1.625em;
+                right: -0.25em;
+                top: -0.25em;
+                -webkit-border-radius: 0.8125em;
+                -moz-border-radius: 0.8125em;
+                border-radius: 0.8125em;
+            }
+
+            .cb-counter-label {
+                font-size: 0.75em;
+            }
+        }
+
+        @media screen and (min-width: 26.25em) {
+
+            .cb-wrapper.cb-state_both,
+            .cb-wrapper.cb-state_cart {
+                width: auto;
+                height: 3.125em;
+                -webkit-border-radius: 1.5625em;
+                -moz-border-radius: 1.5625em;
+                border-radius: 1.5625em;
+            }
+
+            .cb-wrapper.cb-state_both ul>li,
+            .cb-wrapper.cb-state_cart ul>li {
+                padding: 0 1em;
+                padding-top: 0.875em;
+            }
+
+            .cb-wrapper.cb-state_both .cb-ic,
+            .cb-wrapper.cb-state_cart .cb-ic {
+                width: 1.25em;
+                height: 1.25em;
+                position: relative;
+                display: inline-block;
+                top: auto;
+                left: auto;
+                -webkit-transform: translate(0, 0);
+                -moz-transform: translate(0, 0);
+                -ms-transform: translate(0, 0);
+                -o-transform: translate(0, 0);
+                transform: translate(0, 0);
+            }
+
+            .cb-wrapper.cb-state_both .cb-label,
+            .cb-wrapper.cb-state_cart .cb-label {
+                display: inline-block;
+                font-size: 0.875em;
+                -webkit-transform: translate(0, 0.125em);
+                -moz-transform: translate(0, 0.125em);
+                -ms-transform: translate(0, 0.125em);
+                -o-transform: translate(0, 0.125em);
+                transform: translate(0, 0.125em);
+                vertical-align: top;
+                padding-left: 0.25em;
+            }
+
+            .cb-counter {
+                right: -0.375em;
+                top: -0.375em;
+            }
+        }
+
+        @media screen and (min-width: 48em) {
+            .cb-wrapper.cb-state_both .cb-wish-cell {
+                display: table-cell;
+            }
+
+            .cb-wrapper.cb-state_both .cb-cart-cell {
+                padding-right: 0;
+            }
+        }
+    </style>
+</head>
+
+<body translate="no">
+    <!-- Cart Wrapper -->
+    <div class="cart-wrapper">
+        <div class="cart-panel gs-panel">
+            <header class="cp-header gs-tabs">
+                <ul>
+                    <li class="cp-back">
+                        <span class="cp-tab-ic">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32"
+                                style="enable-background:new 0 0 32 32;" xml:space="preserve">
+                                <g>
+                                    <polyline points="14.7,25.7 5,16 14.7,6.3"></polyline>
+                                    <line x1="5.3" y1="16" x2="27" y2="16"></line>
+                                </g>
+                            </svg>
+                        </span>
+                    </li>
+                    <li class="cp-tabs">
+                        <ul>
+                            <li class="cart-tab">
+                                <div class="cp-tab-wrapper">
+                                    <span class="cp-tab-ic">
+                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                            viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;"
+                                            xml:space="preserve">
+                                            <g>
+                                                <path
+                                                    d="M25.4,29H6.6c-1.7,0-3-1.4-2.8-2.9l1.9-13.8C5.9,11,6.6,10,8,10h16c1.4,0,2.1,1,2.3,2.3l1.9,13.8 C28.4,27.6,27.1,29,25.4,29z">
+                                                </path>
+                                                <path d="M10.6,12.7V8.4C10.6,5.4,13,3,16,3h0c3,0,5.4,2.4,5.4,5.4v4.3">
+                                                </path>
+                                            </g>
+                                        </svg>
+                                    </span>
+                                    <span class="cp-tab-label">$0.00</span>
+                                </div>
+                            </li>
+
+                            <li class="wish-tab">
+                                <div class="cp-tab-wrapper">
+                                    <span class="cp-tab-ic">
+                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                            viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;"
+                                            xml:space="preserve">
+                                            <path
+                                                d="M22.6,6.5c-2.9,0-5.4,1.7-6.6,4.1c-1.2-2.4-3.7-4.1-6.6-4.1C5.3,6.5,2,9.8,2,13.9C2,23.7,15.8,29,15.8,29 S30,23.6,30,13.9C30,9.8,26.7,6.5,22.6,6.5L22.6,6.5z">
+                                            </path>
+                                        </svg>
+                                    </span>
+                                    <span class="cp-tab-label">0</span>
+                                </div>
+                            </li>
+
+                        </ul>
+
+                        <span class="cp-tab-cursor p-color"></span>
+
+                    </li>
+                </ul>
+            </header>
+            <div class="cp-container gs-container">
+                <ul class="cp-sections">
+                    <li class="cp-section-cart">
+                        <div class="cp-section-wrapper">
+                            <div class="cp-section-content"
+                                style="transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">
+                                <span class="cp-section-top"></span>
+                                <ul class="cp-section-list"></ul>
+                                <span class="cp-section-bottom"></span>
+                            </div>
+                            <div class="iScrollVerticalScrollbar iScrollLoneScrollbar"
+                                style="overflow: hidden; transform: translateZ(0px); transition-duration: 0ms; opacity: 0;">
+                                <div class="iScrollIndicator"
+                                    style="transition-duration: 0ms; display: none; height: 8px; transform: translate(0px, -8px) translateZ(0px); transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1);">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="cp-section-wish">
+                        <div class="cp-section-wrapper">
+                            <div class="cp-section-content"
+                                style="transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">
+                                <span class="cp-section-top"></span>
+                                <ul class="cp-section-list"></ul>
+                                <span class="cp-section-bottom"></span>
+                            </div>
+                            <div class="iScrollVerticalScrollbar iScrollLoneScrollbar"
+                                style="overflow: hidden; transform: translateZ(0px); transition-duration: 0ms; opacity: 0;">
+                                <div class="iScrollIndicator"
+                                    style="transition-duration: 0ms; display: none; height: 8px; transform: translate(0px, -8px) translateZ(0px); transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1);">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+            </div><!-- <footer class="cp-footer"> -->
+            <div class="cp-checkout-btn gs-btn">
+                <span class="cp-checkout-ic">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        x="0px" y="0px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;"
+                        xml:space="preserve">
+                        <g>
+                            <path
+                                d="M25.4,29H6.6c-1.7,0-3-1.4-2.8-2.9l1.9-13.8C5.9,11,6.6,10,8,10h16c1.4,0,2.1,1,2.3,2.3l1.9,13.8 C28.4,27.6,27.1,29,25.4,29z">
+                            </path>
+                            <path d="M10.6,12.7V8.4C10.6,5.4,13,3,16,3h0c3,0,5.4,2.4,5.4,5.4v4.3"></path>
+                        </g>
+                    </svg>
+                </span>
+                <span class="cp-checkout-label">Checkout</span>
+            </div>
+            <!-- </footer> -->
+        </div>
+        <div class="cart-tint gs-tint"></div>
+        <div class="cart-button" style="display: block; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+            <div class="cb-wrapper gs-btn cb-state_wish">
+                <ul>
+                    <li class="cb-cart-cell">
+                        <span class="cb-ic">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32"
+                                style="enable-background:new 0 0 32 32;" xml:space="preserve">
+                                <g>
+                                    <path
+                                        d="M25.4,29H6.6c-1.7,0-3-1.4-2.8-2.9l1.9-13.8C5.9,11,6.6,10,8,10h16c1.4,0,2.1,1,2.3,2.3l1.9,13.8 C28.4,27.6,27.1,29,25.4,29z">
+                                    </path>
+                                    <path d="M10.6,12.7V8.4C10.6,5.4,13,3,16,3h0c3,0,5.4,2.4,5.4,5.4v4.3"></path>
+                                </g>
+                            </svg>
+                        </span>
+                        <span class="cb-label">$0.00</span>
+                    </li>
+
+                    <li class="cb-wish-cell">
+                        <span class="cb-ic">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32"
+                                style="enable-background:new 0 0 32 32;" xml:space="preserve">
+                                <path
+                                    d="M22.6,6.5c-2.9,0-5.4,1.7-6.6,4.1c-1.2-2.4-3.7-4.1-6.6-4.1C5.3,6.5,2,9.8,2,13.9C2,23.7,15.8,29,15.8,29S30,23.6,30,13.9C30,9.8,26.7,6.5,22.6,6.5L22.6,6.5z">
+                                </path>
+                            </svg>
+                        </span>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+    <!-- GRID EXAMPLE -->
+    <div class="container">
+        <div class="product" data-id="id03" data-price="36.00" data-title="Self Cooling Shot Glasses"
+            data-img="http://store.moma.org/dw/image/v2/BBQC_PRD/on/demandware.static/-/Sites-master-moma/default/dw41227dfc/images/113190_a.jpg"
+            data-url="https://www.momastore.org/museum/moma/ProductDisplay_Self%20Cooling%20Shot%20Glasses_10451_10001_208772_-1_26715_11497_208858"
+            style="background: url(http://store.moma.org/dw/image/v2/BBQC_PRD/on/demandware.static/-/Sites-master-moma/default/dw41227dfc/images/113190_a.jpg);background-size: cover;">
+            <span>Self Cooling Shot Glasses</span>
+        </div>
+
+        <span class="add-to-cart">Add to cart</span>
+        <span class="add-to-wish">Add to wish</span>
+    </div>
+    <div class="container">
+        <div class="product" data-id="id02" data-price="28.00" data-title="Bluetooth Travel Speaker"
+            data-img="http://store.moma.org/dw/image/v2/BBQC_PRD/on/demandware.static/-/Sites-master-moma/default/dwe0e73100/images/124573_a.jpg"
+            data-url="https://www.momastore.org/museum/moma/ProductDisplay_Stockwell%20Travel%20Speaker_10451_10001_223993_-1_26707_26707_224026"
+            style="background: url(http://store.moma.org/dw/image/v2/BBQC_PRD/on/demandware.static/-/Sites-master-moma/default/dwe0e73100/images/124573_a.jpg);background-size: cover;">
+            <span>Bluetooth Travel Speaker</span>
+        </div>
+
+        <span class="add-to-cart">Add to cart</span>
+        <span class="add-to-wish">Add to wish</span>
+    </div>
+    <div class="container">
+        <div class="product" data-id="id04" data-price="350.00" data-title="Tivoli Model Three BT Radio"
+            data-img="http://store.moma.org/dw/image/v2/BBQC_PRD/on/demandware.static/-/Sites-master-moma/default/dw5e7162c9/images/107683_a.jpg"
+            data-url="https://www.momastore.org/webapp/wcs/stores/servlet/ProductDisplay_Tivoli%20Model%20One%20Radio_10467_10001_160674_-1_26663_26666_144554"
+            style="background: url(http://store.moma.org/dw/image/v2/BBQC_PRD/on/demandware.static/-/Sites-master-moma/default/dw5e7162c9/images/107683_a.jpg);background-size: cover;">
+            <span>Tivoli Model Three BT Radio</span>
+        </div>
+
+        <span class="add-to-cart">Add to cart</span>
+        <span class="add-to-wish">Add to wish</span>
+    </div>
+    <div class="container">
+        <div class="product" data-id="id05" data-price="849.60" data-title="OP-1 Portable Synthesizer"
+            data-img="http://store.moma.org/dw/image/v2/BBQC_PRD/on/demandware.static/-/Sites-master-moma/default/dwa7be5a1d/images/107081_a.jpg"
+            data-url="https://www.momastore.org/museum/moma/ProductDisplay_OP%201%20Portable%20Synthesizer_10451_10001_183571_-1_26663_26666_183605"
+            style="background: url(http://store.moma.org/dw/image/v2/BBQC_PRD/on/demandware.static/-/Sites-master-moma/default/dwa7be5a1d/images/107081_a.jpg);background-size: cover;">
+            <span>OP-1 Portable Synthesizer</span>
+        </div>
+
+        <span class="add-to-cart">Add to cart</span>
+        <span class="add-to-wish">Add to wish</span>
+    </div>
+    <div class="container">
+        <div class="product" data-id="id06" data-price="200.00" data-title="Glass Pot"
+            data-img="http://store.moma.org/dw/image/v2/BBQC_PRD/on/demandware.static/-/Sites-master-moma/default/dw7eba3a76/images/107152_a.jpg"
+            data-url="https://www.momastore.org/museum/moma/ProductDisplay_Glass%20Pot_10451_10001_191558_-1_26669_46171_185600"
+            style="background: url(http://store.moma.org/dw/image/v2/BBQC_PRD/on/demandware.static/-/Sites-master-moma/default/dw7eba3a76/images/107152_a.jpg);background-size: cover;">
+            <span>Glass Pot</span>
+        </div>
+
+        <span class="add-to-cart">Add to cart</span>
+        <span class="add-to-wish">Add to wish</span>
+    </div>
+    <div class="container">
+        <div class="product" data-id="id07" data-price="135.00" data-title="Andy Warhol Skull Plates"
+            data-img="http://store.moma.org/dw/image/v2/BBQC_PRD/on/demandware.static/-/Sites-master-moma/default/dwf83e0ae1/images/124994_a_a.jpg"
+            data-url="https://www.momastore.org/museum/moma/ProductDisplay_All%20In%20One%20Kitchen%20Tool%20Set_10451_10001_172698_-1_26708_48664_172711"
+            style="background: url(http://store.moma.org/dw/image/v2/BBQC_PRD/on/demandware.static/-/Sites-master-moma/default/dwf83e0ae1/images/124994_a_a.jpg);background-size: cover;">
+            <span>Andy Warhol Skull Plates</span>
+        </div>
+
+        <span class="add-to-cart">Add to cart</span>
+        <span class="add-to-wish">Add to wish</span>
+    </div>
+    <div class="container">
+        <div class="product" data-id="id08" data-price="25.00" data-title="Pixel Worktop Saver"
+            data-img="http://store.moma.org/dw/image/v2/BBQC_PRD/on/demandware.static/-/Sites-master-moma/default/dw27c96d2b/images/110390_a.jpg"
+            data-url="https://www.momastore.org/museum/moma/ProductDisplay_Pixel%20Worktop%20Saver_10451_10001_199069_-1_26669_26670_199110"
+            style="background: url(http://store.moma.org/dw/image/v2/BBQC_PRD/on/demandware.static/-/Sites-master-moma/default/dw27c96d2b/images/110390_a.jpg);background-size: cover;">
+            <span>Pixel Worktop Saver</span>
+        </div>
+
+        <span class="add-to-cart">Add to cart</span>
+        <span class="add-to-wish">Add to wish</span>
+    </div>
+    <div class="container">
+        <div class="product" data-id="id09" data-price="13.99" data-title="Andy Warhol Pocket Planner"
+            data-img="http://store.moma.org/dw/image/v2/BBQC_PRD/on/demandware.static/-/Sites-master-moma/default/dw80528596/images/99694_a.jpg"
+            data-url="https://www.momastore.org/museum/moma/ProductDisplay_Andy%20Warhol%20Pocket%20Planner_10451_10001_154662_-1_26674_26677_154679"
+            style="background: url(http://store.moma.org/dw/image/v2/BBQC_PRD/on/demandware.static/-/Sites-master-moma/default/dw80528596/images/99694_a.jpg);background-size: cover;">
+            <span>Andy Warhol Pocket Planner</span>
+        </div>
+
+        <span class="add-to-cart">Add to cart</span>
+        <span class="add-to-wish">Add to wish</span>
+    </div>
+    <div class="container">
+        <div class="product" data-id="id10" data-price="8.99" data-title="2018 Modern Art Mini Wall Calendar"
+            data-img="http://store.moma.org/dw/image/v2/BBQC_PRD/on/demandware.static/-/Sites-master-moma/default/dwc3023311/images/123752_a.jpg"
+            data-url="https://www.momastore.org/museum/moma/ProductDisplay_2016%20Modern%20Art%20Mini%20Wall%20Calendar_10451_10001_207782_-1_26674_11527_207788"
+            style="background: url(http://store.moma.org/dw/image/v2/BBQC_PRD/on/demandware.static/-/Sites-master-moma/default/dwc3023311/images/123752_a.jpg);background-size: cover;">
+            <span>2018 Modern Art Mini Wall Calendar</span>
+        </div>
+
+        <span class="add-to-cart">Add to cart</span>
+        <span class="add-to-wish">Add to wish</span>
+    </div>
+    <div class="container">
+        <div class="product" data-id="id11" data-price="21.95" data-title="New York Art Print"
+            data-img="http://store.moma.org/dw/image/v2/BBQC_PRD/on/demandware.static/-/Sites-master-moma/default/dw952014b1/images/96511_a.jpg"
+            data-url="https://www.momastore.org/museum/moma/ProductDisplay_New%20York%20Art%20Print_10451_10001_136554_-1_26674_26678_136576"
+            style="background: url(http://store.moma.org/dw/image/v2/BBQC_PRD/on/demandware.static/-/Sites-master-moma/default/dw952014b1/images/96511_a.jpg);background-size: cover;">
+            <span>New York Art Print</span>
+        </div>
+
+        <span class="add-to-cart">Add to cart</span>
+        <span class="add-to-wish">Add to wish</span>
+    </div>
+    <div class="container">
+        <div class="product" data-id="id12" data-price="285.00" data-title="M Lamp"
+            data-img="http://store.moma.org/dw/image/v2/BBQC_PRD/on/demandware.static/-/Sites-master-moma/default/dw7af44497/images/116752_a.jpg"
+            data-url="https://www.momastore.org/museum/moma/ProductDisplay_Ototo%20Musical%20Invention%20Kit%20+%203%20Sensors_10451_10001_195332_-1_26674_64661_195337"
+            style="background: url(http://store.moma.org/dw/image/v2/BBQC_PRD/on/demandware.static/-/Sites-master-moma/default/dw7af44497/images/116752_a.jpg);background-size: cover;">
+            <span>M Lamp</span>
+        </div>
+
+        <span class="add-to-cart">Add to cart</span>
+        <span class="add-to-wish">Add to wish</span>
+    </div>
+    <div class="container">
+        <div class="product" data-id="id13" data-price="60.00" data-title="Corknet Ping Pong Set"
+            data-img="http://store.moma.org/dw/image/v2/BBQC_PRD/on/demandware.static/-/Sites-master-moma/default/dwb0880a9d/images/116943_a.jpg"
+            data-url="https://www.momastore.org/museum/moma/ProductDisplay_Cubetto%20Playset_10451_10001_208117_-1_26674_64661_208166"
+            style="background: url(http://store.moma.org/dw/image/v2/BBQC_PRD/on/demandware.static/-/Sites-master-moma/default/dwb0880a9d/images/116943_a.jpg);background-size: cover;">
+            <span>Corknet Ping Pong Set</span>
+        </div>
+
+        <span class="add-to-cart">Add to cart</span>
+        <span class="add-to-wish">Add to wish</span>
+    </div>
+    <div class="container">
+        <div class="product" data-id="id14" data-price="135.00" data-title="Reveal Watch"
+            data-img="http://store.moma.org/dw/image/v2/BBQC_PRD/on/demandware.static/-/Sites-master-moma/default/dwb59c7083/images/46798_a.jpg"
+            data-url="https://www.momastore.org/museum/moma/ProductDisplay_Reveal%20Watch_10451_10001_53194_-1_26690_11474_16375"
+            style="background: url(http://store.moma.org/dw/image/v2/BBQC_PRD/on/demandware.static/-/Sites-master-moma/default/dwb59c7083/images/46798_a.jpg);background-size: cover;">
+            <span>Reveal Watch</span>
+        </div>
+
+        <span class="add-to-cart">Add to cart</span>
+        <span class="add-to-wish">Add to wish</span>
+    </div>
+    <div class="container">
+        <div class="product" data-id="id15" data-price="355.00" data-title="Miniature Chair Eames La Chaise"
+            data-img="http://store.moma.org/dw/image/v2/BBQC_PRD/on/demandware.static/-/Sites-master-moma/default/dw280ad40a/images/27296_a.jpg"
+            data-url="https://www.momastore.org/museum/moma/ProductDisplay_Miniature%20Chair%20Rietveld%20Red%20Blue_10451_10001_125565_-1_26674_26679_125575"
+            style="background: url(http://store.moma.org/dw/image/v2/BBQC_PRD/on/demandware.static/-/Sites-master-moma/default/dw280ad40a/images/27296_a.jpg);background-size: cover;">
+            <span>Miniature Chair Eames La Chaise</span>
+        </div>
+
+        <span class="add-to-cart">Add to cart</span>
+        <span class="add-to-wish">Add to wish</span>
+    </div>
+    <div class="container">
+        <div class="product" data-id="id16" data-price="95.00" data-title="Bi-Color Plywood Clock"
+            data-img="http://store.moma.org/dw/image/v2/BBQC_PRD/on/demandware.static/-/Sites-master-moma/default/dw27dceb00/images/91838_a.jpg"
+            data-url="https://www.momastore.org/museum/moma/ProductDisplay_Bi-Color%20Pitcher_10451_10001_137088_-1_26669_11519_137112"
+            style="background: url(http://store.moma.org/dw/image/v2/BBQC_PRD/on/demandware.static/-/Sites-master-moma/default/dw27dceb00/images/91838_a.jpg);background-size: cover;">
+            <span>Bi-Color Plywood Clock</span>
+        </div>
+
+        <span class="add-to-cart">Add to cart</span>
+        <span class="add-to-wish">Add to wish</span>
+    </div>
+    <div class="container">
+        <div class="product" data-id="id17" data-price="55.00" data-title="Yanagi Flatware, Five Piece Set"
+            data-img="http://store.moma.org/dw/image/v2/BBQC_PRD/on/demandware.static/-/Sites-master-moma/default/dw7c1fb951/images/50394_a.jpg"
+            data-url="https://www.momastore.org/museum/moma/ProductDisplay_Yanagi%20Flatware,%20Five%20Piece%20Set_10451_10001_15622_-1_26669_26672_15623"
+            style="background: url(http://store.moma.org/dw/image/v2/BBQC_PRD/on/demandware.static/-/Sites-master-moma/default/dw7c1fb951/images/50394_a.jpg);background-size: cover;">
+            <span>Yanagi Flatware, Five Piece Set</span>
+        </div>
+
+        <span class="add-to-cart">Add to cart</span>
+        <span class="add-to-wish">Add to wish</span>
+    </div>
+    <div class="container">
+        <div class="product" data-id="id18" data-price="28.00" data-title="Girachille Spinning Votive"
+            data-img="http://store.moma.org/dw/image/v2/BBQC_PRD/on/demandware.static/-/Sites-master-moma/default/dw0113025d/images/112540_a.jpg"
+            data-url="https://www.momastore.org/museum/moma/ProductDisplay_Girachille_10451_10001_206094_-1_26669_11550_206132"
+            style="background: url(http://store.moma.org/dw/image/v2/BBQC_PRD/on/demandware.static/-/Sites-master-moma/default/dw0113025d/images/112540_a.jpg);background-size: cover;">
+            <span>Girachille Spinning Votive</span>
+        </div>
+
+        <span class="add-to-cart">Add to cart</span>
+        <span class="add-to-wish">Add to wish</span>
+    </div>
+    <div class="container">
+        <div class="product" data-id="id19" data-price="159.00" data-title="Lampadina Table Lamp"
+            data-img="http://store.moma.org/dw/image/v2/BBQC_PRD/on/demandware.static/-/Sites-master-moma/default/dw003a3d1f/images/98696_a.jpg"
+            data-url="https://www.momastore.org/museum/moma/ProductDisplay_Lampadina%20Table%20Lamp_10451_10001_144905_-1_11476_11600_144920"
+            style="background: url(http://store.moma.org/dw/image/v2/BBQC_PRD/on/demandware.static/-/Sites-master-moma/default/dw003a3d1f/images/98696_a.jpg);background-size: cover;">
+            <span>Lampadina Table Lamp</span>
+        </div>
+
+        <span class="add-to-cart">Add to cart</span>
+        <span class="add-to-wish">Add to wish</span>
+    </div>
+    <script
+        src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js">
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.2/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone-localstorage.js/1.1.16/backbone.localStorage-min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.3/iscroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.22/webfontloader.js"></script>
+
+    <script src="/JS專案/購物車/shopCart.js"></script>
+    <!-- <script id="rendered-js">
+        
+    </script> -->
+
+
+
+
+
+
+
+</body>
+
+</html>

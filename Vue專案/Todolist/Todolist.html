@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Todolist</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
+    </head>
+</head>
+
+<body>
+    <div><input v-model="newItem" v-on:keyup.enter="addNew"></div>
+    <div class="box-center">
+        <ul class="box-list">
+            <li v-for="item ,index in items" v-bind:class="{finished:item.isfinished}" v-on:mouseover="moveBtn(item)"
+                v-on:mouseout="leaveBtn(item)">
+                <span v-on:click="toggleFinished(item)" v-bind:class="{bgYellow:item.isBgyellow}">{{item.label}}</span>
+                <span class="list-btn" v-show="item.isShow">
+                    <button v-on:click="moveUp(index,item)">上移</button>
+                    <button v-on:click="moveDown(index,item)">下移</button>
+                    <button v-on:click="deleteBtn(index)">刪除</button>
+                </span>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        import Store from './store'
+
+        export default {
+
+            data: function () {
+                return {
+                    title: 'A simple todo-list',
+                    items: Store.fetch(),
+                    newItem: '',
+                    msg: '點選按鈕',
+                    isShow: false,
+                    isBlock: true,
+                    isBgyellow: false,
+                    leftPx: 0,
+                    topPx: 0
+                }
+            },
+            watch: {
+                items: {
+                    handler: function (items) {
+                        Store.save(items)
+                    },
+                    deep: true
+                }
+            },
+            methods: {
+                toggleFinished: function (item) {
+                    item.isfinished = !item.isfinished
+                },
+                show: function ($event) {
+                    $event.cancelBubble = true;
+                    this.isBlock = false;
+                    this.topPx = ($event.clientY);
+                    this.leftPx = ($event.clientX);
+                },
+                stop: function (event) {
+                    this.isBlock = true;
+                },
+                moveBtn: function (item) {
+                    // console.log(item.label)
+                    item.isShow = true;
+                },
+                leaveBtn: function (item) {
+                    item.isShow = false;
+                },
+                addNew: function () {
+                    //非空才可以新增
+                    if (this.newItem != '') {
+                        this.items.push({
+                            label: this.newItem,
+                            isfinished: false
+                        })
+                    }
+                    this.newItem = '';
+                },
+                moveUp: function (index, item) {
+                    //在上一項插入該項
+                    this.items.splice(index - 1, 0, (this.items[index]));
+                    //刪除後一項
+                    this.items.splice(index + 1, 1);
+                    item.isShow = false;
+                    if (index == 0) {
+                        alert("到頂啦！");
+                    }
+                },
+                moveDown: function (index, item) {
+                    //在下一項插入該項
+                    this.items.splice(index + 2, 0, (this.items[index]));
+                    //  刪除前一項
+                    this.items.splice(index, 1);
+                    item.isShow = false;
+                    if (index == this.items.length - 1) {
+                        alert("已經是最後一項啦！");
+                    }
+                },
+                deleteBtn: function (index) {
+                    this.items.splice(index, 1);
+                }
+            },
+        }
+    </script>
+</body>
+
+</html>

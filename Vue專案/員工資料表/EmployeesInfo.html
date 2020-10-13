@@ -17,7 +17,7 @@
                     ID: 3,
                     title: "總裁",
                     name: "Eric",
-                    PictureURL: "https://picsum.photos/100/200/?random=1",
+                    PictureURL: "https://picsum.photos/250/180/?random=1",
                     Phone: "0912345678",
                     Address: "新竹市大同區二三五路四號六樓",
                     Memo: "澳洲來的人",
@@ -27,7 +27,7 @@
                     ID: 4,
                     title: "瑪農",
                     name: "David",
-                    PictureURL: "https://picsum.photos/100/200/?random=1",
+                    PictureURL: "https://picsum.photos/250/180/?random=2",
                     Phone: "0987654321",
                     Address: "台北市信義區忠孝東路231號3樓",
                     Memo: "充滿活力的廉價勞工",
@@ -37,7 +37,7 @@
                     ID: 5,
                     title: "Boss",
                     name: "Amy",
-                    PictureURL: "https://picsum.photos/100/200/?random=1",
+                    PictureURL: "https://picsum.photos/250/180/?random=3",
                     Phone: "0912121121",
                     Address: "高雄市仁義區六六路3號23樓",
                     Memo: "小資女",
@@ -93,6 +93,7 @@
     </script>
     <div id="block1" class="row" style="margin: 10px">
         <div class="col-6" style="background-color:lightgray; margin: 30px">
+            <h3>員工資料表:</h3>
             <div class="row">
                 <div class="col-6">
                     <br />
@@ -101,17 +102,17 @@
                     <input class="form-control" type="text" v-model="item.title" />
                     <label>姓名:</label>
                     <input class="form-control" type="text" v-model="item.name" />
-                    <label>Phone:</label>
+                    <label>電話:</label>
                     <input class="form-control" type="text" v-model="item.Phone" />
                 </div>
                 <div class="col-6">
-                    <img class="img-responsive pull-right" style="width: 200px; margin-top: 30px"
+                    <img class="img-responsive pull-right" style="width: 320px; margin-top: 30px"
                         v-bind:src="item.PictureURL" />
                 </div>
             </div>
-            <label>Address:</label>
+            <label>地址:</label>
             <input class="form-control" type="text" v-model="item.Address" />
-            <label>Memo:</label>
+            <label>信息:</label>
             <textarea class="form-control" v-model="item.Memo"></textarea>
             <br />
             <button class="btn btn-success" id="ButtonPrev">上一筆</button>

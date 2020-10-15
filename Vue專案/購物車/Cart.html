@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vue購物車</title>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <style>
+        body {
+            background-color: rgba(0, 0, 0, .2);
+        }
+
+        .item_header {
+            display: flex;
+            width: 1000px;
+            margin: 0 auto;
+            height: 30px;
+            background-color: #fff;
+            border-radius: 3px;
+            padding-left: 10px;
+        }
+
+        .item_header div {
+            width: 200px;
+            color: #888;
+            line-height: 30px;
+        }
+
+        .item_header .item_detail {
+            width: 50%;
+        }
+
+        .item_body {
+            margin-top: 20px;
+            height: 100px;
+            align-items: center;
+        }
+
+        .item_detail img {
+            width: 80px;
+            height: 80px;
+            border-radius: 3px;
+            /* margin-top: 10px; */
+            float: left;
+        }
+
+        .item_detail .name {
+            margin-left: 100px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="cart">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <div class="item_header">
+                        <div class="item_detail">商品名</div>
+                        <div class="price">單價</div>
+                        <div class="count">數量</div>
+                        <div class="amount">總計</div>
+                        <div class="operate">操作</div>
+                    </div>
+                    <!-- 項目 -->
+                    <div class="item_container" v-for="(item, index) in itemList" :key="item.id">
+                        <div class="item_header item_body">
+                            <!-- 商品名 -->
+                            <div class="item_detail">
+                                <img v-bind:src="item.imgUrl" alt="">
+                                <div class="name">{{item.itemName}}</div>
+                            </div>
+                            <!-- 單價 -->
+                            <div class="price"><span>$</span>{{item.price}}</div>
+                            <!-- 數量 -->
+                            <div class="count">
+                                <!-- <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <button class="btn btn-outline-secondary" type="button"
+                                            id="button-addon1" @click="handleSub(item)">-</button>
+                                    </div>
+                                    <input type="number" class="form-control" placeholder="{{item.count}}"
+                                        aria-label="" aria-describedby="button-addon1">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button"
+                                            id="button-addon2" @click="handlePlus(item)">+</button>
+                                    </div>
+                                </div> -->
+                                <button @click="handleSub(item)" class="btn btn-success">-</button>
+                                {{item.count}}
+                                <button @click="handlePlus(item)" class="btn btn-success">+</button>
+                            </div>
+                            <div class="amount">{{item.price * item.count}}</div>
+                            <!-- 操作 -->
+                            <div class="operate">
+                                <button @click="handledelete(index)" class="btn btn-danger">刪除</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <script>
+        var cart = new Vue({
+            el: '#cart',
+            data: {
+                itemList: [{
+                        id: '1',
+                        itemName: '針織毛衣',
+                        imgUrl: 'https://imgur.com/XFYj6HR.jpg',
+                        price: '300',
+                        count: '1'
+                    },
+                    {
+                        id: '2',
+                        itemName: '休閒褲',
+                        imgUrl: 'https://imgur.com/rP3eNEt.jpg',
+                        price: '490',
+                        count: '1'
+                    },
+                    {
+                        id: '3',
+                        itemName: '針織外套',
+                        imgUrl: 'https://imgur.com/wPyDIzN.jpg',
+                        price: '700',
+                        count: '1'
+                    },
+                    {
+                        id: '4',
+                        itemName: '質感襯衫',
+                        imgUrl: 'https://imgur.com/ai5cPFL.jpg',
+                        price: '270',
+                        count: '1'
+                    },
+                ]
+
+            },
+            //按鈕點擊事件
+            methods: {
+                //增加
+                handlePlus: function (item) {
+                    console.log(item);
+                    item.count++;
+                },
+                //減少
+                handleSub: function (item) {
+                    console.log(item);
+                    if (item.count > 1) {
+                        item.count--;
+                    }
+                },
+                //刪除
+                handledelete: function (index) {
+                    this.itemList.splice(index, 1);
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

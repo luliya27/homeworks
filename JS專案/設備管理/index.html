@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="//cdn.rawgit.com/Mikhus/canvas-gauges/gh-pages/download/2.1.5/all/gauge.min.js"> </script> <!-- 使用data
+        table -->
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+    <script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <!--
+        googleMAP -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBE-8ZdokZhnIksVJOcsvlW8jC1d0J1KcI&callback=initMap&libraries=&v=weekly"
+        defer>
+    </script>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script> -->
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    <link rel="stylesheet" href="/Assets/css/main.css">
+    <title>設備與群組管理</title>
+    <style type="text/css">
+        #map {
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #097479;">
+        <a class="navbar-brand ml-3" href="#">設備管理主控台</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">首頁 <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        下拉選項
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">選項</a>
+                        <a class="dropdown-item" href="#">選項</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">其他選項</a>
+                    </div>
+                </li>
+            </ul>
+        </div> -->
+    </nav>
+    <div class="container-fluid">
+        <div class="conrainer ml-3 mr-3">
+            <div class="row">
+                <div class="col-12 mt-3">
+                    <!-- <h2 class="text-white">儀錶板</h2> -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-sm-12">
+                    <div class="row" style="z-index: 10;">
+                        <div class="p-1 top-dashboard">
+                            <div class="status-info">
+                                <div class="title">
+                                    <span class="color-gray">離線數</span>
+                                </div>
+                                <div class="number">
+                                    <h3>100<span>%</span></h3>
+                                </div>
+                            </div>
+                            <div class="data-info">
+                                <span>1173/</span><span class="text-secondary">2000</span>
+                            </div>
+                        </div>
+                        <div class="p-1">
+                            <div class="status-info">
+                                <div class="title">
+                                    <span class="color-green">上線數</span>
+                                </div>
+                                <div class="number">
+                                    <h3>100<span>%</span></h3>
+                                </div>
+                            </div>
+                            <div class="data-info">
+                                <span>1173/</span><span class="text-secondary">2000</span>
+                            </div>
+                        </div>
+                        <div class="p-1">
+                            <div class="status-info">
+                                <div class="title">
+                                    <span class="color-red">告警數</span>
+                                </div>
+                                <div class="number">
+                                    <h3>100<span>%</span></h3>
+                                </div>
+                            </div>
+                            <div class="data-info">
+                                <span>1173/</span><span class="text-secondary">2000</span>
+                            </div>
+                        </div>
+                        <div class="p-1">
+                            <div class="status-info">
+                                <div class="title">
+                                    <span class="color-purple">低電量數</span>
+                                </div>
+                                <div class="number">
+                                    <h3>100<span>%</span></h3>
+                                </div>
+                            </div>
+                            <div class="data-info">
+                                <span>1173/</span><span class="text-secondary">2000</span>
+                            </div>
+                        </div>
+                        <div class="p-1">
+                            <div class="status-info">
+                                <div class="title">
+                                    <span class="color-bule">異常耗電</span>
+                                </div>
+                                <div class="number">
+                                    <h3>100<span>%</span></h3>
+                                </div>
+                            </div>
+                            <div class="data-info">
+                                <span>1173/</span><span class="text-secondary">2000</span>
+                            </div>
+                        </div>
+                        <!-- <div class="p-1">
+                            <div class="status-info">
+                                <div class="title">
+                                    <span class="color-lightbule">雜訊號率</span>
+                                </div>
+                                <div class="number">
+                                    <h3>0<span>%</span></h3>
+                                </div>
+                            </div>
+                            <div class="data-info">
+                                <span>1173/</span><span class="text-secondary">2000</span>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div id="map" class="row"></div>
+
+                </div>
+                <div class="col-lg col-md-5 col-sm-12">
+                    <div class="row">
+                        <div class="col-12 mb-2">
+                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">
+                                設備管理
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog" style="left:-300px !important;">
+                            <div class="modal-content" style="width: 1100px !important;">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">設備管理</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <table id="myTable" class="table border cell-border compact stripe" style="width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th>設備序號</th>
+                                                <th>設備名稱</th>
+                                                <th>廠牌</th>
+                                                <th>型號</th>
+                                                <th>電量</th>
+                                                <th>訊號</th>
+                                                <th>導航</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr v-for="item in items">
+                                                <td>設備序號</td>
+                                                <td>設備名稱</td>
+                                                <td>廠牌</td>
+                                                <td>型號</td>
+                                                <td>電量</td>
+                                                <td>訊號</td>
+                                                <td>導航</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="side-dashboard">
+                        <div class="top-device">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <h5 class="pl-4 pt-2 text-secondary">設備序號 : <span style="font-size:14px"
+                                            class="text-dark">FL001</span></h5>
+                                    <h5 class="pl-4 pt-2 text-secondary">設備名稱 : <span style="font-size:14px"
+                                            class="text-dark">永揚</span></h5>
+                                </div>
+                                <div class="col-lg-6">
+                                    <h5 class="pl-4 pt-2 text-secondary">廠牌 : <span style="font-size:14px"
+                                            class="text-dark">淹感</span></h5>
+                                    <h5 class="pl-4 pt-2 text-secondary">型號 : <span style="font-size:14px"
+                                            class="text-dark">IOT400B</span></h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center mt-3 ">
+                            <div class="col">
+                                <div class="alert">
+                                    <span class="iconify icontext-lg" data-icon="ic:baseline-battery-charging-20"
+                                        data-inline="false"></span></div>
+                            </div>
+                            <div class="col">
+                                <div class="alert">
+                                    <span class="iconify icontext-lg" data-icon="ic:baseline-battery-alert"
+                                        data-inline="false"></span></div>
+                            </div>
+                            <div class="col">
+                                <div class="alert">
+                                    <span class="iconify icontext-lg" data-icon="grommet-icons:wifi-low"
+                                        data-inline="false"></span></div>
+                            </div>
+                            <div class="col">
+                                <div class="alert">
+                                    <span class="iconify icontext-lg" data-icon="mdi:wifi-strength-alert-outline"
+                                        data-inline="false"></span></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-9 font-weight-bold">
+                                <p>電池剩餘天數</p>
+                            </div>
+                            <div class="col-3 font-weight-bold">
+                                <p>50/100</p>
+                            </div>
+                            <div class="col-12">
+                                <div class="progress">
+                                    <div class="progress-bar bg-info" role="progressbar" style="width: 50%"
+                                        aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <div class="font-weight-bold">
+                                    <p class="font-weight-bold">電量</p>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                            </div>
+                            <div class="col-12">
+                                <p class="font-weight-bold">耗電量</p>
+                            </div>
+                            <div class="col-12">
+                                <p class="font-weight-bold">訊號</p>
+                            </div>
+                            <div class="col-12">
+                                <p class="font-weight-bold">數據</p>
+                            </div>
+                            <div class="col-12">
+                                <div class="mb-1">
+                                    <textarea class="form-control" id="validationTextarea" placeholder="現在狀態..."
+                                        required>現在狀態顯示正常。</textarea>
+                                    <p class="text-right">8秒前</p>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <p class="font-weight-bold">設備狀態</p>
+                                <div class="data-string">
+                                    <div class="status">
+                                        <p class="px-1 pt-1 pb-2 font-weight-bold text-center">開始AI診斷</p>
+                                    </div>
+                                    <p class="pl-2">現在狀態顯示正常。</p>
+                                    <hr>
+                                    <div class="row pb-3">
+                                        <div class="col-2"><span class="pl-2">評分 :</span></div>
+                                        <div class="col-10">
+                                            <div class="review-score product-star">
+                                                <span class="iconify pr-2" data-icon="bi:star-fill"
+                                                    data-inline="false"></span>
+                                                <span class="iconify pr-2" data-icon="bi:star-fill"
+                                                    data-inline="false"></span>
+                                                <span class="iconify pr-2" data-icon="bi:star-fill"
+                                                    data-inline="false"></span>
+                                                <span class="iconify pr-2" data-icon="bi:star-fill"
+                                                    data-inline="false"></span>
+                                                <span class="iconify pr-2" data-icon="bi:star-fill"
+                                                    data-inline="false"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Optional JavaScript -->
+            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous">
+            </script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+                integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+                crossorigin="anonymous">
+            </script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+                integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+                crossorigin="anonymous">
+            </script>
+            <script src="/Assets/js/main.js"></script>
+</body>
+
+</html>

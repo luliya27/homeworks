@@ -1,0 +1,157 @@
+* {
+    font-family: 微軟正黑體;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #303030;
+}
+
+.status-info {
+    background-color: #1f393a;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 5px 0px 5px;
+}
+
+.status-info span {
+    /* font-size: 16px; */
+}
+
+.title .color-gray {
+    border-radius: 10px;
+    background-color: #6e6e6e;
+    padding: 2px 7px;
+}
+
+.title .color-green {
+    border-radius: 10px;
+    background-color: #009107;
+    padding: 2px 7px;
+}
+
+.title .color-red {
+    border-radius: 10px;
+    background-color: #b10000;
+    padding: 2px 7px;
+}
+
+.title .color-purple {
+    border-radius: 10px;
+    background-color: #7f11b3;
+    padding: 2px 7px;
+}
+
+.title .color-bule {
+    border-radius: 10px;
+    background-color: #1144b3;
+    padding: 2px 7px;
+}
+
+.title .color-lightbule {
+    border-radius: 10px;
+    background-color: #11b3b3;
+    padding: 2px 7px;
+}
+
+.status-info .title {
+    margin: 0 10px;
+    padding-right: 7px;
+    border-right: #ffffff 1px solid;
+    /* width: 90px; */
+}
+
+.status-info .number {
+    margin: 0 5px;
+}
+
+.data-info {
+    background-color: #1f393a;
+    color: #ffffff;
+    display: flex;
+    padding: 10px 5px;
+    justify-content: center;
+}
+
+.data-info span {
+    font-size: 18px;
+}
+
+.side-dashboard {
+    background-color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: #afafaf 1px solid;
+    min-height: 500px;
+}
+
+.top-device {
+    background-color: #cecece;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.icontext-lg {
+    font-size: 2.3rem;
+    color: #ffffff;
+    position: absolute;
+    left: 11px;
+}
+
+.alert {
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    background-color: #69888a;
+    background-color: #acb3b3;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.alert:hover{
+    background-color: #69888a;
+}
+
+.data-string {
+    border-radius: 5px;
+    border: #cccccc 1px solid;
+}
+
+.data-string .status {
+    background-color: #a8d8db;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-size: 16px;
+}
+
+/* ----------------- */
+/* 評論星星 */
+.product-star {
+    color: #dfd330;
+    display: flex;
+    align-items: center;
+    /* font-size: 1.2rem; */
+    white-space: nowrap;
+}
+
+.product-star:hover {
+    color:#dfd330;
+    transition: 0.3s;
+}
+
+.product-star .none-star {
+    color: #a5a5a5;
+}
+
+.product-star span{
+    padding: 5px 15px;
+}
+
+.review-score {
+    font-size: 1.5rem
+}

@@ -8,6 +8,10 @@ body {
     background-color: #303030;
 }
 
+#map {
+    height: 100%;
+}
+
 .status-info {
     background-color: #1f393a;
     color: #ffffff;

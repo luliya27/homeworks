@@ -19,14 +19,21 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBE-8ZdokZhnIksVJOcsvlW8jC1d0J1KcI&callback=initMap&libraries=&v=weekly"
         defer>
     </script>
+    <!-- 圖表 -->
+    <link rel="stylesheet" href="/JS專案/設備管理/Assets/css/gague.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
 
     <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script> -->
     <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
     <link rel="stylesheet" href="/JS專案/設備管理/Assets/css/main.css">
+
     <title>設備與群組管理</title>
-    <style type="text/css">
-        #map {
-            height: 100%;
+    <style>
+        @media only screen and (min-device-width: 768px) {
+            .gauge-container {
+                width: 140px;
+                height: 130px;
+            }
         }
     </style>
 </head>
@@ -179,7 +186,8 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <table id="myTable" class="table border cell-border compact stripe" style="width:100%">
+                                    <table id="myTable" class="table border cell-border compact stripe"
+                                        style="width:100%">
                                         <thead>
                                             <tr>
                                                 <th>設備序號</th>
@@ -270,13 +278,35 @@
                                     <p class="font-weight-bold">電量</p>
                                 </div>
                             </div>
-                            <div class="col-12">
+                            <div class="row">
+                                <div class="col-lg-2 col-md-8">
+                                    <div id="gauge1" class="position-relative gauge-container four" style="left: -10px;top: 20px;"></div>
+                                </div>
+                                <div class="col-lg-9 col-md-11 mx-auto">
+                                    <canvas id="Chart1"></canvas>
+                                </div>
                             </div>
                             <div class="col-12">
                                 <p class="font-weight-bold">耗電量</p>
                             </div>
+                            <div class="row">
+                                <div class="col-lg-2 col-md-8">
+                                    <div id="gauge2" class="position-relative gauge-container four" style="left: -10px;top: 20px;"></div>
+                                </div>
+                                <div class="col-lg-9 col-md-11 mx-auto">
+                                    <canvas id="Chart2"></canvas>
+                                </div>
+                            </div>
                             <div class="col-12">
                                 <p class="font-weight-bold">訊號</p>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-2 col-md-8">
+                                    <div id="gauge3" class="position-relative gauge-container four" style="left: -10px;top: 20px;"></div>
+                                </div>
+                                <div class="col-lg-9 col-md-11 mx-auto">
+                                    <canvas id="Chart3"></canvas>
+                                </div>
                             </div>
                             <div class="col-12">
                                 <p class="font-weight-bold">數據</p>
@@ -315,7 +345,7 @@
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -336,7 +366,12 @@
                 integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
                 crossorigin="anonymous">
             </script>
+            <script src="/JS專案/設備管理/Assets/js/gauge.min.js"></script>
+            <script src="/JS專案/設備管理/Assets/js/gauge.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+
             <script src="/JS專案/設備管理/Assets/js/main.js"></script>
+
 </body>
 
 </html>
